@@ -8,16 +8,31 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #121212; /* Dark gray/black background */
-  color: #000000; /*  text for contrast */
+  color: #ffffff; /* White text for contrast */
   line-height: 1.6;
+}
+
+/* === SECTION STYLES === */
+section {
+  padding: 60px 0;
+  border-bottom: 1px solid #333; /* Darker border for sections */
+}
+
+.section-placeholder {
+  background-color: #1e1e1e; /* Darker section background */
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  border: 1px solid #4db6ac; /* Soft teal border */
 }
 
 /* === HEADER STYLES === */
 header {
-  background-color: #1e1e1e; /* Match the container background */
-  color: #ff0000;
+  background-color: #1e1e1e; /* Match the section background */
+  color: #ffffff;
   padding: 20px 0;
-  box-shadow: 0 2px 6px #4db6ac; /* soft teal */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 .navcontainer {
@@ -29,7 +44,7 @@ header {
 }
 
 .logo {
-  color: #ffffff;
+  color: #4db6ac; /* Soft teal for the logo */
   font-size: 28px;
   font-weight: bold;
 }
@@ -44,7 +59,7 @@ header {
 }
 
 .nav-links li a {
-  color: #ffffff;
+  color: #ffffff; /* White text for navigation links */
   text-decoration: none;
   font-size: 18px;
   position: relative;
@@ -59,29 +74,16 @@ header {
   left: 0;
   height: 2px;
   width: 0;
-  background-color: #4db6ac; /* soft teal */
+  background-color: #4db6ac; /* Soft teal accent */
   transition: width 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: #4db6ac;
+  color: #4db6ac; /* Soft teal hover effect */
 }
 
 .nav-links li a:hover::after {
   width: 100%;
-}
-
-/* === SECTION STYLES === */
-section {
-  padding: 60px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.section-placeholder {
-  background-color: #ffffff;
-  padding: 40px 20px;
-  border-radius: 8px;
-  margin-top: 20px;
 }
 
 /* === HOME PAGE STYLES === */
@@ -90,27 +92,39 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  height: 100vh; /* Full viewport height */
+  
 }
 
 .home-text {
-  flex: 2;
+  flex: 4; /* Adjust to take equal space with the image */
+  padding: 0px 200px 0px 10px; /* Remove padding */
 }
 
 .home-image {
-  flex: 1;
+  flex: 3; /* % of the width */
+
+  height: 70%;
+  width:20%;
   text-align: center;
+  box-shadow: 0 4px 12px #4db6ac; /* Soft teal border */
+
 }
 
 .home-image img {
   max-width: 100%;
+  height: auto;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+   aspect-ratio: 3 / 4; /* Make the image box a portrait (3:4 ratio) */
+  object-fit: cover; /* Ensure the image fits within the portrait box */
 }
 
 /* === SKILLS PAGE STYLES === */
 .resume-section h2 {
   text-align: center;
   margin-bottom: 30px;
+  color: #4db6ac; /* Soft teal for section headings */
 }
 
 .resume-flex-container {
@@ -124,22 +138,23 @@ section {
   flex: 1;
   min-width: 300px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #4db6ac; /* Soft teal border */
   border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(16, 209, 161, 0.5);
+  background-color: #2a2a2a; /* Darker gray for blocks */
+  box-shadow: 0 4px 12px #4db6ac; /* Soft teal border */
+
   margin-bottom: 30px;
 }
 
+/* === EDUCATION AND WORK EXPERIENCE STYLES === */
 .resume-block h3 {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 1.5em;
   margin-bottom: 15px;
-  color: #333;
-  border-bottom: 2px solid #4db6ac;
-  display: inline-block;
+  color: #4db6ac; /* Soft teal for section headings */
+  border-bottom: 2px solid #4db6ac; /* Add a soft teal underline for consistency */
   padding-bottom: 5px;
 }
 
@@ -150,36 +165,65 @@ section {
 
 .resume-block ul li {
   margin-bottom: 10px;
+  color: #e0e0e0; /* Light gray text for list items */
 }
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+/* Title (e.g., ITE East, Singapore Land Authority) */
+.resume-block ul li strong {
+  color: #8baaff; /* Slightly darker light gray for titles */
+  font-weight: bold;
 }
 
-.skills-list li {
-  background-color: #e0e0e0;
+/* Subtitle (e.g., job roles, dates) */
+.resume-block ul li em {
+  color: #a0a0a0; /* Slightly lighter gray for subtitles */
+  font-style: italic;
+}
+/* === SKILLS CATEGORIES === */
+.skills-category {
+  margin-bottom: 20px;
+}
+
+.skills-category h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #4db6ac; /* Soft teal for category headings */
+}
+
+.skills-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-category ul li {
+  display: inline-block; /* Make the skill boxes wrap around the text */
+  margin-bottom: 8px;
+  margin-right: 10px; /* Add spacing between skill boxes */
+  color: #ffffff; /* White text for skills */
+  background-color: #333333; /* Slightly lighter gray for skill items */
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 14px;
 }
-
+/* Hidden skills */
+.hidden-skill {
+  display: none; /* Initially hide the hidden skills */
+}
 /* === ACHIEVEMENTS AND SKILLS === */
 .achievements-skills-container {
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  align-items: stretch; /* Ensures children stretch to the same height */
+  align-items: stretch;
   margin-top: 40px;
 }
 
 .vertical-line {
   width: 2px;
-  background-color: #4db6ac;
+  background-color: #4db6ac; /* Soft teal for the vertical line */
   opacity: 50%;
-  height: auto; /* Allow it to stretch based on the parent container */
-  align-self: stretch; /* Ensures the line stretches to match the tallest sibling */
+  height: auto;
+  align-self: stretch;
 }
 
 .achievements-block {
@@ -190,6 +234,7 @@ section {
 .achievements-block h3 {
   font-size: 1.5em;
   margin-bottom: 15px;
+  color: #4db6ac; /* Soft teal for headings */
 }
 
 .achievements-block ul {
@@ -199,6 +244,7 @@ section {
 
 .achievements-block ul li {
   margin-bottom: 10px;
+  color: #e0e0e0; /* Light gray text */
 }
 
 .skills-block {
@@ -209,6 +255,7 @@ section {
 .skills-block h3 {
   font-size: 1.5em;
   margin-bottom: 15px;
+  color: #4db6ac; /* Soft teal for headings */
 }
 
 .skills-block ul {
@@ -218,32 +265,10 @@ section {
 
 .skills-block ul li {
   margin-bottom: 10px;
+  color: #e0e0e0; /* Light gray text */
 }
 
-.skills-category {
-  margin-bottom: 20px;
-}
-
-.skills-category h4 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #060808;
-}
-
-.skills-category ul {
-  list-style: none;
-  padding: 0;
-}
-
-.skills-category ul li {
-  margin-bottom: 8px;
-}
-/* Hidden skills */
-.hidden-skill {
-  display: none;
-}
-
-/* Toggle button for skills */
+/* === VIEW MORE BUTTON === */
 #toggle-skills-btn {
   margin-top: 10px;
   padding: 10px 20px;
@@ -253,33 +278,35 @@ section {
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #toggle-skills-btn:hover {
   background-color: #3a9c8a; /* Darker teal on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
 /* === PROJECT SECTION === */
 .project {
-  background-color: #fff;
+  background-color: #2a2a2a; /* Darker gray for project blocks */
   padding: 20px;
   margin: 20px 0;
   border-radius: 10px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border: 1px solid #4db6ac; /* Soft teal border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .project h3 {
   margin-bottom: 10px;
-  color: #333;
+  color: #ffffff; /* White text for project headings */
 }
 
 .project p {
   margin-bottom: 10px;
+  color: #e0e0e0; /* Light gray text for project descriptions */
 }
 
 .project a {
-  color: #4db6ac;
+  color: #4db6ac; /* Soft teal for project links */
   text-decoration: none;
   font-weight: bold;
 }
@@ -299,7 +326,7 @@ section {
 }
 
 .social-links a {
-  color: #4db6ac;
+  color: #4db6ac; /* Soft teal for links */
   text-decoration: none;
   font-size: 18px;
 }
@@ -307,7 +334,6 @@ section {
 .social-links a:hover {
   text-decoration: underline;
 }
-
 /* === SLIDER === */
 .slider-container {
   position: relative;
@@ -316,7 +342,7 @@ section {
   margin: 40px auto;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px #4db6ac; /* Soft teal border */
 }
 
 .slider-track {
@@ -355,7 +381,3 @@ section {
 .next {
   right: 10px;
 }
-.next {
-  right: 10px;
-}
-
