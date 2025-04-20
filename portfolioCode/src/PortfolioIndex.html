@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Index Portfolio</title>
+  <link rel="stylesheet" href="PortfolioCss.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="Index">
+  <header>
+    <div class="navcontainer">
+      <h1 class="logo">Khen's Portfolio</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="Portfolioindex.html">Home</a></li>
+          <li><a href="PortfolioAbout.html">About</a></li>
+          <li><a href="PortfolioSkill.html">Skill</a></li>
+          <li><a href="PortfolioProject.html">Projects</a></li>
+          <li><a href="PortfolioContact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+ <!-- Gradient from nav to home/intro section -->
+  <section class="section-gradient">
+
+  </section>
+  <!-- Home / Intro Section -->
+  <section id="home" class="section-borderless">
+    <div class="container home-container">
+      <div class="home-image">
+        <img src="../images/.jpg" alt="Profile Image" />
+      </div>
+      <div class="home-text">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Hi! I'm Khen, a passionate learner and aspiring developer. I specialize in IT Application Development and have a strong interest in web development, problem-solving, and teamwork. Explore my portfolio to learn more about my skills, projects, and achievements!</p>
+        <div class="social-media-box">
+          <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://www.instagram.com/khenn.twk__/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="mailto:khenthongwk@gmail.com" target="_blank" aria-label="Email">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+        </div>
+        <button class="more-about-btn" onclick="location.href='PortfolioAbout.html'">More About Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education/Soft Skills/Tech Skills Snippets Section -->
+  <section id="skills-snippets" class="section-borderless">
+    <div class="container">
+      <h2></h2>
+      <div class="resume-flex-container">
+        <!-- Education Snippet -->
+        <div class="resume-block">
+          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+          <ul class="resume-list">
+            <li><strong>ITE East</strong> — Higher Nitec in IT Application Development</li>
+            <em>2023-2025</em>
+            <li><strong>Bedok Green Secondary School</strong> — GCE O-Level & N-Level</li>
+            <em>2019-2022</em>
+          </ul>
+        </div>
+
+        <!-- Tech Skills Snippet -->
+        <div class="resume-block">
+          <h3><i class="fas fa-tools"></i> Tech Skills</h3>
+          <ul class="skills-list">
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>HTML & CSS</li>
+            <li>QGIS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills-snippets" class="section-borderless">
+    <div class="container">
+      <h2></h2>
+      <div class="resume-flex-container">
+       
+        <!-- Soft Skills Snippet -->
+        <div class="resume-block">
+          <h3><i class="fas fa-tools"></i> Soft Skills</h3>
+          <div class="softskills-category">
+
+          <ul class="skills-list">
+            <li>Communication</li>
+            <li>Teamwork</li>
+            <li>Self Discipline</li>
+            <li>Time management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects Snippets Section -->
+  <section id="projects" class="section-borderless">
+    <div class="container">
+      <h2>Projects</h2>
+      <p>Here are some snippets of projects that I have done in school or during my internship:</p>
+      <div class="slider-container">
+        <button class="prev">&#10094;</button>
+        <div class="slider-track">
+          <img src="../images/OneMapTourist.png" class="slide-img" alt="OneMapTourist">
+          <img src="project2.jpg" class="slide-img" alt="Project 2">
+          <img src="project3.jpg" class="slide-img" alt="Project 3">
+          
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer Section -->
+<footer id="footer" class="footer-gradient">
+  <div class="container footer-container">
+    <p>&copy; 2025 Khen's Portfolio. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- JavaScript for Slider Functionality -->
+  <script>
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide-img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentSlide = 0;
+
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlider();
+    });
+  </script>
+</body>
+</html>
