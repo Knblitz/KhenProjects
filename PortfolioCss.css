@@ -11,22 +11,53 @@ body {
   color: #ffffff; /* White text for contrast */
   line-height: 1.6;
 }
-  
+
+/* Footer Gradient */
+.footer-gradient {
+  background: linear-gradient(to top, #121212, #1e1e1e); /* Reverse gradient */
+  padding: 20px 0; /* Add padding for spacing */
+  text-align: center; /* Center-align the text */
+  color: #ffffff; /* White text for contrast */
+  border: transparent; /* No border */
+}
+
+.footer-container p {
+  margin: 0;
+  font-size: 0.9rem; /* Slightly smaller font size */
+  color: #e0e0e0; /* Light gray for text */
+}
 /* === HOME PAGE STYLES === */
 .home-container {
   display: flex;
   align-items: flex-start; /* Align content to the top */
-  justify-content: space-between;
+  justify-content: space-between; /* Space between text and image */
   gap: 20px;
-  padding: 0 40px 40px 40px; /* Removed top padding */
-  height: 100vh;
-  flex-direction: row-reverse;
-  background-color: #121212; /* Dark gray/black background */
+  padding: 20px; /* Add padding for spacing */
+  height: auto; /* Allow the container to adjust height dynamically */
+  max-width: 1200px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the container horizontally */
+  flex-direction: row-reverse; /* Swap the positions of text and image */
 }
 
 .home-text {
-  flex: 1;
-  padding-left: 20px; /* Adjust padding for swapped position */
+  flex: 4; /* Adjust to take equal space with the image */
+  padding: 0px 20px; /* Add padding for spacing */
+}
+
+.home-image {
+  flex: 3; /* Adjust the width ratio */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  text-align: center;
+}
+
+.home-image img {
+  width: 350px; /* Fixed width */
+  height: 350px; /* Fixed height */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image scales properly within the circle */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow */
 }
 
 .home-text h2 {
@@ -41,15 +72,17 @@ body {
   color: #e0e0e0; /* Light gray for text */
 }
 
+/* Social Media Icons */
 .social-media-box {
   display: flex;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .social-media-box a {
   color: #4db6ac; /* Soft teal for icons */
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Adjust icon size */
+  text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -58,13 +91,15 @@ body {
   transform: scale(1.2); /* Slight zoom effect */
 }
 
+/* Button Styling */
 .more-about-btn {
+  margin-top: 50px;
   padding: 10px 20px;
-  background-color: #4db6ac; /* Soft teal background */
+  background-color: #676b6b; /* Soft teal background */
   color: #ffffff; /* White text */
   border: none;
   border-radius: 20px;
-  box-shadow: #3a9c8a 0px 0px 10px; /* Soft teal shadow */
+  box-shadow: #ffffff 0px 0px 10px;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -75,26 +110,12 @@ body {
   transform: scale(1.05); /* Slight zoom effect */
 }
 
-.home-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
-.home-image img {
-  max-width: 300px; /* Set a fixed size for the circular image */
-  height: 300px;
-  border-radius: 50%; /* Make the image circular */
-  object-fit: cover; /* Ensure the image fits within the circle */
-}
-
 /* === SECTION STYLES === */
 section {
   padding: 60px 0;
   border-bottom: 1px solid #333; /* Darker border for sections */
 }
+
 .section-placeholder {
   background-color: #1e1e1e; /* Darker section background */
   padding: 40px 20px; /* Add padding inside the section */
@@ -104,13 +125,13 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
   border: 1px solid #4db6ac; /* Soft teal border */
 }
+
 .section-borderless {
-  background-color: transparent;
-  padding: 0 20px 20px 20px; /* Removed top padding */
-  margin: 0 auto; /* Removed vertical margin */
-  max-width: 1400px;
-  border: transparent;
+  padding: 60px 20px; /* Add padding for spacing */
+  max-width: 1200px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the section horizontally */
 }
+
 .section-gradient {
   background: linear-gradient(to bottom, #1e1e1e 10%, #121212 90%); /* Adjust gradient stops */
   border: transparent;
@@ -177,39 +198,7 @@ header {
   width: 100%;
 }
 
-/* === HOME PAGE STYLES === */
-.home-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  height: 100vh; /* Full viewport height */
-  
-}
 
-.home-text {
-  flex: 4; /* Adjust to take equal space with the image */
-  padding: 0px 200px 0px 10px; /* Remove padding */
-}
-
-.home-image {
-  flex: 3; /* % of the width */
-
-  height: 70%;
-  width:20%;
-  text-align: center;
-  box-shadow: 0 4px 12px #4db6ac; /* Soft teal border */
-
-}
-
-.home-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-   aspect-ratio: 3 / 4; /* Make the image box a portrait (3:4 ratio) */
-  object-fit: cover; /* Ensure the image fits within the portrait box */
-}
 
 /* === SKILLS PAGE STYLES === */
 .resume-section h2 {
@@ -271,27 +260,28 @@ header {
   font-style: italic;
 }
 /* === SKILLS CATEGORIES === */
-.skills-category {
+.softskills-category {
   margin-bottom: 20px;
 }
 
-.skills-category h4 {
+.softskills-category h4 {
   font-size: 1.2em;
   margin-bottom: 10px;
   color: #4db6ac; /* Soft teal for category headings */
 }
 
-.skills-category ul {
+.softskills-category ul {
   list-style: none;
   padding: 0;
 }
 
-.skills-category ul li {
+.softskills-category ul li {
   display: inline-block; /* Make the skill boxes wrap around the text */
   margin-bottom: 8px;
   margin-right: 10px; /* Add spacing between skill boxes */
   color: #ffffff; /* White text for skills */
   background-color: #333333; /* Slightly lighter gray for skill items */
+  box-shadow: 0 4px 6px  #4db6ac;
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 14px;
@@ -338,6 +328,7 @@ header {
   color: #e0e0e0; /* Light gray text */
 }
 
+
 .skills-block {
   flex: 1;
   padding: 0 20px;
@@ -358,7 +349,31 @@ header {
   margin-bottom: 10px;
   color: #e0e0e0; /* Light gray text */
 }
+.skills-category {
+  margin-bottom: 20px;
+}
 
+.skills-category h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #4db6ac; /* Soft teal for category headings */
+}
+
+.skills-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-category ul li {
+  display: inline-block; /* Make the skill boxes wrap around the text */
+  margin-bottom: 8px;
+  margin-right: 10px; /* Add spacing between skill boxes */
+  color: #ffffff; /* White text for skills */
+  background-color: #333333; /* Slightly lighter gray for skill items */
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
 /* === VIEW MORE BUTTON === */
 #toggle-skills-btn {
   margin-top: 10px;
@@ -429,7 +444,7 @@ header {
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 40px auto;
   overflow: hidden;
   border-radius: 10px;
@@ -442,9 +457,10 @@ header {
 }
 
 .slide-img {
-  min-width: 100%;
-  height: 400px;
+  width: 100%;
+  height: 600px;
   object-fit: cover;
+  
 }
 
 .prev, .next {
@@ -471,4 +487,24 @@ header {
 
 .next {
   right: 10px;
+}
+
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column; /* Stack the text and image vertically */
+    align-items: center; /* Center the content */
+    padding: 20px; /* Add padding for smaller screens */
+  }
+
+  .home-image img {
+    width: 150px; /* Reduce the image size */
+    height: 150px; /* Keep it circular */
+  }
+
+  .home-text {
+    text-align: center; /* Center the text */
+    padding: 0; /* Remove extra padding */
+  }
 }
