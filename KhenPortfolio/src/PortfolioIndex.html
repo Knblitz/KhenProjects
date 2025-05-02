@@ -20,6 +20,10 @@
           <li><a href="PortfolioContact.html">Contact</a></li>
         </ul>
       </nav>
+      <!-- Hamburger Icon -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </header>
  <!-- Gradient from nav to home/intro section -->
@@ -52,7 +56,7 @@
   </section>
 
   <!-- Education/Soft Skills/Tech Skills Snippets Section -->
-  <section id="skills-snippets" class="section-borderless">
+  <section  class="section-borderless">
     <div class="container">
       <h2></h2>
       <div class="resume-flex-container">
@@ -67,16 +71,61 @@
           </ul>
         </div>
 
-        <!-- Tech Skills Snippet -->
-        <div class="resume-block">
-          <h3><i class="fas fa-tools"></i> Tech Skills</h3>
-          <ul class="skills-list">
-            <li>Python</li>
-            <li>JavaScript</li>
-            <li>HTML & CSS</li>
-            <li>QGIS</li>
-          </ul>
-        </div>
+  
+      <!-- Tech Skills Snippet -->
+<div class="resume-block">
+  <h3><i class="fas fa-tools"></i> Tech Skills</h3>
+  <ul class="skills-grid">
+    <li>
+      <a>
+       Python
+        <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python" style="width: 50px; height: 50px; vertical-align: middle;" />
+      </a>
+    </li>
+    <li>
+      <a>
+       Web Development
+        <img src="https://img.icons8.com/?size=100&id=l0UsZRTvcGel&format=png&color=000000" alt="Web Development" style="width: 50px; height: 50px; vertical-align: middle;" />
+      </a>
+    </li>
+    <li>
+      <a>
+       Visual Studio Code
+        <img src="https://img.icons8.com/?size=100&id=0OQR1FYCuA9f&format=png&color=000000" alt="Visual Studio Code" style="width: 50px; height: 50px; vertical-align: middle;" />
+      </a>
+    </li>
+      <li>
+        <a>
+         Canva
+          <img src="https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" alt="Canva" style="width: 50px; height: 50px; vertical-align: middle;" />
+        </a>
+      </li>
+          <li>
+            <a>
+             Capcut
+              <img src="https://freelogopng.com/images/all_img/1664284836cap-cut-logo-png.png" alt="Capcut" style="width: 50px; height: 50px; vertical-align: middle;" />
+            </a>
+          </li>
+          <li>
+      <a>
+        Adobe Photoshop
+        <img src="https://img.icons8.com/?size=100&id=NeNPFdj7MzXi&format=png&color=000000" alt="Adobe photoshop" style="width: 50px; height: 50px; vertical-align: middle;" />
+      </a>
+    </li>
+    <li>
+      <a>
+        Adobe xd
+        <img src="https://img.icons8.com/?size=100&id=4VVL78edhbW9&format=png&color=000000" alt="Adobe xd" style="width: 50px; height: 50px; vertical-align: middle;" />
+      </a>
+    </li>
+    <li>
+      <a>
+        Adobe illustrator
+        <img src="https://img.icons8.com/?size=100&id=13631&format=png&color=000000" alt="Adobe illustrator" style="width: 50px; height: 50px; vertical-align: middle;" />
+      </a>
+    </li>
+  </ul>
+</div>
       </div>
     </div>
   </section>
@@ -86,18 +135,26 @@
       <h2></h2>
       <div class="resume-flex-container">
        
-        <!-- Soft Skills Snippet -->
-        <div class="resume-block">
-          <h3><i class="fas fa-tools"></i> Soft Skills</h3>
-          <div class="softskills-category">
-
-          <ul class="skills-list">
-            <li>Communication</li>
-            <li>Teamwork</li>
-            <li>Self Discipline</li>
-            <li>Time management</li>
-          </ul>
-        </div>
+      <!-- Soft Skills Snippet -->
+<div class="resume-block">
+  <h3><i class="fas fa-users"></i> Soft Skills</h3>
+  <div class="softskills-category">
+    <ul class="skills-list">
+      <li>Team Collaboration</li>
+      <li>Problem Solving</li>
+      <li>Time Management</li>
+      <li>Leadership</li>
+      <li>Adaptability</li>
+      <li>Critical Thinking</li>
+      <li>Creativity</li>
+      <li>Conflict Resolution</li>
+      <li>Customer Service</li>
+      <li>Entrepreneurship</li>
+      <li>Communication</li>
+      <li>Teamwork</li>
+    </ul>
+  </div>
+</div>
       </div>
     </div>
   </section>
@@ -110,9 +167,8 @@
         <button class="prev">&#10094;</button>
         <div class="slider-track">
           <img src="../images/OneMapTourist.png" class="slide-img" alt="OneMapTourist">
-          <img src="project2.jpg" class="slide-img" alt="Project 2">
-          <img src="project3.jpg" class="slide-img" alt="Project 3">
-          
+          <img src="../images/Old.png" class="slide-img" alt="Project 2">
+          <img src="../images/project3.jpg" class="slide-img" alt="Project 3">
         </div>
         <button class="next">&#10095;</button>
       </div>
@@ -126,27 +182,8 @@
   </div>
 </footer>
 
-<!-- JavaScript for Slider Functionality -->
-  <script>
-    const track = document.querySelector('.slider-track');
-    const slides = document.querySelectorAll('.slide-img');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentSlide = 0;
+<script src="PortfolioJava.js"></script>
 
-    function updateSlider() {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-
-    prevBtn.addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateSlider();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateSlider();
-    });
-  </script>
+  
 </body>
 </html>
