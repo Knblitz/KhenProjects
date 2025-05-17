@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Index Portfolio</title>
+  <title>Home  - Khen's Portfolio</title>
   <link rel="stylesheet" href="PortfolioCss.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
@@ -13,14 +13,14 @@
       <h1 class="logo">Khen's Portfolio</h1>
       <nav>
         <ul class="nav-links">
-          <li><a href="PortfolioIndex.html">Home</a></li>
+          <li><a href="PortfolioIndex.html" class="active">Home</a></li>
           <li><a href="PortfolioAbout.html">About</a></li>
           <li><a href="PortfolioSkill.html">Skill</a></li>
           <li><a href="PortfolioProject.html">Projects</a></li>
           <li><a href="PortfolioContact.html">Contact</a></li>
+          <li><button id="mode-toggle" aria-label="Toggle light/dark mode">🌙/☀️</button></li>
         </ul>
       </nav>
-      <!-- Hamburger Icon -->
       <div class="hamburger" onclick="toggleMenu()">
         <i class="fas fa-bars"></i>
       </div>
@@ -31,133 +31,113 @@
 
   </section>
   <!-- Home / Intro Section -->
-  <section id="home" class="section-borderless">
-    <div class="container home-container">
-      <div class="home-image">
-        <img src="../images/ProfilePic.jpg" alt="Profile Image" />
-      </div>
-      <div class="home-text">
-        <h2>Welcome to My Portfolio</h2>
-        <p>Hi! I'm Khen, a passionate learner and aspiring developer. I specialize in IT Application Development and have a strong interest in web development, problem-solving, and teamwork. Explore my portfolio to learn more about my skills, projects, and achievements!</p>
-        <div class="social-media-box">
-          <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://www.instagram.com/khenn.twk__/" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i> Instagram
-          </a>
-          <a href="mailto:khenthongwk@gmail.com" target="_blank" aria-label="Email">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-        </div>
-        <button class="more-about-btn" onclick="location.href='PortfolioAbout.html'">More About Me</button>
-      </div>
+<section id="home" class="section-borderless">
+  <div class="container home-container">
+    <div class="home-image">
+      <img src="../images/ProfilePic.jpg" alt="Profile Image" />
     </div>
-  </section>
-
-  <!-- Education/Soft Skills/Tech Skills Snippets Section -->
-  <section  class="section-borderless">
-    <div class="container">
-      <h2></h2>
-      <div class="resume-flex-container">
-        <!-- Education Snippet -->
-        <div class="resume-block">
-          <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-          <ul class="resume-list">
-            <li><strong>ITE East</strong> — Higher Nitec in IT Application Development</li>
-            <em>2023-2025</em>
-            <li><strong>Bedok Green Secondary School</strong> — GCE O-Level & N-Level</li>
-            <em>2019-2022</em>
-          </ul>
-        </div>
-
-  
-      <!-- Tech Skills Snippet -->
-<div class="resume-block">
-  <h3><i class="fas fa-tools"></i> Tech Skills</h3>
-  <ul class="skills-grid">
-    <li>
-      <a>
-       Python
-        <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python" style="width: 50px; height: 50px; vertical-align: middle;" />
-      </a>
-    </li>
-    <li>
-      <a>
-       Web Development
-        <img src="https://img.icons8.com/?size=100&id=l0UsZRTvcGel&format=png&color=000000" alt="Web Development" style="width: 50px; height: 50px; vertical-align: middle;" />
-      </a>
-    </li>
-    <li>
-      <a>
-       Visual Studio Code
-        <img src="https://img.icons8.com/?size=100&id=0OQR1FYCuA9f&format=png&color=000000" alt="Visual Studio Code" style="width: 50px; height: 50px; vertical-align: middle;" />
-      </a>
-    </li>
-      <li>
-        <a>
-         Canva
-          <img src="https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" alt="Canva" style="width: 50px; height: 50px; vertical-align: middle;" />
+    <div class="home-text">
+      <h2>Welcome to My Portfolio</h2>
+      <p>Hi! I'm Khen, a passionate learner and aspiring developer. I specialize in IT Application Development and have a strong interest in web development, problem-solving, and teamwork. Explore my portfolio to learn more about my skills, projects, and achievements!</p>
+      <div class="social-media-box">
+        <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i> LinkedIn
         </a>
-      </li>
+        <a href="https://www.instagram.com/khenn.twk__/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="mailto:khenthongwk@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+      <button class="more-about-btn" onclick="location.href='PortfolioAbout.html'">More About Me</button>
+    </div>
+  </div>
+</section>
+
+<!-- Education: solo block -->
+<section class="section-borderless">
+  <div class="resume-flex-container">
+    <div class="resume-block education">
+      <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+      <ul class="resume-list">
+        <li><strong>ITE East</strong> — Higher Nitec in IT Application Development</li>
+        <em>2023-2025</em>
+         <li>- Entrepreneur Club's Exco member (2024-2025)</li>
+                <li>- Student Mentor (2024)</li>
+        <li><strong>Bedok Green Secondary School</strong> — GCE O-Level & N-Level</li>
+        <em>2019-2022</em>
+        <li>- NCC Staff Sergeant (2022)</li>
+                <li>- Class Vice Chairperson (2022)</li>
+                <li>- Peer Support Leader (2019)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Skills & Soft Skills: side by side -->
+<section id="skills-snippets" class="section-borderless">
+  <div class="container">
+    <div class="resume-flex-container">
+      <!-- Tech Skills -->
+      <div class="resume-block tech-skills">
+        <h3><i class="fas fa-tools"></i> Tech Skills</h3>
+        <ul class="skills-grid">
           <li>
-            <a>
-             Capcut
-              <img src="https://freelogopng.com/images/all_img/1664284836cap-cut-logo-png.png" alt="Capcut" style="width: 50px; height: 50px; vertical-align: middle;" />
-            </a>
+            <div class="skill-text">Python</div>
+            <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="Python" />
           </li>
           <li>
-      <a>
-        Adobe Photoshop
-        <img src="https://img.icons8.com/?size=100&id=NeNPFdj7MzXi&format=png&color=000000" alt="Adobe photoshop" style="width: 50px; height: 50px; vertical-align: middle;" />
-      </a>
-    </li>
-    <li>
-      <a>
-        Adobe xd
-        <img src="https://img.icons8.com/?size=100&id=4VVL78edhbW9&format=png&color=000000" alt="Adobe xd" style="width: 50px; height: 50px; vertical-align: middle;" />
-      </a>
-    </li>
-    <li>
-      <a>
-        Adobe illustrator
-        <img src="https://img.icons8.com/?size=100&id=13631&format=png&color=000000" alt="Adobe illustrator" style="width: 50px; height: 50px; vertical-align: middle;" />
-      </a>
-    </li>
-  </ul>
-</div>
+            <div class="skill-text">Web Development</div>
+            <img src="https://img.icons8.com/?size=100&id=l0UsZRTvcGel&format=png&color=000000" alt="Web Development" />
+          </li>
+          <li>
+            <div class="skill-text">Visual Studio Code</div>
+            <img src="https://img.icons8.com/?size=100&id=0OQR1FYCuA9f&format=png&color=000000" alt="VS Code" />
+          </li>
+          <li>
+            <div class="skill-text">Canva</div>
+            <img src="https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" alt="Canva" />
+          </li>
+          <li>
+            <div class="skill-text">Capcut</div>
+            <img src="https://freelogopng.com/images/all_img/1664284836cap-cut-logo-png.png" alt="Capcut" />
+          </li>
+          <li>
+            <div class="skill-text">Adobe Photoshop</div>
+            <img src="https://img.icons8.com/?size=100&id=NeNPFdj7MzXi&format=png&color=000000" alt="Photoshop" />
+          </li>
+          <li>
+            <div class="skill-text">Adobe XD</div>
+            <img src="https://img.icons8.com/?size=100&id=4VVL78edhbW9&format=png&color=000000" alt="Adobe XD" />
+          </li>
+          <li>
+            <div class="skill-text">Illustrator</div>
+            <img src="https://img.icons8.com/?size=100&id=13631&format=png&color=000000" alt="Illustrator" />
+          </li>
+        </ul>
+      </div>
+      <!-- Soft Skills -->
+      <div class="home-softskills-block">
+        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+        <ul class="home-softskills-list">
+          <li>Team Collaboration</li>
+          <li>Problem Solving</li>
+          <li>Time Management</li>
+          <li>Leadership</li>
+          <li>Adaptability</li>
+          <li>Critical Thinking</li>
+          <li>Creativity</li>
+          <li>Conflict Resolution</li>
+          <li>Customer Service</li>
+          <li>Entrepreneurship</li>
+          <li>Communication</li>
+          <li>Teamwork</li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <section id="skills-snippets" class="section-borderless">
-    <div class="container">
-      <h2></h2>
-      <div class="resume-flex-container">
-       
-      <!-- Soft Skills Snippet -->
-<div class="resume-block">
-  <h3><i class="fas fa-users"></i> Soft Skills</h3>
-  <div class="softskills-category">
-    <ul class="skills-list">
-      <li>Team Collaboration</li>
-      <li>Problem Solving</li>
-      <li>Time Management</li>
-      <li>Leadership</li>
-      <li>Adaptability</li>
-      <li>Critical Thinking</li>
-      <li>Creativity</li>
-      <li>Conflict Resolution</li>
-      <li>Customer Service</li>
-      <li>Entrepreneurship</li>
-      <li>Communication</li>
-      <li>Teamwork</li>
-    </ul>
   </div>
-</div>
-      </div>
-    </div>
-  </section>
+</section>
   <!-- Projects Snippets Section -->
   <section id="projects" class="section-borderless">
     <div class="container">
@@ -183,7 +163,23 @@
 </footer>
 
 <script src="PortfolioJava.js"></script>
-
+ <script>
+    // Light/Dark mode toggle
+    const toggleBtn = document.getElementById('mode-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+      toggleBtn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+        toggleBtn.textContent = '☀️';
+      } else {
+        toggleBtn.textContent = '🌙';
+      }
+    });
+  </script>
   
 </body>
 </html>
