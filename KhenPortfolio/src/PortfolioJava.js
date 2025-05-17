@@ -80,3 +80,4 @@ document.getElementById("toggle-skills-btn").addEventListener("click", function 
   this.setAttribute("data-expanded", !isExpanded);
 });
 
+
