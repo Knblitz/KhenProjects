@@ -1,0 +1,969 @@
+/* General Styling */
+:root {
+    --primary-bg: #f0f4ff; /* Light gray-blue, slightly adjusted for softer feel */
+    --secondary-bg: #e2e8f7; /* Slightly darker gray-blue, adjusted */
+    --accent-blue: #6a8eeb; /* Soft blue */
+    --accent-lilac: #b39ddb; /* Soft lilac */
+    --text-color: #334e68; /* Dark blue-gray */
+    --border-color: #cbd5e0; /* Light gray */
+    --button-hover: #5a7edb;
+    --input-bg: #ffffff;
+    --positive-green: #28a745; /* Slightly stronger green for success */
+    --negative-red: #dc3545; /* Slightly stronger red for danger */
+    --link-color: #4a69bd;
+    --warning-orange: #ffc107; /* Orange for warnings */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+    --shadow-heavy: rgba(0, 0, 0, 0.2); /* Slightly reduced for less jarring popups */
+    --elevation-1: 0 1px 3px var(--shadow-light);
+    --elevation-2: 0 4px 8px var(--shadow-medium);
+    --elevation-3: none; /* Removed for flat popup look */
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-bg: #1a202c; /* Dark blue-gray for background */
+    --secondary-bg: #2d3748; /* Slightly lighter dark background for pages */
+    --accent-blue: #7f9cf8; /* Lighter blue for dark mode accents */
+    --accent-lilac: #b794f4; /* Lighter lilac for dark mode accents */
+    --text-color: #e2e8f0; /* Light text on dark background */
+    --border-color: #4a5568; /* Darker border */
+    --button-hover: #667eea;
+    --input-bg: #4a5568; /* Darker input fields */
+    --positive-green: #48bb78;
+    --negative-red: #fc8181;
+    --link-color: #9f7aea;
+    --warning-orange: #f6ad55;
+    --shadow-light: rgba(255, 255, 255, 0.05);
+    --shadow-medium: rgba(255, 255, 255, 0.1);
+    --shadow-heavy: rgba(255, 255, 255, 0.15);
+}
+
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top initially */
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 20px; /* Add some padding to the top */
+    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page {
+    width: 90%;
+    max-width: 960px;
+    background-color: var(--secondary-bg);
+    border-radius: 15px;
+    box-shadow: var(--elevation-2);
+    padding: 30px;
+    margin-bottom: 20px; /* Space between pages if they were stacked */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Auth Page (Login/Register/Forgot) */
+#auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Make auth page vertically centered */
+    background-color: var(--primary-bg); /* Use primary bg for auth page wrapper */
+    box-shadow: none; /* Remove shadow for the page wrapper */
+    padding: 0;
+}
+
+.auth-container {
+    background-color: var(--input-bg); /* Changed to white for better contrast with logo */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--elevation-2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    display: flex; /* Use flexbox for vertical alignment */
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container h1 { /* New: Welcome title on Auth Page */
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    text-shadow: var(--shadow-light) 1px 1px 2px;
+}
+
+.auth-container > p { /* New: Description on Auth Page */
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+
+.auth-container form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* Ensure forms take full width of container */
+}
+
+.auth-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--accent-blue);
+}
+
+.auth-container input {
+    /* Adjusted width to match buttons */
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding is included in the 100% width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-container input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(106, 142, 235, 0.2); /* Soft blue shadow */
+    outline: none;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--elevation-1);
+}
+
+.auth-container button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+.toggle-link {
+    color: var(--link-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.toggle-link:hover {
+    color: var(--button-hover);
+}
+
+/* Guest Button specific styling on auth page */
+#guest-login-btn {
+    background-color: var(--text-color); /* Darker button for guest */
+    margin-top: 15px;
+}
+
+#guest-login-btn:hover {
+    background-color: #213a52; /* Darker blue-gray */
+}
+
+
+/* Mood Logo on Auth Page */
+.mood-logo {
+    display: block;
+    max-width: 200px; /* Keep max-width for larger images */
+    width: 160px; /* Consistent width */
+    aspect-ratio: 1 / 1; /* Maintain aspect ratio */
+    margin: 0 auto 32px auto; /* Center and add margin below */
+    border-radius: 50%; /* Make it round */
+    box-shadow: var(--elevation-2); /* Softer shadow */
+    background: var(--input-bg); /* White background for logo */
+    border: 2px solid var(--accent-blue); /* Blue border */
+    object-fit: cover; /* Ensure image covers the area */
+    animation: pulseBorder 2s infinite alternate ease-in-out; /* Subtle animation */
+}
+
+@keyframes pulseBorder {
+    from {
+        border-color: var(--accent-blue);
+        box-shadow: var(--shadow-light);
+    }
+    to {
+        border-color: var(--accent-lilac);
+        box-shadow: var(--shadow-medium);
+    }
+}
+
+
+/* Dashboard Page */
+#dashboard-page {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+#logout-button, #master-control-button, #dark-mode-toggle, #about-us-button, #back-to-dashboard-btn { /* Added all header buttons */
+    padding: 8px 15px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--elevation-1);
+}
+
+#logout-button {
+    background-color: var(--negative-red);
+}
+
+#logout-button:hover {
+    background-color: #c82333; /* Darker red */
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+#master-control-button {
+    background-color: var(--text-color); /* Darker button for master control */
+}
+
+#master-control-button:hover {
+    background-color: #213a52; /* Darker blue-gray */
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+#dark-mode-toggle {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+#dark-mode-toggle:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+#about-us-button { /* New: Styling for the About Us button */
+    background-color: var(--accent-lilac); /* A distinct color */
+    color: white;
+}
+
+#about-us-button:hover {
+    background-color: #9f82c4; /* Darker lilac on hover */
+}
+
+#back-to-dashboard-btn { /* Styling for the Back to Dashboard button */
+    background-color: var(--accent-blue); /* A clear return color */
+}
+
+#back-to-dashboard-btn:hover {
+    background-color: var(--button-hover); /* Darker blue on hover */
+}
+
+
+.mood-selector h2, .mood-board-section h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.mood-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mood-btn {
+    padding: 15px;
+    background-color: var(--accent-lilac);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    box-shadow: var(--elevation-1);
+}
+
+.mood-btn:hover {
+    background-color: #9f82c4;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+.mood-btn.selected {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+.mood-message-display {
+    text-align: center;
+    background-color: var(--input-bg);
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-blue);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#current-mood-message {
+    margin: 0;
+}
+
+/* Mood Message Board */
+#messages-list {
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.message-item {
+    background-color: var(--secondary-bg);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-wrap: break-word; /* Ensure long words break */
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.message-item:last-child {
+    margin-bottom: 0;
+}
+
+.message-item p {
+    margin: 0 0 8px 0;
+    color: var(--text-color);
+}
+
+.message-item span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #7b8fa3;
+    margin-top: 5px;
+    text-align: right;
+    width: 100%;
+}
+
+.message-item span .message-meta {
+    text-align: right;
+    flex-grow: 1;
+}
+
+.message-item .like-section {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.message-item .like-btn {
+    background-color: var(--accent-lilac);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.message-item .like-btn:hover {
+    background-color: #9f82c4;
+    transform: translateY(-1px);
+}
+
+.message-item .like-btn.liked {
+    background-color: var(--positive-green); /* Indicate liked state */
+}
+
+.message-item .like-btn.liked:hover {
+    background-color: #218838;
+}
+
+/* Universal Chatterbox specific styling */
+.message-item.universal-chatterbox-item {
+    background-color: var(--accent-lilac); /* Distinct background for universal messages */
+    border: 2px solid var(--accent-blue); /* Stronger border */
+    color: white; /* White text for contrast */
+    box-shadow: var(--elevation-1);
+}
+
+.message-item.universal-chatterbox-item p,
+.message-item.universal-chatterbox-item span {
+    color: white; /* Ensure all text within is white */
+}
+
+.message-item.universal-chatterbox-item .like-btn {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter button for contrast */
+    color: white;
+}
+
+.message-item.universal-chatterbox-item .like-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .message-item.universal-chatterbox-item {
+    background-color: var(--accent-lilac); /* Use a consistent distinct color for dark mode universal */
+    border: 2px solid var(--accent-blue);
+    color: white;
+}
+body.dark-mode .message-item.universal-chatterbox-item p,
+body.dark-mode .message-item.universal-chatterbox-item span {
+    color: white;
+}
+
+
+.post-message-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#new-message-text {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: vertical;
+    min-height: 60px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+#new-message-text:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(106, 142, 235, 0.2);
+    outline: none;
+}
+
+#post-message-btn {
+    padding: 10px 20px;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--elevation-1);
+}
+
+#post-message-btn:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+/* Popups */
+.popup,
+#master-control-pw-prompt {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    /* background: rgba(0,0,0,0.3); Removed per user request */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content {
+    background-color: var(--input-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--elevation-3); /* Now set to 'none' in :root */
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    animation: fadeIn 0.3s ease-out;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popup-content p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.popup-actions { /* Ensures buttons are centered and don't stretch */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    margin-top: 15px; /* Add some space above actions */
+}
+
+.popup-actions button {
+    padding: 10px 20px;
+    /* margin: 0 10px; REMOVED margin from here, handled by gap in popup-actions */
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--elevation-1);
+    flex-grow: 0; /* Prevent stretching */
+    width: auto; /* Allow buttons to size naturally */
+    min-width: 80px; /* Ensure a minimum width for readability */
+}
+
+.popup-actions button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+#yes-feeling-better {
+    background-color: var(--positive-green);
+    color: white; /* Changed text color to white for better contrast */
+}
+
+#yes-feeling-better:hover {
+    background-color: #218838; /* Darker green */
+}
+
+#not-really-feeling-better {
+    background-color: var(--accent-lilac);
+    color: white;
+}
+
+#not-really-feeling-better:hover {
+    background-color: #9f82c4;
+}
+
+#close-general-message, #post-anonymously-btn, #post-with-username-btn { /* Specific styling for OK and Post buttons */
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+#close-general-message:hover, #post-anonymously-btn:hover, #post-with-username-btn:hover {
+    background-color: var(--button-hover);
+}
+
+/* Master Control Panel Specific Styles */
+#master-control-panel {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--input-bg); /* Use input-bg for consistency */
+    padding: 30px; /* Increased padding */
+    border-radius: 15px; /* More rounded */
+    box-shadow: var(--elevation-3); /* Now set to 'none' in :root */
+    z-index: 10000;
+    text-align: center;
+    max-width: 500px; /* Slightly wider for better content display */
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--border-color); /* Add a subtle border */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#master-control-panel h2 {
+    margin-bottom: 25px;
+    color: var(--text-color); /* Darker text for title */
+    font-size: 2rem;
+}
+
+#master-control-panel .panel-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#master-control-panel button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px; /* More rounded buttons */
+    background-color: var(--accent-blue);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: var(--elevation-1);
+}
+
+#master-control-panel button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+#master-control-panel .close-panel {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem; /* Larger close button */
+    cursor: pointer;
+    color: var(--text-color); /* Use theme color */
+    border: none;
+    background: none;
+    padding: 5px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    box-shadow: none; /* No shadow for close button */
+}
+#master-control-panel .close-panel:hover {
+    color: var(--negative-red);
+    transform: scale(1.1);
+}
+
+#master-control-pw-prompt {
+    z-index: 10001; /* Higher than other popups */
+}
+
+#master-control-pw-prompt .popup-content {
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+}
+
+#master-control-pw-input {
+    /* Adjusted width to match button */
+    width: 100%;
+    padding: 12px 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding is included in the 100% width */
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+#master-control-pw-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(106, 142, 235, 0.2);
+    outline: none;
+}
+
+#master-control-pw-submit {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--elevation-1);
+}
+
+#master-control-pw-submit:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--elevation-2);
+}
+
+#master-control-pw-error {
+    color: var(--negative-red);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
+#close-pw-panel {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    color: var(--text-color); /* Use theme color */
+    z-index: 2;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+#close-pw-panel:hover {
+    color: var(--negative-red);
+    transform: scale(1.1);
+}
+#close-pw-panel:focus {
+    outline: 2px solid var(--accent-blue);
+}
+
+.master-pw-title {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+/* About Us Page Styling */
+#about-us-page .about-us-content {
+    background-color: var(--input-bg);
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    margin-top: 20px;
+    line-height: 1.6;
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+}
+
+#about-us-page .about-us-content h3 {
+    color: var(--accent-blue);
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+#about-us-page .about-us-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+#about-us-page .about-us-content ul li {
+    background-color: var(--secondary-bg);
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--elevation-1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Sort By Section Styling */
+.sort-messages-container {
+    text-align: right;
+    margin-bottom: 10px;
+    display: flex; /* Use flexbox to align label and select */
+    align-items: center;
+    justify-content: flex-end; /* Align to the right */
+    gap: 8px; /* Space between label and select */
+    color: var(--text-color);
+}
+
+#sort-messages-label { /* New: Styling for the sort label */
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+#sort-messages-select { /* New: Styling for the sort dropdown */
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 0.95em;
+    cursor: pointer;
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%236a8eeb"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-mode #sort-messages-select {
+    background-image: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%237f9cf8"><path d="M7 10l5 5 5-5z"/></svg>'); /* Dark mode arrow */
+}
+
+#sort-messages-select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(106, 142, 235, 0.2);
+    outline: none;
+}
+
+
+/* Scrollbar Styles */
+#messages-list::-webkit-scrollbar {
+    width: 8px; /* Slightly wider for better visibility */
+}
+#messages-list::-webkit-scrollbar-track {
+    background: var(--secondary-bg); /* Match track to page background */
+    border-radius: 10px;
+}
+#messages-list::-webkit-scrollbar-thumb {
+    background-color: var(--accent-blue);
+    border-radius: 10px;
+    border: 2px solid var(--secondary-bg); /* Add border to make thumb thinner/more visible */
+}
+#messages-list::-webkit-scrollbar-thumb:hover {
+    background-color: var(--button-hover);
+}
+
+
+.toggle-link, a {
+    transition: color 0.3s ease;
+}
+.popup-content {
+    animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page {
+        padding: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px; /* Increased gap for better spacing */
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0; /* Ensures no extra margin from h1 default styles */
+        font-size: 1.5rem;
+    }
+
+    .header-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        width: 100%;
+        gap: 8px; /* Smaller gap when stacked */
+        justify-content: center; /* Center buttons when stacked */
+    }
+
+    #logout-button, #master-control-button, #dark-mode-toggle, #about-us-button, #back-to-dashboard-btn {
+        /* Removed width: 100% to allow buttons to size naturally and be centered by flexbox */
+        padding: 10px 20px; /* Consistent padding for better tap target */
+        font-size: 1rem; /* Slightly larger font for readability */
+    }
+
+    .mood-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    .mood-btn {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .popup-content {
+        padding: 20px;
+    }
+
+    .popup-content p {
+        font-size: 1rem;
+    }
+
+    .popup-actions button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    .auth-container h1 {
+        font-size: 2rem;
+    }
+
+    .auth-container > p {
+        font-size: 0.9rem;
+    }
+
+    .sort-messages-container {
+        justify-content: center; /* Center sort options on smaller screens */
+        flex-direction: column; /* Stack label and select on smaller screens */
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 30px;
+    }
+
+    .mood-buttons {
+        grid-template-columns: 1fr; /* Stack buttons on very small screens */
+    }
+
+    #new-message-text {
+        min-height: 50px;
+    }
+
+    #master-control-panel {
+        padding: 20px;
+    }
+    #master-control-panel h2 {
+        font-size: 1.6rem;
+    }
+    #master-control-panel .panel-section {
+        gap: 8px;
+    }
+}
