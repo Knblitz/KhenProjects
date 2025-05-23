@@ -583,7 +583,8 @@ body.light-mode .hamburger {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  height: 380px;
+    height: auto !important;
+  min-height: 0 !important;
 }
 
 .resume-block.tech-skills {
@@ -610,6 +611,9 @@ body.light-mode .hamburger {
   flex-wrap: wrap;
   gap: 14px;
   justify-content: center;
+    align-items: flex-start;
+      word-break: break-word;
+
 }
 
 .home-softskills-list li {
@@ -1554,6 +1558,9 @@ body.light-mode .hamburger {
   }
 
   .skills-grid {
+      grid-template-columns: repeat(5, 1fr); /* Show 5 skills per row */
+  }
+}}
       grid-template-columns: repeat(5, 1fr); /* Show 5 skills per row */
   }
 }}
