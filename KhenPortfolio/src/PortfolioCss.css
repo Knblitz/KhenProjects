@@ -1168,6 +1168,12 @@ body.light-mode .hamburger {
       grid-template-columns: 1fr; /* Stack on smaller screens */
       padding: 30px;
   }
+  .more-about-btn {
+    display: block;
+    margin: 30px auto 0 auto; /* Top margin, auto left/right centers */
+    float: none;
+    text-align: center;
+  }
 }
 
 /* Contact Information Area */
@@ -1456,10 +1462,11 @@ body.light-mode .hamburger {
     font-size: 1.3rem;
   }
 
-  .more-about-btn {
-      display: inline-block;
-      margin: 0 auto;
-      margin-left: 80px;
+    .more-about-btn {
+    display: block;
+    margin: 30px auto 0 auto; /* Top margin, auto left/right centers */
+    float: none;
+    text-align: center;
   }
 
   .resume-flex-container {
