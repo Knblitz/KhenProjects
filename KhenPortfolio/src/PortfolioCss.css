@@ -59,14 +59,14 @@ body.light-mode {
 
   /* === Background Colors === */
   --background-color: #eeeeee;
-  --headernav: #88c972;
+  --headernav: #bdf0ac;
   --section-background: #f1faee;
   --block-background: #e9f5db;
   --dropdown-background: #ffffff;
 
   /* === Footer & Gradient === */
   --footer-gradient: linear-gradient(to top, #c7f9cc 0%, #f1faee 100%);
-  --section-gradient: linear-gradient(to bottom, #88c972 10%, #eeeeee 90%);
+  --section-gradient: linear-gradient(to bottom, #bdf0ac 10%, #eeeeee 90%);
 
   /* === Text Colors === */
   --text-color: #1a2b1e;
@@ -186,15 +186,30 @@ section:last-of-type {
 /* Social Media Icons */
 .social-media-box {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 25px;
   margin-top: 20px;
+  margin-bottom: 32px; /* Add gap below social media box */
+  text-align: center;
 }
 
 .social-media-box a {
-  color: var(--primary-color); /* Soft teal for icons */
-  font-size: 1.5rem; /* Adjust icon size */
+  display: flex;
+  align-items: center;        /* Center icon and text vertically */
+  gap: 6px;                   /* Space between icon and text */
+  color: var(--primary-color);
+  font-size: 1.2rem;          /* Slightly smaller text */
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
+  padding: 4px 10px;
+}
+
+.social-media-box a i {
+  font-size: 1.5rem;          /* Keep icon slightly larger than text */
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .social-media-box a:hover {
@@ -288,9 +303,9 @@ section {
 }
 
 .section-borderless {
-  padding: 60px 20px; /* Add padding for spacing */
-  max-width: 1200px; /* Limit the maximum width */
-  margin: 0 auto; /* Center the section horizontally */
+  padding: 0px 20px 0 20px; /* Remove bottom padding */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-gradient {
@@ -371,15 +386,15 @@ body.light-mode .hamburger {
 
 .nav-links li a {
   font-size: 1.2rem; /* Slightly larger font size for better readability */
-  color: var(--text-color); /* White text */
+  color: var(--primary-color);
   padding: 10px;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: var(--primary-color); /* Soft teal hover effect */
+  color: var(--link-hover-color);
   text-decoration: underline; /* Underline for links */
-  text-decoration-color: var(--link-hover-color); /* Teal underline color */
+  text-decoration-color: var(--link-hover-text);
 }#mode-toggle {
   background: transparent;
   border: none;
@@ -395,7 +410,7 @@ body.light-mode .hamburger {
 }
 /* === ABOUT PAGE SPECIFIC STYLES === */
 .about-section {
-  padding: 80px 0;
+  margin: 0px 20px 20px 20px; /* Add margin to the section */
   background-color: var(--background-color); /* Use footer background variable */
 }
 
@@ -572,6 +587,7 @@ body.light-mode .hamburger {
 /* === TECH SKILLS & SOFT SKILLS SIDE BY SIDE === */
 .resume-block.tech-skills,
 .home-softskills-block {
+
   flex: 1 1 0;
   min-width: 300px;
   padding: 20px;
@@ -582,9 +598,12 @@ body.light-mode .hamburger {
   margin-bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-    height: auto !important;
-  min-height: 0 !important;
+  justify-content: flex-start;
+  align-items: stretch;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  height: auto;         /* Allow height to grow with content */
+  box-sizing: border-box;
 }
 
 .resume-block.tech-skills {
@@ -611,9 +630,9 @@ body.light-mode .hamburger {
   flex-wrap: wrap;
   gap: 14px;
   justify-content: center;
-    align-items: flex-start;
-      word-break: break-word;
-
+  align-items: flex-start;
+  width: 100%;
+  word-break: break-word;
 }
 
 .home-softskills-list li {
@@ -626,6 +645,10 @@ body.light-mode .hamburger {
   font-weight: 500;
   box-shadow: var(--box-shadow);
   transition: background 0.2s, color 0.2s, transform 0.2s;
+  max-width: 95vw;
+  white-space: normal;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .home-softskills-list li:hover {
@@ -799,34 +822,21 @@ body.light-mode .hamburger {
 /* === VIEW MORE BUTTON === */
 #toggle-skills-btn {
   margin-top: 10px;
-  background-color: var(--button-background); /* Default button background */
+  padding: 10px 20px;
+  background-color: var(--primary-color); /* Match other buttons */
   color: var(--text-color); /* White text */
   border: none;
-  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
   cursor: pointer;
-  border-radius: 5px;
+  font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #toggle-skills-btn:hover {
-  background-color: var(--button-hover-background); /* Button hover background */
+  color: var(--hover-highlight); /* Bright yellow on hover */
   transform: scale(1.05); /* Slight zoom effect */
 }
-/*#toggle-skills-btn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #4db6ac;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}*/
-/*#toggle-skills-btn:hover {
-  background-color: #3a9c8a;
-  transform: scale(1.05);
-}*/
 
 /* Original styling for the Skills page */
 .SkillPage .resume-flex-container {
@@ -1058,6 +1068,12 @@ body.light-mode .hamburger {
 }
 
 @media (max-width: 600px) {
+  .project {
+    width: 100%;         /* Fix: fill container, respect padding */
+    max-width: 100%;     /* Remove any fixed max-width for mobile */
+    box-sizing: border-box;
+    padding: 1rem 0.5rem; /* Optional: reduce inner padding for mobile */
+  }
   .project-img {
     width: 98vw;
     min-height: 120px;
@@ -1072,6 +1088,9 @@ body.light-mode .hamburger {
   .project-link {
     font-size: 1rem;
     padding: 10px 18px;
+  }
+  .project-container {
+    padding:20px; /* Less padding for mobile screens */
   }
 }
 
@@ -1373,14 +1392,14 @@ body.light-mode .hamburger {
 
   .nav-links li a {
       font-size: 1.2rem;
-      color: #fff;
+      color: var(--primary-color);
       text-decoration: none;
       padding: 10px;
       transition: color 0.3s ease;
   }
 
   .nav-links li a:hover {
-      color: #4db6ac;
+      color: var(--link-hover-text);
   }
 
   .hamburger {
@@ -1425,8 +1444,16 @@ body.light-mode .hamburger {
       margin-bottom: 20px;
   }
 
-  .social-media-box {
-      margin-bottom: 20px;
+   .social-media-box {
+    flex-direction: row;
+    gap: 14px;
+  }
+  .social-media-box a {
+    font-size: 1rem;
+    justify-content: center;
+  }
+  .social-media-box a i {
+    font-size: 1.3rem;
   }
 
   .more-about-btn {
@@ -1558,9 +1585,6 @@ body.light-mode .hamburger {
   }
 
   .skills-grid {
-      grid-template-columns: repeat(5, 1fr); /* Show 5 skills per row */
-  }
-}}
       grid-template-columns: repeat(5, 1fr); /* Show 5 skills per row */
   }
 }}
