@@ -940,51 +940,56 @@ body.light-mode .hamburger {
 }
 
 .project {
-  background: var(--block-background);
-  border-radius: 12px;
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
-  max-width: 350px;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s;
-  border: 2px solid var(--border-color);
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 2.5rem 2.5rem 2.5rem 2rem; /* More padding */
+  margin-bottom: 2.5rem;
+  background: var(--block-background);
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+  max-width: 1100px; /* Wider cards */
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .project:hover {
   box-shadow: var(--box-shadow-hover);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .project-img {
-  width: 100%;
-  height: 200px;
+  width: 420px;      /* Larger width */
+  height: 260px;     /* Larger height */
   object-fit: cover;
-  border-bottom: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  background: #ffffff;
 }
-
 .project-info {
-  padding: 20px;
+  padding: 24px 0 24px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute space between content and button */
+  justify-content: space-between;
   align-items: flex-start;
-  flex: 1 1 auto;                /* Allow to grow and fill available space */
+  flex: 1 1 auto;
   width: 100%;
-  min-height: 220px;             /* Optional: ensures enough height for layout */
+  min-height: 260px;
 }
 
 .project-info h3 {
-  margin: 0 0 10px 0;
+  margin: 0 0 14px 0;
   color: var(--highlight-color);
-  text-align: left; /* Align title to the left */
-  width: 100%;      /* Ensure it spans the container */
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
 }
 
 .project-info p {
   color: var(--paragraph-color);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  font-size: 1.15rem;
 }
 
 .project-link {
@@ -992,26 +997,77 @@ body.light-mode .hamburger {
   text-decoration: none;
   font-weight: bold;
   background: var(--highlight-color);
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-  align-self: center;            /* Center horizontally */
-  margin-top: auto;  
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  align-self: center;
+  margin-top: auto;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .project-link:hover {
   background: var(--hover-highlight);
   color: var(--text-color);
+  transform: scale(1.06);
 }
 
 /* Responsive */
+@media (max-width: 1100px) {
+  .project-container {
+    max-width: 98vw;
+    padding: 30px 4vw;
+  }
+  .project {
+    max-width: 98vw;
+    padding: 1.5rem;
+  }
+  .project-img {
+    width: 320px;
+    height: 180px;
+  }
+}
+
 @media (max-width: 900px) {
   .project-list {
     flex-direction: column;
     align-items: center;
+    gap: 32px;
   }
   .project {
-    max-width: 90vw;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .project-img {
+    width: 90vw;
+    max-width: 100%;
+    height: auto;
+    min-height: 180px;
+  }
+  .project-info {
+    padding: 18px 0 0 0;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-img {
+    width: 98vw;
+    min-height: 120px;
+    border-radius: 10px;
+  }
+  .project-info h3 {
+    font-size: 1.2rem;
+  }
+  .project-info p {
+    font-size: 1rem;
+  }
+  .project-link {
+    font-size: 1rem;
+    padding: 10px 18px;
   }
 }
 
