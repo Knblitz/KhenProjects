@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Skills  - Khen's Portfolio</title>
-  <link rel="stylesheet" href="PortfolioCss.css" />
+  <link rel="stylesheet" href="PortfolioStyle.css" />
+      <link rel="stylesheet" href="PortfolioRespondStyle.css" />
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
 </head>
@@ -19,7 +21,9 @@
           <li><a href="PortfolioSkill.html">Skills</a></li>
           <li><a href="PortfolioProject.html">Projects</a></li>
           <li><a href="PortfolioContact.html">Contact</a></li>
-          <li><button id="mode-toggle" aria-label="Toggle light/dark mode">🌙/☀️</button></li>
+          <li>
+            <input type="button" id="mode-toggle" aria-label="Toggle light/dark mode" value="🌙/☀️" />
+          </li>
         </ul>
       </nav>
       <div class="hamburger" onclick="toggleMenu()">
@@ -41,23 +45,28 @@
           <h3><i class="fas fa-graduation-cap"></i> Education</h3>
           <ul>
             <li>
-              <strong>ITE East</strong> — 3-Year Higher Nitec in IT Application Development
-              <br>
+               <strong>Institute of Technical Education East</strong><br>
+    3 Yr Higher Nitec in IT Application Development 
+    <br>
+
               <em>2023-2025</em>
               <ul>
-                <li>- Entrepreneur Club's Exco member (2024-2025)</li>
+                <li>- <b>Entrepreneur Club:</b> Exco member (2024-2025)</li>
                 <li>- Student Mentor (2024)</li>
               </ul>
             </li>
             <li>
-              <strong>Bedok Green Secondary School</strong> — GCE O-Level (Mathematics) <br>&amp; N-Level (Normal Academic)
+              <strong>Bedok Green Secondary School</strong><br>
+              GCE O-Level (Mathematics) & N-Level (Normal Academic)
               <br>
               <em>2019-2022</em>
+
               <ul>
-                <li>Roles:</li>
-                <li>- NCC Staff Sergeant (2022)</li>
+                <li>- <b>NCC:</b> Staff Sergeant (2022) & <b>PDS</b> (2021-2022)</li>
                 <li>- Class Vice Chairperson (2022)</li>
                 <li>- Peer Support Leader (2019)</li>
+ <input type="button" value="View Testimonial" class="certificates-button" onclick="window.open('https://drive.google.com/your-testimonial-link', '_blank')" />
+
               </ul>
             </li>
           </ul>
@@ -185,7 +194,7 @@
                   <li>Teamwork</li>
                 </div>
               </ul>
-              <button id="toggle-skills-btn" data-expanded="false">View More ></button>
+              <input type="button" id="toggle-skills-btn" data-expanded="false" value="View More >" />
             </div>
         </div>
       </div>
@@ -203,14 +212,14 @@
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');
       localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-      toggleBtn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+      toggleBtn.value = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
     });
     window.addEventListener('DOMContentLoaded', () => {
       if(localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-mode');
-        toggleBtn.textContent = '☀️';
+        toggleBtn.value = '☀️';
       } else {
-        toggleBtn.textContent = '🌙';
+        toggleBtn.value = '🌙';
       }
     });
   </script>

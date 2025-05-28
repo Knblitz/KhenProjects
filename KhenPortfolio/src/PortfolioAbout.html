@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>About - Khen's Portfolio</title>
-    <link rel="stylesheet" href="PortfolioCss.css" />
+  <link rel="stylesheet" href="PortfolioStyle.css" />
+    <link rel="stylesheet" href="PortfolioRespondStyle.css" />
+        <link rel="stylesheet" href="PortfolioAboutStyle.css" />
+
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body class="About">
@@ -41,6 +45,83 @@
             </div>
         </div>
     </section>
+    
+<!-- Timeline Section -->
+<section class="timeline-section">
+  <h2 class="timeline-title">My Journey</h2>
+  <div class="timeline">
+    <!-- 2025 Onward -->
+    <div class="timeline-event right">
+      <div class="timeline-dot future"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag future">Future</span>
+        <h3>2025 Onward</h3>
+        <span class="timeline-year">2025+</span>
+        <p>To be Continued</p>
+      </div>
+    </div>
+    <!-- MoodCloud Project -->
+    <div class="timeline-event left">
+      <div class="timeline-dot project"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag project">Project</span>
+        <h3>MoodCloud</h3>
+        <span class="timeline-year">2025</span>
+        <p>Self-initiated wellness app focused on clean UI/UX and web development best practices.</p>
+      </div>
+    </div>
+    <!-- Internship -->
+    <div class="timeline-event right">
+      <div class="timeline-dot work"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag work">Internship</span>
+        <h3>Singapore Land Authority (SLA)</h3>
+        <span class="timeline-year">2024-2025</span>
+        <p>Worked on a web app for tourists. Faced teamwork challenges and grew as a project contributor.</p>
+      </div>
+    </div>
+<!-- Part-Time Work -->   
+  <div class="timeline-event left">
+    <div class="timeline-dot work"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag work">Work</span>
+        <h3>Buddy Hoagies Part-Time</h3>
+        <span class="timeline-year">2022–Present</span>
+        <p>Developed strong communication and teamwork skills through customer-facing roles.</p>
+      </div>
+    </div>
+
+    <!-- ITE College East -->
+    <div class="timeline-event right">
+       <div class="timeline-dot school"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag school">School</span>
+        <h3>ITE College East</h3>
+        <span class="timeline-year">2023–2025</span>
+        <ul>
+          <li>IT Application Development (Higher Nitec)</li>
+          <li><b>Entrepreneurship Club EXCO</b></li>
+          <li>Student Mentor</li>
+          <li>Director's List</li>
+        </ul>
+      </div>
+    </div>
+    <!-- BGSS -->
+    <div class="timeline-event left">
+      <div class="timeline-dot school"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag school">School</span>
+        <h3>BGSS (Secondary School)</h3>
+        <span class="timeline-year">2019–2022</span>
+        <ul>
+          <li><b>NCC Leadership:</b> Staff Sergeant, Precision Drill Squad</li>
+          <li><b>Vice-Chairperson:</b> Class of 2022</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer id="footer" class="footer-gradient">
     <div class="container footer-container">
         <p>&copy; 2025 Khen's Portfolio. All rights reserved.</p>
@@ -63,6 +144,22 @@
         toggleBtn.textContent = '🌙';
       }
     });
+
+
+     // Sticky hover for timeline-content
+  document.querySelectorAll('.timeline-content').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      document.querySelectorAll('.timeline-content.active').forEach(active => {
+        active.classList.remove('active');
+      });
+      this.classList.add('active');
+    });
+  });
+  // Optionally, set the first card as active on load
+  document.addEventListener('DOMContentLoaded', function() {
+    const first = document.querySelector('.timeline-content');
+    if (first) first.classList.add('active');
+  });
   </script>
 </body>
 </html>
