@@ -1,5 +1,9 @@
 //MoodCloudJava.js
 
+// Import seed data generation and utility functions
+import { generateSeedPosts } from './MoodCloudJavaSeedData.js';
+import { getUsers, saveUsers, getMessages, saveMessages, generateMessageId } from './MoodCloudUtils.js'; // Import from MoodCloudUtils.js
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- Page Elements ---
     const authPage = document.getElementById('auth-page');
@@ -151,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "The only way to do great work is to love what you do.", // New quote
         "What you get by achieving your goals is not as important as what you become by achieving your goals." // New quote
     ];
-    // --- Utility Functions ---
+    // --- Utility Functions (Removed local definitions, now imported from MoodCloudUtils.js) ---
     function showPage(pageElement) {
         document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
         pageElement.classList.remove('hidden');
@@ -178,26 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function hidePopup(popupElement) {
         popupElement.classList.add('hidden');
     }
-
-    // --- LocalStorage Helpers ---
-    function getUsers() {
-        const users = localStorage.getItem('users');
-        return users ? JSON.parse(users) : [];
-    }
-
-    function saveUsers(usersArray) {
-        localStorage.setItem('users', JSON.stringify(usersArray));
-    }
-
-    function getMessages() {
-        const messages = localStorage.getItem('moodMessages');
-        return messages ? JSON.parse(messages) : {};
-    }
-
-    function saveMessages(messagesObj) {
-        localStorage.setItem('moodMessages', JSON.stringify(messagesObj));
-    }
-
+    
     function getUserLikedPosts(username) {
         const likedPosts = localStorage.getItem(`likedPosts_${username}`);
         return likedPosts ? JSON.parse(likedPosts) : {};
@@ -205,12 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function saveUserLikedPosts(username, likedPostsObj) {
         localStorage.setItem(`likedPosts_${username}`, JSON.stringify(likedPostsObj));
-    }
-
-    function generateMessageId(message) {
-        // Use a more robust ID, timestamp alone might not be unique if posted too quickly
-        // Combining text, timestamp, and a random number
-        return btoa(encodeURIComponent(`${message.text}-${message.timestamp}-${Math.random().toString(36).substring(2, 9)}`));
     }
 
 
@@ -828,5 +807,23 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Initial Load ---
-    checkAuthStatus();
+    // Check if any messages exist in local storage for any mood
+    const allExistingMessages = getMessages();
+    let hasAnyMessages = false;
+    for (const moodKey in allExistingMessages) {
+        if (Object.prototype.hasOwnProperty.call(allExistingMessages, moodKey) && allExistingMessages[moodKey].length > 0) {
+            hasAnyMessages = true;
+            break;
+        }
+    }
+
+    // If no messages exist, generate seed posts
+    if (!hasAnyMessages) {
+        console.log("No existing messages found. Generating seed data...");
+        generateSeedPosts();
+    } else {
+        console.log("Existing messages found. Skipping seed data generation.");
+    }
+    
+    checkAuthStatus(); // Call the auth status and dashboard display
 });
