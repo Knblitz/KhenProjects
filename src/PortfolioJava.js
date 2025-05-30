@@ -6,10 +6,6 @@ function toggleMenu() {
 }
 //alert("PortfolioJava.js is loaded!");
 
-document.getElementById("toggle-skills-btn").addEventListener("click", function () {
-  const hiddenSkills = document.querySelector(".hidden-skill");
-  const isExpanded = this.getAttribute("data-expanded") === "true";
-
   // Toggle visibility
   hiddenSkills.style.display = isExpanded ? "none" : "block";
 
