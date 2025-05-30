@@ -22,7 +22,7 @@
           <li><a href="PortfolioProject.html">Projects</a></li>
           <li><a href="PortfolioContact.html">Contact</a></li>
           <li>
-            <input type="button" id="mode-toggle" aria-label="Toggle light/dark mode" value="🌙/☀️" />
+          <li><button id="mode-toggle" aria-label="Toggle light/dark mode">🌙/☀️</button></li>
           </li>
         </ul>
       </nav>
@@ -65,7 +65,7 @@
                 <li>- <b>NCC:</b> Staff Sergeant (2022) & <b>PDS</b> (2021-2022)</li>
                 <li>- Class Vice Chairperson (2022)</li>
                 <li>- Peer Support Leader (2019)</li>
- <input type="button" value="View Testimonial" class="certificates-button" onclick="window.open('https://drive.google.com/your-testimonial-link', '_blank')" />
+ <input type="button" value="View Testimonial" class="certificates-button" onclick="window.open('https://drive.google.com/drive/folders/1NhxBctPTR2YN_pI9BsklfiwoWanjIAAr?usp=sharing', '_blank')" />
 
               </ul>
             </li>
@@ -208,18 +208,18 @@
 <script src="PortfolioJava.js"></script>
  <script>
     // Light/Dark mode toggle
-    const toggleBtn = document.getElementById('mode-toggle');
+const toggleBtn = document.getElementById('mode-toggle');
     toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-      toggleBtn.value = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
     });
     window.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-mode');
-        toggleBtn.value = '☀️';
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleBtn.textContent = '🌙';
       } else {
-        toggleBtn.value = '🌙';
+        toggleBtn.textContent = '☀️';
       }
     });
   </script>

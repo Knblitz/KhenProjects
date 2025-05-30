@@ -38,7 +38,7 @@
       <h2>Let's Connect</h2>
       <div class="contact-details-portfolio">
         <p><i class="fas fa-envelope"></i> Email: <a href="mailto:khenthongwk@gmail.com">Khenthongwk@gmail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank">khen-thong-a1b853282</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank">khen</a></p>
         <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/khenn.twk__/" target="_blank">khenn.twk__</a></p>
       </div>
     
@@ -114,18 +114,18 @@
     }
     
     // Light/Dark mode toggle
-    const toggleBtn = document.getElementById('mode-toggle');
+   const toggleBtn = document.getElementById('mode-toggle');
     toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-      localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-      toggleBtn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
     });
     window.addEventListener('DOMContentLoaded', () => {
       if(localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-mode');
-        toggleBtn.textContent = '☀️';
-      } else {
         toggleBtn.textContent = '🌙';
+      } else {
+        toggleBtn.textContent = '☀️';
       }
     });
   </script>

@@ -108,6 +108,7 @@
     padding: 18px 0 0 0;
     min-height: unset;
   }
+ 
 }
 
 /* === Tablet Portrait (max-width: 768px) === */
@@ -290,15 +291,7 @@
     flex-direction: column;
     gap: 0;
   }
-  .form-row .form-group-portfolio:first-child,
-  .form-row .form-group-portfolio:last-child {
-    max-width: 100%;
-  }
-}
-
-/* === Tablet Small (min-width: 769px) === */
-@media (min-width: 769px) {
-  .form-row .form-group-portfolio:first-child {
+ .form-row .form-group-portfolio:first-child {
     flex: 0 0 40%;
     max-width: 220px;
   }
@@ -306,7 +299,48 @@
     flex: 1 1 60%;
     max-width: none;
   }
+  .IndexProject-title {
+                font-size: 2.2rem;
+            }
+
+            .IndexProject-desc {
+                font-size: 1rem;
+                margin-bottom: 40px;
+            }
+
+            .IndexProject-carousel-container {
+                height: 280px; /* Adjust height for smaller screens */
+                max-width: 500px; /* Adjust max width */
+                padding: 0 60px; /* Adjust padding */
+            }
+
+            .IndexProject-card {
+                padding: 20px;
+            }
+
+            .IndexProject-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .IndexProject-card p {
+                font-size: 0.9rem;
+            }
+
+            .IndexProject-carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .IndexProject-carousel-arrow.prev {
+                left: 0;
+            }
+
+            .IndexProject-carousel-arrow.next {
+                right: 0;
+            }
 }
+
 
 /* === Mobile Large (max-width: 600px) === */
 @media (max-width: 600px) {
