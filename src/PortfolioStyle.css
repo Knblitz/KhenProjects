@@ -47,20 +47,44 @@
   --icon-color: #43b581;
   --hover-icon-color: #ff924c;
 
-  /*=== About Page Stylers ===*/
-   --about-text: #22223b;
-  --about-card-bg: #f7fafc;
-  --about-card-shadow: 0 2px 16px rgba(79,140,255,0.07);
+ /*=== About Page Stylers ===*/
+            --about-text: #22223b;
+            --about-card-bg: #f7fafc;
+            --about-card-shadow: 0 2px 16px rgba(79,140,255,0.07);
 
-  --content-bg: #0c0c0c;
-  --timeline-line: #4f8cff;
-  --timeline-text: #22223b;
-  --timeline-card-bg: #ffffff;
+            --content-bg: #0c0c0c;
+            --timeline-line: #4f8cff;
+            --timeline-text: #22223b;
+            --timeline-card-bg: #ffffff;
+            --timeline-hover-bg: #c0efcf;
+            --timeline-hover-shadow: 0 4px 24px rgba(79,140,255,0.15);
 
-  
+            /* --- NEW: About Page Specific Variables --- */
+            --About-section-text-color: var(--about-text);
+            --About-container-bg: var(--about-card-bg);
+            --About-container-shadow: var(--about-card-shadow);
+            --About-image-shadow: var(--about-card-shadow);
+            --About-title-color: var(--about-text);
+            --About-paragraph-color: var(--about-text);
+            --About-highlight-color: var(--primary-color);
+            --About-link-highlight-color: var(--highlight-color);
+            --About-link-hover-color: #c4d888; /* Specific hover color */
 
-  --timeline-hover-bg: #c0efcf;
-  --timeline-hover-shadow: 0 4px 24px rgba(79,140,255,0.15);
+            /* --- NEW: Timeline Specific Variables --- */
+            --Timeline-section-title-color: var(--text-color); /* Assuming timeline title uses main text color */
+            --Timeline-line-color: var(--timeline-line);
+            --Timeline-card-bg: var(--timeline-card-bg);
+            --Timeline-card-shadow: 0 2px 8px rgba(79,140,255,0.06); /* Keeping original shadow value */
+            --Timeline-text-color: var(--timeline-text);
+            --Timeline-title-color: var(--primary-color);
+            --Timeline-year-color: #64748b; /* Keeping original value */
+            --Timeline-hover-bg: var(--timeline-hover-bg);
+            --Timeline-hover-shadow: var(--timeline-hover-shadow);
+
+            --Timeline-tag-school-bg: #e0f0ff; --Timeline-tag-school-color: #2563eb;
+            --Timeline-tag-work-bg: #d1fae5; --Timeline-tag-work-color: #15803d;
+            --Timeline-tag-project-bg: #fef3c7; --Timeline-tag-project-color: #b45309;
+            --Timeline-tag-future-bg: #ede9fe; --Timeline-tag-future-color: #7c3aed;
 
      /* === IndexProject Carousel Colors === */
             --IndexProject-section-bg: var(--primary-bg);
@@ -125,31 +149,44 @@ body.dark-mode {
   --icon-color: #64b5f6;
   --hover-icon-color: #a7c957;
   
-  /*=== About Page Stylers ===*/
-  --about-text: #e0e7ef;
-  --about-card-bg: #23272f;
-  --about-card-shadow: 0 2px 16px rgba(79,140,255,0.18);
+   /*=== About Page Stylers ===*/
+            --about-text: #e0e7ef;
+            --about-card-bg: #23272f;
+            --about-card-shadow: 0 2px 16px rgba(79,140,255,0.18);
 
-  --content-bg: #23272f;
-  --timeline-line: #7dd3fc;
-  --timeline-text: #e0e7ef;
-  --timeline-card-bg: #23272f;
+            --content-bg: #23272f;
+            --timeline-line: #7dd3fc;
+            --timeline-text: #e0e7ef;
+            --timeline-card-bg: #23272f;
+            --timeline-hover-bg: #22304a;
+            --timeline-hover-shadow: 0 4px 24px rgba(125,211,252,0.18);
 
+            /* --- NEW: About Page Specific Variables (Dark Mode) --- */
+            --About-section-text-color: var(--about-text);
+            --About-container-bg: var(--about-card-bg);
+            --About-container-shadow: var(--about-card-shadow);
+            --About-image-shadow: var(--about-card-shadow);
+            --About-title-color: var(--about-text);
+            --About-paragraph-color: var(--about-text);
+            --About-highlight-color: var(--primary-color);
+            --About-link-highlight-color: var(--highlight-color);
+            --About-link-hover-color: #8cba51; /* Specific hover color for dark mode */
 
-  --timeline-hover-bg: #22304a;
-  --timeline-hover-shadow: 0 4px 24px rgba(125,211,252,0.18);
+            /* --- NEW: Timeline Specific Variables (Dark Mode) --- */
+            --Timeline-section-title-color: var(--text-color);
+            --Timeline-line-color: var(--timeline-line);
+            --Timeline-card-bg: var(--timeline-card-bg);
+            --Timeline-card-shadow: 0 2px 8px rgba(79,140,255,0.06);
+            --Timeline-text-color: var(--timeline-text);
+            --Timeline-title-color: var(--primary-color);
+            --Timeline-year-color: #a0a0a0; /* Adjusted for dark mode readability */
+            --Timeline-hover-bg: var(--timeline-hover-bg);
+            --Timeline-hover-shadow: var(--timeline-hover-shadow);
 
- /* === IndexProject Carousel Colors (Dark Mode) === */
-            --IndexProject-section-bg: var(--background-color);
-            --IndexProject-title-color: var(--text-color);
-            --IndexProject-desc-color: var(--paragraph-color);
-            --IndexProject-card-bg: var(--block-background);
-            --IndexProject-card-text: var(--text-color);
-            --IndexProject-card-border: var(--border-color);
-            --IndexProject-card-shadow: var(--box-shadow);
-            --IndexProject-arrow-bg: var(--button-background);
-            --IndexProject-arrow-hover-bg: var(--button-hover-background);
-            --IndexProject-arrow-color: var(--text-color); /* White text for arrows */
+            --Timeline-tag-school-bg: #2a3d5e; --Timeline-tag-school-color: #7dd3fc; /* Adjusted for dark mode */
+            --Timeline-tag-work-bg: #3c5a3d; --Timeline-tag-work-color: #86efac; /* Adjusted for dark mode */
+            --Timeline-tag-project-bg: #5e4a2a; --Timeline-tag-project-color: #fcd34d; /* Adjusted for dark mode */
+            --Timeline-tag-future-bg: #4a3c5e; --Timeline-tag-future-color: #c4b5fd; /* Adjusted for dark mode */
 }
 * {
   margin: 0;
@@ -218,12 +255,19 @@ section:last-of-type {
 }
 
 .home-image img {
-  width: 450px; /* Fixed width */
+  width: 100%; /* Fixed width */
+  max-width: 450px;
   height: 450px; /* Fixed height */
   border-radius: 50%; /* Makes the image circular */
   object-fit: cover; /* Ensures the image scales properly within the circle */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow */
+    object-position: -5px -50px; /* Default: centers the image */
+  /* Examples: */
+  /* object-position: 20% 30%; Shifts the image so its 20% mark horizontally aligns with 20% mark of container, and 30% vertically */
+  /* object-position: left top; Aligns the top-left corner of the image with the top-left corner of the container */
+  /* object-position: 10px 20px; Shifts the image 10px from the left and 20px from the top of the container */
 }
+
 
 .home-text h2 {
   font-size: 2.5rem;

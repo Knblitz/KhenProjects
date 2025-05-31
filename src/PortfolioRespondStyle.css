@@ -368,4 +368,58 @@
   .project-container {
     padding:20px;
   }
+  .IndexProject-section {
+    max-width: 100vw;
+    padding: 0 0 24px 0;
+  }
+  .IndexProject-title {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  .IndexProject-desc {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    text-align: center;
+    padding: 0 8px;
+  }
+  .IndexProject-carousel-container {
+    height: 180px;
+    max-width: 400px;
+    padding: 0 10px;
+    min-height: 0;
+  }
+  .IndexProject-carousel-track {
+    width: 50px;
+    height: 180px;
+    min-width: 0;
+    min-height: 0;
+  }
+  .IndexProject-card {
+    width: 90vw;
+    max-width: 200px;
+    height: 160px;
+    min-width: 0;
+    min-height: 0;
+    border-radius: 10px;
+    padding: 10px 0 0 0;
+  }
+  .IndexProject-card img {
+    height: 60px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .IndexProject-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .IndexProject-card p {
+    font-size: 0.8rem;
+    margin: 0 6px 0 6px;
+  }
+  .IndexProject-carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    margin: 0 4px;
+  }
 }
