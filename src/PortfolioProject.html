@@ -34,9 +34,13 @@
     </section>
     <section>
       
-    <div class="container project-container">
-      <h2 class="project-title">My Projects</h2>
-      <div class="project-list">
+ <div class="container project-container">
+  <h2 class="project-title">My Projects</h2>
+  <div class="layout-toggle">
+    <button id="list-view" class="active" aria-label="List view"><i class="fas fa-list"></i></button>
+    <button id="grid-view" aria-label="Grid view"><i class="fas fa-th"></i></button>
+  </div>
+  <div class="project-list">
         <!-- Project 1 -->
         <div class="project">
           <img src="../images/OneMapTourist.png" alt="BFA Tourist Planner Screenshot" class="project-img">
@@ -57,11 +61,20 @@
         </div>
         <!-- Project 3 -->
         <div class="project">
-          <img src="images/project3.jpg" alt="Module Project Screenshot" class="project-img">
+          <img src="images/project3.jpg" alt="Stackup Screenshot" class="project-img">
           <div class="project-info">
-            <h3>Module Project</h3>
-            <p>Assigned from a module in school</p>
+            <h3>StackUp</h3>
+            <p>Side-Project to enhanced my skills</p>
             <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="project-link">Watch Demo</a>
+          </div>
+        </div>
+         <!-- Project 4 -->
+        <div class="project">
+          <img src="../images/image.png" alt="project 4 Screenshot" class="project-img">
+          <div class="project-info">
+            <h3>Project 4</h3>
+            <p> TBC.</p>
+            <a href="" target="_blank" class="project-link">TBC</a>
           </div>
         </div>
       </div>
@@ -79,19 +92,36 @@
   <script>
     // Light/Dark mode toggle
     const toggleBtn = document.getElementById('mode-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
-    });
-    window.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        toggleBtn.textContent = '🌙';
-      } else {
-        toggleBtn.textContent = '☀️';
-      }
-    });
-  </script>
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+  });
+  window.addEventListener('DOMContentLoaded', () => {
+    if(localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '🌙';
+    } else {
+      toggleBtn.textContent = '☀️';
+    }
+  });
+
+  // Layout toggle
+  const listBtn = document.getElementById('list-view');
+  const gridBtn = document.getElementById('grid-view');
+  const projectList = document.querySelector('.project-list');
+
+  listBtn.addEventListener('click', () => {
+    projectList.classList.remove('grid');
+    listBtn.classList.add('active');
+    gridBtn.classList.remove('active');
+  });
+
+  gridBtn.addEventListener('click', () => {
+    projectList.classList.add('grid');
+    gridBtn.classList.add('active');
+    listBtn.classList.remove('active');
+  });
+</script>
 </body>
 </html>
