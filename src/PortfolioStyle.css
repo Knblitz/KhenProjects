@@ -47,6 +47,15 @@
   --icon-color: #43b581;
   --hover-icon-color: #ff924c;
 
+/* === Awards & Certificates Grids - NEW SPECIFIC COLORS === */
+  --award-card-new-bg: #e0ffee; /* A very light, clean background for cards */
+  --award-card-new-shadow: rgba(0, 0, 0, 0.05); /* Lighter, subtle shadow */
+  --award-card-new-hover-shadow: rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    --award-card-new-hover-bg: #fcc4a2; /* A soft, light green on hover */
+
+  --award-card-new-border: #43b581; /* A very light gray border */
+  --award-text-new-color: rgb(0, 0, 0); /* Darker text for readability */
+
  /*=== About Page Stylers ===*/
             --about-text: #22223b;
             --about-card-bg: #f7fafc;
@@ -148,6 +157,13 @@ body.dark-mode {
   /* === Miscellaneous === */
   --icon-color: #64b5f6;
   --hover-icon-color: #a7c957;
+  
+   /* === Awards & Certificates Grids - NEW SPECIFIC COLORS (Dark Mode) === */
+  --award-card-new-bg: #2b2b2b; /* Dark charcoal background for cards */
+  --award-card-new-shadow: rgba(0, 0, 0, 0.4); /* Darker, more noticeable shadow */
+  --award-card-new-hover-shadow: rgba(0, 0, 0, 0.6); /* Even more pronounced shadow on hover */
+  --award-card-new-border: #4a4a4a; /* A darker gray border */
+  --award-text-new-color: #f0f0f0; /* Lighter text for readability */
   
    /*=== About Page Stylers ===*/
             --about-text: #e0e7ef;
@@ -279,6 +295,238 @@ section:last-of-type {
   font-size: 1.2rem;
   margin-bottom: 20px;
   color: var(--light-gray); /* Light gray for text */
+}
+.leadership-flex,
+.volunteering-flex {
+  min-height: 420px;
+  padding: 40px 0;
+}
+
+.leadership-text,
+.volunteering-text {
+  min-height: 340px;
+  padding: 3rem 2.5rem;
+  font-size: 1.15rem;
+  background: var(--block-background);
+  color: var(--text-color);
+  border-radius: 18px;
+  box-shadow: var(--box-shadow);
+  border: 2px solid var(--border-color, #43b581);
+}
+
+.leadership-text h3,
+.volunteering-text h3 {
+  color: var(--highlight-color);
+}
+#awards-certificates h3 {
+  color: var(--highlight-color);
+  text-align: center;
+}
+.leadership-image,
+.volunteering-image {
+  min-width: 320px;
+  flex: 0 0 380px;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leadership-image img,
+.volunteering-image img {
+  max-width: 380px;
+  min-height: 320px;
+  height: 340px;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #f0f0f0;
+}
+
+/* === Awards & Certificates Section Styles (Longer Section & Images, Unified Borders) === */
+#awards-certificates .container {
+  min-height: 340px;
+  padding: 3rem 2.5rem;
+  background: var(--block-background); /* Reusing block-background for the section container */
+  color: var(--text-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 18px;
+  border: 2px solid var(--border-color, #43b581);
+}
+
+.awards-images {
+  /* This class seems to be unused in your current HTML for award cards.
+     If you intend to use it for other image grids, keep it.
+     If it was meant for .awards-grid, please clarify. */
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.awards-images img {
+  /* This also refers to .awards-images, likely unused. */
+  width: 240px;
+  height: 160px;
+  min-height: 120px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: #f0f0f0;
+  border: 2px solid var(--border-color, #43b581);
+}
+
+.award-category {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--highlight-color, #eb9618);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.award-card {
+  background-color: var(--award-card-new-bg); /* Using new background color */
+  border-radius: 14px;
+  border: 2px solid var(--award-card-new-border); /* Using new border color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 1rem 1rem 1rem;
+  min-height: 280px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease; /* Ensure transition for seamless hover */
+}
+
+.award-card img {
+  width: 100%;
+  max-width: 180px;
+  height: 120px;
+  object-fit: cover; /* Ensures images fill the space without distortion */
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: #f0f0f0; /* Default background for image if not loaded */
+  border: none; /* Keep main border for image */
+  cursor: pointer; /* Indicates clickability */
+  transition: transform 0.2s ease; /* For subtle image scale on hover */
+}
+
+/* Hover effect for the entire award-card */
+.award-card:hover {
+  transform: translateY(-8px); /* Lifts the entire card */
+  background-color: var(--award-card-new-hover-bg); 
+  border: none;
+}
+
+.award-desc {
+  text-align: center;
+  color: var(--award-text-new-color); /* Using new text color */
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* ========================================================================== */
+/* === Modal (Lightbox) Styles for Awards Section === */
+/* ========================================================================== */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 60px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  /* Add transition for smooth hover effects */
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Hover effect for the close button */
+.close:hover,
+.close:focus {
+  color: var(--highlight-color, #eb9618); /* Change color on hover/focus */
+  transform: scale(1.1); /* Slightly enlarge the 'x' on hover */
+  text-decoration: none; /* Remove underline if any */
+}
+
+/* ========================================================================== */
+/* === Responsive Adjustments (existing) === */
+/* ========================================================================== */
+@media (max-width: 900px) {
+  .leadership-flex,
+  .volunteering-flex {
+    min-height: unset;
+    padding: 20px 0;
+  }
+  .leadership-image,
+  .volunteering-image {
+    min-width: 180px;
+    flex: 0 0 220px;
+    max-width: 100%;
+  }
+  .leadership-image img,
+  .volunteering-image img {
+    max-width: 100%;
+    height: 220px;
+    min-height: 120px;
+  }
+  #awards-certificates .container {
+    min-height: unset;
+    padding: 1.5rem 1rem;
+  }
+  /* Note: .awards-images img is likely overridden by .award-card img now */
+  .awards-images img {
+    width: 140px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 700px) {
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .award-card {
+    min-height: 200px;
+    padding: 1rem 0.5rem;
+  }
+  .award-card img {
+    max-width: 100%;
+    height: 90px;
+  }
 }
 
 /* Social Media Icons */
