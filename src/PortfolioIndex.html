@@ -27,6 +27,8 @@
       </div>
     </div>
   </header>
+  <!-- Gradient from nav to home/intro section -->
+  <section class="section-gradient"></section>
 
 <!-- Home / Intro Section -->
 <section id="home" class="section-borderless">
@@ -59,11 +61,11 @@
 </section>
 
   <!-- Education Section -->
-  <section id="education" class="section-borderless">
-    <div class="resume-flex-container">
-      <div class="resume-block education">
+  <section id="education" class="homesection-borderless">
+    <div class="home-flex-container">
+      <div class="home-block education">
         <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-        <ul class="resume-list">
+        <ul class="home-list">
           <li><strong>ITE East</strong> — Higher Nitec in IT Application Development</li>
           <em>2023-2025</em>
           <li>- Entrepreneur Club's Exco member (2024-2025)</li>
@@ -93,54 +95,42 @@
 
 <!-- Leadership Section -->
 <section id="leadership" class="section-borderless">
-  <div class="container leadership-flex" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-    <div class="leadership-text" style="flex: 1 1 320px; min-width: 260px;">
-      <h3><i class="fas fa-user-tie"></i> Leadership</h3>
-    
-      <p>
-        During secondary school and ITE, I embraced several <strong>leadership roles</strong> that enhanced my <strong>confidence, teamwork, and communication</strong>. As a <strong>Peer Support Leader</strong>, I supported classmates’ well-being and helped foster a positive environment. As <strong>Vice Chairperson</strong>, I coordinated class matters and worked closely with teachers to ensure smooth communication.
-      </p>
-      <p>
-        In the <strong>National Cadet Corps (NCC)</strong>, I rose to <strong>Staff Sergeant</strong>, leading training sessions and mentoring younger cadets. This experience developed my <strong>leadership, mentoring, and motivational skills</strong>, helping me guide and support my team effectively.
-      </p>
-      <p>
-        At ITE, I further grew as a leader by serving as an <strong>EXCO member</strong> of the Entrepreneurship Club, leading projects such as <strong>Meals on Wheels</strong>. Additionally, as a <strong>Student Mentor</strong>, I provided academic and personal support to peers. These experiences taught me to <strong>inspire others, take initiative, and adapt to diverse team dynamics.</strong>
-      </p>
+  <div class="container leadership-carousel-container">
+    <div class="leadership-content-wrapper">
+      <button class="leadership-arrow prev" aria-label="Previous Leadership Info">&#10094;</button>
+      <div class="leadership-card-track">
+        </div>
+      <button class="leadership-arrow next" aria-label="Next Leadership Info">&#10095;</button>
     </div>
-    <div class="leadership-image" style="flex: 0 0 300px; min-width: 220px; text-align: center;">
-      <img src="../images/leadership-placeholder.jpg" alt="Leadership Experience" style="width:100%; max-width:260px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
-      <!-- Replace with your actual image -->
+    <div class="leadership-image-display">
+      <img id="currentLeadershipImage" src="../images/leadership-placeholder.jpg" alt="Leadership Experience" />
     </div>
   </div>
 </section>
 
 <!-- Volunteering Experience Section -->
 <section id="volunteering" class="section-borderless">
-  <div class="container volunteering-flex" style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; flex-direction: row-reverse;">
-    <div class="volunteering-text" style="flex: 1 1 320px; min-width: 260px;">
-      <h3><i class="fas fa-hands-helping"></i> Volunteering Experience</h3>
-      <p>My volunteering journey began in secondary school with <strong>Food From The Heart</strong>, where I helped pack essentials for elderly beneficiaries. Though a small role, it showed me how meaningful even simple acts of service can be.</p>
-
-      <p>At <strong>ITE College East</strong>, I became more involved in community projects such as <strong>Project Rice</strong>, packing daily necessities for the elderly. While attendance was only required once, I chose to contribute on both days to give back more deeply.</p>
-
-      <p>The most rewarding experience was with <strong>Meals on Wheels</strong> under <strong>Bethesda Care Services</strong>. Joining through the <strong>Entrepreneurship Club</strong>, I was the only member to consistently participate, delivering meals and offering companionship to elderly recipients. This experience deepened my empathy and strengthened my sense of responsibility.</p>
-
-      <p>In addition, I served as a <strong>Peer Support Leader</strong> and later a <strong>Student Mentor</strong> at ITE, providing both academic and emotional support to my peers. These roles helped me develop my leadership, empathy, and communication skills.</p>
-
-      <p>Each experience has shaped my values and motivates me to continue contributing meaningfully to the community wherever I can.</p>
+  <div class="container volunteering-carousel-container">
+    <div class="volunteering-image-display">
+      <!-- Volunteering image will be dynamically inserted here by JavaScript -->
+      <img id="currentVolunteeringImage" src="../images/volunteering-placeholder.jpg" alt="Volunteering Experience" />
     </div>
-    <div class="volunteering-image" style="flex: 0 0 300px; min-width: 220px; text-align: center;">
-      <img src="../images/volunteering-placeholder.jpg" alt="Volunteering Experience" style="width:100%; max-width:260px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);" />
+    <div class="volunteering-content-wrapper">
+      <button class="volunteering-arrow prev" aria-label="Previous Volunteering Info">&#10094;</button>
+      <div class="volunteering-card-track">
+        <!-- Volunteering cards will be dynamically inserted here by JavaScript -->
+      </div>
+      <button class="volunteering-arrow next" aria-label="Next Volunteering Info">&#10095;</button>
     </div>
   </div>
 </section>
 
-<!-- Awards & Certificates Section -->
-<section id="awards-certificates" class="section-borderless">
-  <div class="container">
-    <h3><i class="fas fa-award"></i> Awards & Certificates</h3>
 
-    <!-- Academic Awards -->
+
+<!-- Academic Awards Section -->
+<section id="academic-awards" class="section-borderless">
+  <div class="container">
+    <h3><i class="fas fa-award"></i> Academic Awards</h3>
     <h4 class="award-category">Academic Awards</h4>
     <div class="awards-grid">
       <div class="award-card">
@@ -176,8 +166,13 @@
         <div class="award-desc">Edusave Scholarship 2019</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Courses Certificates -->
+<!-- Courses Certificates Section -->
+<section id="courses-certificates" class="section-borderless">
+  <div class="container">
+    <h3><i class="fas fa-certificate"></i> Courses Certificates</h3>
     <h4 class="award-category">Courses Certificates</h4>
     <div class="awards-grid">
       <div class="award-card">
@@ -217,21 +212,27 @@
         <div class="award-desc">QGIS Primer Certificate</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- Testimonials -->
+<!-- Testimonials Section -->
+<section id="testimonials-section" class="section-borderless">
+  <div class="container">
+    <h3><i class="fas fa-comment-alt"></i> Testimonials</h3> <!-- Changed icon for testimonials -->
     <h4 class="award-category">Testimonials</h4>
-    <div class="awards-grid">
-      <div class="award-card">
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
         <img src="../images/BGSS- Testimonial.jpg" alt="Bedok Green Secondary School Testimonial" />
-        <div class="award-desc">Bedok Green Secondary School Testimonial</div>
+        <div class="testimonial-desc">Bedok Green Secondary School Testimonial</div>
       </div>
-      <div class="award-card">
+      <div class="testimonial-card">
         <img src="../images/SLA Testimonial.jpg" alt="SLA Testimonial" />
-        <div class="award-desc">SLA Testimonial (TBC)</div>
+        <div class="testimonial-desc">SLA Testimonial (TBC)</div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- Modal Structure -->
 <div id="imageModal" class="modal">

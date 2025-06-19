@@ -218,15 +218,7 @@ body {
 }
 
 /* === STYLES FOR OTHER PAGES (Excluding Contact Us) === */
-/* Global styles for other pages */
-.resume-flex-container {
-  display: block; /* Example global style */
-}
 
-/* Specific styles for the Skills page */
-.SkillPage .resume-flex-container {
-  display: flex; /* Restore original flex layout */
-}
 
 /* Footer Gradient */
 .footer-gradient {
@@ -268,6 +260,8 @@ section:last-of-type {
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
   text-align: center;
+    margin-top: 100px; /* Adjust as needed */
+
 }
 
 .home-image img {
@@ -296,50 +290,441 @@ section:last-of-type {
   margin-bottom: 20px;
   color: var(--light-gray); /* Light gray for text */
 }
-.leadership-flex,
-.volunteering-flex {
-  min-height: 420px;
-  padding: 40px 0;
+.home-flex-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+.home-list {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
 }
 
-.leadership-text,
-.volunteering-text {
-  min-height: 340px;
-  padding: 3rem 2.5rem;
-  font-size: 1.15rem;
+.home-list li {
+  font-size: 1.15rem; /* Increase the font size */
+  margin-bottom: 10px; /* Add spacing between list items */
+}
+
+.home-list em {
+  display: block; /* Make the year appear on a new line */
+  font-size: 1rem; /* Slightly smaller font size for the year */
+  color: var(--light-gray); /* Light gray for the year */
+  margin-top: 5px; /* Add spacing above the year */
+}
+.homesection-borderless {
+  padding: 0px 20px 0 20px; /* Remove bottom padding */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-block.education {
   background: var(--block-background);
-  color: var(--text-color);
-  border-radius: 18px;
+  border: 2px dashed var(--border-color);
+  border-radius: 14px;
   box-shadow: var(--box-shadow);
-  border: 2px solid var(--border-color, #43b581);
+  padding: 28px 24px;
+  max-width: 600px;
+  margin: 32px auto;
+  text-align: left;
+  flex: 1 1 100%;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-.leadership-text h3,
-.volunteering-text h3 {
-  color: var(--highlight-color);
+.home-block.education h3 {
+    color: var(--secondary-color);
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
 }
+/* Main container for the leadership carousel, which holds both text cards and image */
+.leadership-carousel-container {
+  display: flex; /* Use flexbox for side-by-side layout */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  align-items: center; /* Vertically align items in the center */
+  gap: 2rem; /* Spacing between the content wrapper and the image display */
+  padding: 40px 20px; /* Add padding similar to other sections */
+  max-width: 1200px; /* Max width to contain the section */
+  margin: 0 auto; /* Center the container on the page */
+  min-height: 480px; /* Ensure enough height for the carousel */
+    background: none ;
+  box-shadow: none;
+  border: none ;
+}
+
+/* Wrapper for the leadership text cards and their navigation arrows */
+.leadership-content-wrapper {
+  position: relative; /* Essential for positioning the absolute cards and arrows */
+  flex: 1 1 500px; /* Allows content to grow and shrink, with a base width */
+  min-width: 320px; /* Minimum width for content on small screens */
+  height: 380px; /* Fixed height to contain the absolute cards */
+  overflow: hidden; /* Hide cards that are off-screen */
+  display: flex; /* Use flex to align arrows and track */
+  align-items: center; /* Align arrows vertically */
+  justify-content: center; /* Center content horizontally */
+  border-radius: 18px; /* Match container border-radius */
+  padding: 1.5rem; /* Padding inside the content area */
+
+}
+
+/* Track for the leadership cards (holds the dynamically rendered cards) */
+.leadership-card-track {
+  position: relative; /* Crucial for absolute positioning of .leadership-card */
+  width: calc(100% - 100px); /* Adjust width to make space for arrows */
+  height: 100%; /* Fill the height of the wrapper */
+  overflow: hidden; /* Ensure only visible card is shown */
+  margin: 0 50px; /* Space for arrows */
+}
+
+/* Individual leadership info card */
+.leadership-card {
+  position: absolute; /* Allows cards to overlap and slide */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px; /* Padding inside each card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically within the card */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  background-color: var(--block-background); /* Card background */
+  border-radius: 12px; /* Rounded corners for individual cards */
+  box-shadow: var(--box-shadow); /* Shadow for cards */
+  /* Transitions are handled in JavaScript (getLeadershipCardStyles) for dynamic properties */
+  border: 1px solid var(--border-color); /* Subtle border for cards */
+}
+
+.leadership-card h3 {
+  color: var(--highlight-color); /* Heading color */
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.leadership-card p {
+  color: var(--paragraph-color); /* Paragraph text color */
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Navigation arrows for the leadership carousel */
+.leadership-arrow {
+  background-color: var(--button-background); /* Arrow button background */
+  color: var(--hover-color); /* Arrow icon color */
+  border: none;
+  border-radius: 50%; /* Circular buttons */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 25; /* Ensure arrows are above cards */
+  position: absolute; /* Position relative to .leadership-content-wrapper */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leadership-arrow.prev {
+  left: 10px; /* Position previous arrow on the left */
+}
+
+.leadership-arrow.next {
+  right: 10px; /* Position next arrow on the right */
+}
+
+.leadership-arrow:hover {
+  background-color: var(--button-hover-background); /* Hover effect for arrows */
+  transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Image display for the leadership carousel */
+.leadership-image-display {
+  flex: 0 0 380px; /* Fixed width for the image container */
+  max-width: 420px; /* Max width to prevent overly large images */
+  min-width: 280px; /* Ensure image is visible on smaller screens */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.leadership-image-display img {
+  width: 100%;
+  max-width: 380px; /* Max width for the image itself */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 18px; /* Rounded corners for the image */
+  box-shadow: var(--box-shadow); /* Shadow for the image */
+  transition: transform 0.3s ease;
+}
+
+.leadership-image-display img:hover {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* ========================================================================== */
+/* === Responsive Adjustments for Leadership Carousel === */
+/* ========================================================================== */
+@media (max-width: 900px) {
+  .leadership-carousel-container {
+    flex-direction: column; /* Stack content and image vertically */
+    padding: 30px 15px;
+    min-height: unset; /* Remove fixed min-height for stacked layout */
+  }
+
+  .leadership-content-wrapper {
+    width: 100%; /* Take full width when stacked */
+    height: 350px; /* Adjust height for stacked layout */
+    margin-bottom: 20px; /* Space between content and image */
+  }
+
+  .leadership-card-track {
+    width: calc(100% - 60px); /* Adjust for smaller arrow spacing */
+    margin: 0 30px;
+  }
+
+  .leadership-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .leadership-arrow.prev {
+    left: 5px;
+  }
+
+  .leadership-arrow.next {
+    right: 5px;
+  }
+
+  .leadership-image-display {
+    width: 90%; /* Take more width for the image */
+    flex: 1 1 auto; /* Allow image to grow/shrink */
+    min-width: unset;
+    max-width: 380px; /* Keep max-width for image */
+    padding: 0; /* Remove padding if not needed when stacked */
+  }
+  .leadership-image-display img {
+    height: 250px; /* Adjust image height for mobile */
+    object-fit: cover; /* Ensure image covers the area well */
+  }
+}
+
+@media (max-width: 600px) {
+  .leadership-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .leadership-card p {
+    font-size: 1rem;
+  }
+
+  .leadership-content-wrapper {
+    height: 300px; /* Further reduce height for very small screens */
+    padding: 1rem;
+  }
+}
+
+/* Main container for the volunteering carousel, holding both image and text cards */
+.volunteering-carousel-container {
+  display: flex; /* Use flexbox for side-by-side layout */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-direction: row; /* Image on left, card on right (default flex-direction) */
+  align-items: center; /* Vertically align items in the center */
+  gap: 2rem; /* Spacing between the image display and the content wrapper */
+  padding: 40px 20px; /* Add padding similar to other sections */
+  max-width: 1200px; /* Max width to contain the section */
+  margin: 0 auto; /* Center the container on the page */
+  min-height: 480px; /* Ensure enough height for the carousel */
+  background:none; /* Reusing block-background for the section container */
+  border: none; /* No border for the container */
+}
+
+/* Image display area for the volunteering carousel */
+.volunteering-image-display {
+  flex: 0 0 380px; /* Fixed width for the image container */
+  max-width: 420px; /* Max width to prevent overly large images */
+  min-width: 280px; /* Ensure image is visible on smaller screens */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.volunteering-image-display img {
+  width: 100%;
+  max-width: 380px; /* Max width for the image itself */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 18px; /* Rounded corners for the image */
+  box-shadow: var(--box-shadow); /* Shadow for the image */
+  transition: transform 0.3s ease;
+}
+
+.volunteering-image-display img:hover {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* Wrapper for the volunteering text cards and their navigation arrows */
+.volunteering-content-wrapper {
+  position: relative; /* Essential for positioning the absolute cards and arrows */
+  flex: 1 1 500px; /* Allows content to grow and shrink, with a base width */
+  min-width: 320px; /* Minimum width for content on small screens */
+  height: 380px; /* Fixed height to contain the absolute cards */
+  overflow: hidden; /* Hide cards that are off-screen */
+  display: flex; /* Use flex to align arrows and track */
+  align-items: center; /* Align arrows vertically */
+  justify-content: center; /* Center content horizontally */
+  padding: 1.5rem; /* Padding inside the content area */
+
+}
+
+/* Track for the volunteering cards (holds the dynamically rendered cards) */
+.volunteering-card-track {
+  position: relative; /* Crucial for absolute positioning of .volunteering-card */
+  width: calc(100% - 100px); /* Adjust width to make space for arrows */
+  height: 100%; /* Fill the height of the wrapper */
+  overflow: hidden; /* Ensure only visible card is shown */
+  margin: 0 50px; /* Space for arrows */
+}
+
+/* Individual volunteering info card */
+.volunteering-card {
+  position: absolute; /* Allows cards to overlap and slide */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px; /* Padding inside each card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically within the card */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  background-color: var(--block-background); /* Card background */
+  border-radius: 12px; /* Rounded corners for individual cards */
+  box-shadow: var(--box-shadow); /* Shadow for cards */
+  /* Transitions are handled in JavaScript (getVolunteeringCardStyles) for dynamic properties */
+  border: 1px solid var(--border-color); /* Subtle border for cards */
+}
+
+.volunteering-card h3 {
+  color: var(--highlight-color); /* Heading color */
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.volunteering-card p {
+  color: var(--paragraph-color); /* Paragraph text color */
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Navigation arrows for the volunteering carousel */
+.volunteering-arrow {
+  background-color: var(--button-background); /* Arrow button background */
+  color: var(--hover-color); /* Arrow icon color */
+  border: none;
+  border-radius: 50%; /* Circular buttons */
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 25; /* Ensure arrows are above cards */
+  position: absolute; /* Position relative to .volunteering-content-wrapper */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.volunteering-arrow.prev {
+  left: 10px; /* Position previous arrow on the left */
+}
+
+.volunteering-arrow.next {
+  right: 10px; /* Position next arrow on the right */
+}
+
+.volunteering-arrow:hover {
+  background-color: var(--button-hover-background); /* Hover effect for arrows */
+  transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* ========================================================================== */
+/* === Responsive Adjustments for Volunteering Carousel === */
+/* ========================================================================== */
+@media (max-width: 900px) {
+  .volunteering-carousel-container {
+    flex-direction: column; /* Stack content and image vertically */
+    padding: 30px 15px;
+    min-height: unset; /* Remove fixed min-height for stacked layout */
+  }
+
+  .volunteering-image-display {
+    width: 90%; /* Take more width for the image */
+    flex: 1 1 auto; /* Allow image to grow/shrink */
+    min-width: unset;
+    max-width: 380px; /* Keep max-width for image */
+    margin-bottom: 20px; /* Space between image and content */
+    padding: 0; /* Remove padding if not needed when stacked */
+  }
+  .volunteering-image-display img {
+    height: 250px; /* Adjust image height for mobile */
+    object-fit: cover; /* Ensure image covers the area well */
+  }
+
+  .volunteering-content-wrapper {
+    width: 100%; /* Take full width when stacked */
+    height: 350px; /* Adjust height for stacked layout */
+  }
+
+  .volunteering-card-track {
+    width: calc(100% - 60px); /* Adjust for smaller arrow spacing */
+    margin: 0 30px;
+  }
+
+  .volunteering-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+
+  .volunteering-arrow.prev {
+    left: 5px;
+  }
+
+  .volunteering-arrow.next {
+    right: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .volunteering-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .volunteering-card p {
+    font-size: 1rem;
+  }
+
+  .volunteering-content-wrapper {
+    height: 300px; /* Further reduce height for very small screens */
+    padding: 1rem;
+  }
+}
+
 #awards-certificates h3 {
   color: var(--highlight-color);
   text-align: center;
-}
-.leadership-image,
-.volunteering-image {
-  min-width: 320px;
-  flex: 0 0 380px;
-  max-width: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.leadership-image img,
-.volunteering-image img {
-  max-width: 380px;
-  min-height: 320px;
-  height: 340px;
-  border-radius: 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  background: #f0f0f0;
 }
 
 /* === Awards & Certificates Section Styles (Longer Section & Images, Unified Borders) === */
@@ -378,10 +763,11 @@ section:last-of-type {
 .award-category {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  color: var(--highlight-color, #eb9618);
+  color: var(--primary-color) !important;
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .awards-grid {
@@ -434,7 +820,10 @@ section:last-of-type {
   margin-top: 0.5rem;
   font-weight: 500;
 }
-
+h3, h3 .fas {
+  color: var(--secondary-color);
+  text-align: center;
+}
 /* ========================================================================== */
 /* === Modal (Lightbox) Styles for Awards Section === */
 /* ========================================================================== */
@@ -481,33 +870,15 @@ section:last-of-type {
   transform: scale(1.1); /* Slightly enlarge the 'x' on hover */
   text-decoration: none; /* Remove underline if any */
 }
-
 /* ========================================================================== */
-/* === Responsive Adjustments (existing) === */
+/* === Responsive Adjustments === */
 /* ========================================================================== */
 @media (max-width: 900px) {
-  .leadership-flex,
-  .volunteering-flex {
-    min-height: unset;
-    padding: 20px 0;
-  }
-  .leadership-image,
-  .volunteering-image {
-    min-width: 180px;
-    flex: 0 0 220px;
-    max-width: 100%;
-  }
-  .leadership-image img,
-  .volunteering-image img {
-    max-width: 100%;
-    height: 220px;
-    min-height: 120px;
-  }
+
   #awards-certificates .container {
     min-height: unset;
     padding: 1.5rem 1rem;
   }
-  /* Note: .awards-images img is likely overridden by .award-card img now */
   .awards-images img {
     width: 140px;
     height: 90px;
@@ -515,17 +886,108 @@ section:last-of-type {
 }
 
 @media (max-width: 700px) {
-  .awards-grid {
+  .awards-grid,
+  .testimonial-grid { /* Apply grid changes to both */
     grid-template-columns: 1fr;
     gap: 1.2rem;
   }
-  .award-card {
-    min-height: 200px;
+  .award-card,
+  .testimonial-card {
+    min-height: 200px; /* Adjusted for smaller screens */
     padding: 1rem 0.5rem;
   }
   .award-card img {
     max-width: 100%;
-    height: 90px;
+    height: 90px; /* Adjust image height for mobile */
+  }
+  .testimonial-card img {
+    max-width: 100%;
+    height: 150px; /* Adjust testimonial image height for mobile, keeping portrait feel */
+  }
+}
+
+.testimonial-grid {
+  /* Forces grid to have only two columns, each taking up equal space */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem; /* Spacing between testimonial cards */
+  margin-bottom: 2rem;
+}
+.testimonial-card {
+  background-color: var(--award-card-new-bg); /* Use Award card background */
+  border-radius: 14px;
+  box-shadow: 0 4px 8px var(--award-card-new-shadow); /* Use Award card shadow */
+  border: 2px solid var(--award-card-new-border); /* Use Award card border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 1rem 1rem 1rem;
+  /* Allow card to grow within its two-column grid slot */
+  min-height: 500px; /* Increased min-height to make cards larger */
+  max-width: unset; /* Remove previous max-width constraint */
+  width: 100%; /* Ensure it fills the grid column */
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease; /* Ensure transition for seamless hover */
+}
+.testimonial-card:hover {
+  transform: translateY(-8px); /* Lifts the entire card */
+  box-shadow: 0 8px 16px var(
+      --award-card-new-hover-shadow
+    ); /* Deeper shadow on hover */
+  background-color: var(
+    --award-card-new-hover-bg
+  ); /* New background color on hover */
+  border-color: var(--primary-color); /* Highlight border with primary color */
+}
+
+.testimonial-desc {
+  text-align: center;
+  color: var(--award-text-new-color); /* Use Award text color */
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  flex-grow: 1; /* Allows description to take available vertical space */
+  display: flex; /* Helps center text if short */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+.testimonial-card img {
+  width: 100%; /* Image fills card width minus padding */
+  height: 400px; /* **Increased height for larger portrait testimonial images** */
+  object-fit: contain; /* Shows entire image, good for documents/testimonials */
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background: none; /* Default background if image fails to load */
+  border: none; /* No border on the image itself */
+  box-shadow: none; /* Remove individual image shadow, let card shadow dominate */
+  cursor: pointer; /* Indicates clickability */
+  transition: transform 0.2s ease; /* For subtle image scale on hover */
+}
+
+/* Hover effect for images inside Testimonial Cards */
+.testimonial-card img:hover {
+  transform: scale(1.03); /* A bit more pronounced scale than for award images */
+}
+
+/* ========================================================================== */
+/* === Responsive Adjustments for Testimonials === */
+/* ========================================================================== */
+@media (max-width: 700px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr; /* Stack testimonials on small screens */
+    gap: 1.2rem;
+  }
+  .testimonial-card {
+    min-height: 280px; /* Adjusted min-height for smaller screens */
+    padding: 1rem 0.5rem;
+  }
+  .testimonial-card img {
+    max-width: 100%;
+    height: 180px; /* Adjust testimonial image height for mobile */
   }
 }
 
@@ -657,13 +1119,13 @@ section {
 .section-gradient {
    background: var(--section-gradient);
   border: transparent;
-  padding: 20px 20px; /* Reduce padding inside the section */
-  margin: 0px 0px 50px 0px; /* Reduce space above and below the section */
+  padding: 10px 20px; /* Reduce padding inside the section */
+  margin: 0px 0px 40px 0px; /* Reduce space above and below the section */
 }
 .header-gradient {
    background: var(--section-gradient);
   border: transparent;
-  padding: 20px 20px; /* Reduce padding inside the section */
+  padding: 5px 20px; /* Reduce padding inside the section */
   margin: 0px 0px 50px 0px; /* Reduce space above and below the section */
 }
 /* === HEADER STYLES === */
@@ -764,17 +1226,10 @@ body.light-mode .hamburger {
   color: var(--primary-color); /* Soft teal for section headings */
 }
 
-.resume-flex-container {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap; /* Prevent wrapping */
-}
-
 .resume-block {
   flex: 1;
   min-width: 300px;
+  /*both edu and work have same height */
   padding: 20px;
   border: 1px solid var(--border-color); /* Soft teal border */
   border-radius: 8px;
@@ -805,7 +1260,7 @@ body.light-mode .hamburger {
 }
 
 .resume-block ul li strong {
-  color: var(--secondary-color); /* Slightly darker light gray for titles */
+  color: var(--primary-color); /* Slightly darker light gray for titles */
   font-weight: bold;
 }
 
@@ -829,14 +1284,7 @@ body.light-mode .hamburger {
 }
 /* === SKILLS CATEGORIES === */
 /* === FLEX CONTAINER FOR BLOCKS === */
-.resume-flex-container {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: nowrap;
-  margin-bottom: 30px;
-}
+
 
 /* === EDUCATION SOLO BLOCK === */
 .resume-block.education {
@@ -853,7 +1301,7 @@ body.light-mode .hamburger {
 }
 
 .resume-block.education h3 {
-    color: var(--primary-color);
+    color: var(--secondary-color);
   font-size: 1.6rem;
   margin-bottom: 18px;
   letter-spacing: 1px;
@@ -1526,14 +1974,14 @@ body.light-mode .hamburger {
 
 /* Main Contact Section */
 .portfolio-contact-section {
-  padding: 80px 0;
+  padding: 20px 0;
   background-color: var(--background-color); /* Slightly lighter dark background */
 }
 
 .contact-wrapper {
   max-width: 960px; /* Focused content width */
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px;
   background-color: var(--block-background); /* Darker gray for blocks */
   border-radius: 12px;
   box-shadow: var(--box-shadow-hover); /* Subtle shadow */
