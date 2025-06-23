@@ -2133,3 +2133,29 @@ body.light-mode .hamburger {
   color: var(--text-color);
 }
 
+/* Top-center confirmation popup */
+.form-confirmation-popup {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--highlight-color);
+  color: var(--block-background);
+  font-weight: bold;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.form-confirmation-popup.show {
+  opacity: 1;
+  visibility: visible;
+}

@@ -525,3 +525,39 @@ startVolunteeringAutoScroll();
     });
   }
 });
+
+
+  //form code for emailjs
+  // Initialize EmailJS
+emailjs.init('haMIwCh-eKiLE112-'); // Replace with your actual public key
+
+const btn = document.querySelector('.submit-button-portfolio');
+const form = document.getElementById('contact-form');
+const confirmationMsg = document.getElementById('form-confirmation');
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const serviceID = 'service_7rtzcyd';    // Your EmailJS Service ID
+  const templateID = 'template_z1djt3g';  // Your EmailJS Template ID
+
+  emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      confirmationMsg.style.display = 'block';
+      form.reset();
+
+      // Optional: hide confirmation after 4 seconds
+      setTimeout(() => {
+        confirmationMsg.style.display = 'none';
+      }, 4000);
+    }, (err) => {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      alert('Failed to send: ' + JSON.stringify(err));
+    });
+});
