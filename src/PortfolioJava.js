@@ -339,20 +339,15 @@ startLeadershipAutoScroll();
 
   // --- Volunteering Carousel Scripts ---
   const volunteeringData = [
+   
     {
       id: 1,
-      title: "Food From The Heart",
-      paragraph1: "My volunteering journey began in secondary school with **Food From The Heart**, where I helped pack essentials for elderly beneficiaries. Though a small role, it showed me how meaningful even simple acts of service can be.",
-      image: "../images/volunteering-placeholder.jpg" // Update with actual image path
-    },
-    {
-      id: 2,
       title: "Project Rice (ITE College East)",
       paragraph1: "At **ITE College East**, I became more involved in community projects such as **Project Rice**, packing daily necessities for the elderly. While attendance was only required once, I chose to contribute on both days to give back more deeply.",
       image: "../images/Volunteering-ProjectRice.jpg" // Update with actual image path
     },
     {
-      id: 3,
+      id: 2,
       title: "Meals on Wheels (Bethesda Care Services)",
       paragraph1: "The most rewarding experience was with **Meals on Wheels** under **Bethesda Care Services**. Joining through the **Entrepreneurship Club**, I was the only member to consistently participate, delivering meals and offering companionship to elderly recipients.",
       paragraph2: "This experience deepened my empathy and strengthened my sense of responsibility.",
@@ -525,39 +520,38 @@ startVolunteeringAutoScroll();
     });
   }
 });
+document.getElementById("contact-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
+  const form = e.target;
+  const formData = new FormData(form);
 
-  //form code for emailjs
-  // Initialize EmailJS
-emailjs.init('haMIwCh-eKiLE112-'); // Replace with your actual public key
+  try {
+    const response = await fetch("https://formspree.io/f/xldbagko", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: formData
+    });
 
-const btn = document.querySelector('.submit-button-portfolio');
-const form = document.getElementById('contact-form');
-const confirmationMsg = document.getElementById('form-confirmation');
-
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-
-  const serviceID = 'service_7rtzcyd';    // Your EmailJS Service ID
-  const templateID = 'template_z1djt3g';  // Your EmailJS Template ID
-
-  emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-      confirmationMsg.style.display = 'block';
+    if (response.ok) {
       form.reset();
 
-      // Optional: hide confirmation after 4 seconds
+      // Show confirmation message inside form
+      document.getElementById("form-confirmation").style.display = "block";
+
+      // Show popup
+      const popup = document.getElementById("form-popup");
+      popup.classList.add("show");
+
+      // Hide popup after 4 seconds
       setTimeout(() => {
-        confirmationMsg.style.display = 'none';
+        popup.classList.remove("show");
       }, 4000);
-    }, (err) => {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-      alert('Failed to send: ' + JSON.stringify(err));
-    });
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error("Form submission error:", error);
+    alert("Failed to send message. Please check your internet connection.");
+  }
 });

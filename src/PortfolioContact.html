@@ -40,28 +40,16 @@
     <div class="contact-form-area">
       <h2>Get in Touch!</h2>
       <p>If you'd like to work together, have questions, or just want to say hi — drop me a message!</p>
+      <form action="https://formspree.io/f/xldbagko" method="POST" class="portfolio-form" id="contact-form">
+  <input type="hidden" name="_redirect" value="thank-you.html">
 
-      
-  <!-- Social Media Icons -->
-  <div class="social-media-box">
-  <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank" aria-label="LinkedIn">
-    <i class="fab fa-linkedin"></i> 
-  </a>
- 
-  <a href="https://github.com/your-github-username" target="_blank" aria-label="GitHub">
-    <i class="fab fa-github"></i> 
-  </a>
-</div>
-
-
-   <form class="portfolio-form" id="contact-form">
   <div class="form-row">
     <div class="form-group-portfolio">
       <label for="name" class="form-label-portfolio">
         <i class="fas fa-user"></i> Name <span style="color:red">*</span>
       </label>
       <input type="text" id="name" name="name" class="form-input-portfolio"
-        placeholder="Your Name" required autocomplete="name" aria-label="Your Name" />
+        placeholder="Your Name" required autocomplete="name" aria-label="Your Name">
     </div>
     <div class="form-group-portfolio">
       <label for="subject" class="form-label-portfolio">
@@ -69,11 +57,11 @@
       </label>
       <select id="subject" name="subject" class="form-input-portfolio" required aria-label="Subject">
         <option value="" disabled selected>-- Select a subject --</option>
-        <option value="Collaboration">Collaboration</option>
-        <option value="Freelance Work">Freelance Work</option>
-        <option value="Feedback">Feedback</option>
-        <option value="General Question">General Question</option>
-        <option value="Other">Other</option>
+        <option value="collaboration">Collaboration</option>
+        <option value="freelance">Freelance Work</option>
+        <option value="feedback">Feedback</option>
+        <option value="question">General Question</option>
+        <option value="other">Other</option>
       </select>
     </div>
   </div>
@@ -83,7 +71,7 @@
       <i class="fas fa-envelope"></i> Email <span style="color:red">*</span>
     </label>
     <input type="email" id="email" name="email" class="form-input-portfolio"
-      placeholder="Your Email" required autocomplete="email" aria-label="Your Email" />
+      placeholder="Your Email" required autocomplete="email" aria-label="Your Email">
   </div>
 
   <div class="form-group-portfolio">
@@ -93,12 +81,8 @@
     <textarea id="message" name="message" rows="7" class="form-textarea-portfolio"
       placeholder="Your Message" required aria-label="Your Message"></textarea>
   </div>
-
   <button type="submit" class="submit-button-portfolio">Send Message</button>
 
-  <div id="form-confirmation" style="display:none; color:var(--highlight-color); margin-top:20px; font-weight:bold;">
-    Thank you! Your message has been sent.
-  </div>
 </form>
     </div>
   </div>
@@ -109,10 +93,10 @@
     <p>&copy; 2025 Khen's Portfolio. All rights reserved.</p>
   </div>
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<div id="form-popup" class="form-popup">
+  <p>✅ Your form has been submitted successfully.</p>
+</div>
 <script src="PortfolioJava.js"></script>
-
 
   
 </body>

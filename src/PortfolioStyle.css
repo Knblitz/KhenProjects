@@ -106,6 +106,13 @@
             --IndexProject-arrow-bg: var(--button-background);
             --IndexProject-arrow-hover-bg: var(--button-hover-background);
             --IndexProject-arrow-color: var(--hover-color); /* White text for arrows */
+
+     /* === Index CV  Colors === */
+
+             --cv-button-bg: #ffd05e;
+             --cv-button-hover-bg: #ffb347;
+             --cv-button-text: #1a2b1e; 
+             --cv-button-hover-text: #ffffff;
 }
 
 
@@ -203,6 +210,12 @@ body.dark-mode {
             --Timeline-tag-work-bg: #3c5a3d; --Timeline-tag-work-color: #86efac; /* Adjusted for dark mode */
             --Timeline-tag-project-bg: #5e4a2a; --Timeline-tag-project-color: #fcd34d; /* Adjusted for dark mode */
             --Timeline-tag-future-bg: #4a3c5e; --Timeline-tag-future-color: #c4b5fd; /* Adjusted for dark mode */
+
+            /* === Index CV  Colors === */
+             --cv-button-bg: #fcbf49;
+             --cv-button-hover-bg: #f77f00;
+             --cv-button-text: #ffffff;
+             --cv-button-hover-text: #000000;
 }
 * {
   margin: 0;
@@ -223,7 +236,6 @@ body {
 /* Footer Gradient */
 .footer-gradient {
     background: var(--footer-gradient); /* Reverse gradient */
-    margin: 45px 0 0 0;
   padding: 20px 0; /* Add padding for spacing */
   text-align: center; /* Center-align the text */
   border: transparent; /* No border */
@@ -340,6 +352,37 @@ section:last-of-type {
   margin-bottom: 18px;
   letter-spacing: 1px;
 }
+/*CV Button styles */
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cv-button-bg);
+  color: var(--cv-button-text);
+  text-decoration: none;
+  border: none;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.download-cv-btn i {
+  font-size: 18px;
+}
+
+.download-cv-btn:hover {
+  background-color: var(--cv-button-hover-bg);
+  color: var(--cv-button-hover-text);
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-1px);
+}
+
 /* Main container for the leadership carousel, which holds both text cards and image */
 .leadership-carousel-container {
   display: flex; /* Use flexbox for side-by-side layout */
@@ -995,30 +1038,35 @@ h3, h3 .fas {
 /* Social Media Icons */
 .social-media-box {
   display: flex;
+  flex-direction: row;
   justify-content: left;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   margin-top: 20px;
-  margin-bottom: 32px;
+  margin-bottom: 32px; /* Add gap below social media box */
+  text-align: center;
 }
 
 .social-media-box a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--primary-color); /* or use a light gray like #f0f0f0 */
-  color: white;
+  display: flex;
+  align-items: center;        /* Center icon and text vertically */
+  gap: 6px;                   /* Space between icon and text */
+  color: var(--primary-color);
+  font-size: 1.2rem;          /* Slightly smaller text */
   text-decoration: none;
-  font-size: 1.6rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 4px 10px;
+}
+
+.social-media-box a i {
+  font-size: 1.5rem;          /* Keep icon slightly larger than text */
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .social-media-box a:hover {
-  transform: scale(1.2);
-  background-color: var(--hover-highlight); /* e.g. bright yellow or light blue */
+  color: var(--hover-highlight); /* Bright yellow on hover */
+  transform: scale(1.2); /* Slight zoom effect */
 }
 
 /* Button Styling */
@@ -1116,6 +1164,7 @@ section {
    background: var(--section-gradient);
   border: transparent;
   padding: 10px 20px; /* Reduce padding inside the section */
+  margin: 0px 0px 40px 0px; /* Reduce space above and below the section */
 }
 .header-gradient {
    background: var(--section-gradient);
@@ -1222,16 +1271,17 @@ body.light-mode .hamburger {
 }
 
 .resume-block {
-  flex: 1;
+  flex: 1; 
   min-width: 300px;
-  min-height:40rem;
   padding: 20px;
-  border: 1px solid var(--border-color); /* Soft teal border */
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  background-color: var(--block-background); /* Darker gray for blocks */
-  color: var(--text-color); /* White text */
-  box-shadow: var(--box-shadow); /* Subtle shadow */
+  background-color: var(--block-background);
+  color: var(--text-color);
+  box-shadow: var(--box-shadow);
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column; 
 }
 
 .resume-block h3 {
@@ -1549,10 +1599,9 @@ body.light-mode .hamburger {
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap; /* Prevent wrapping */
+  align-items: stretch; /* ✅ Stretch children to equal height */
+  flex-wrap: nowrap;   
 }
-
 .SkillPage .resume-block {
   flex: 1; /* Each block takes equal space */
   min-width: 300px; /* Ensure a minimum width */
@@ -1815,242 +1864,295 @@ body.light-mode .hamburger {
   right: 10px;
 }
 /* === PROJECT SECTION === */
-/* Container */
 .project-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* Title */
 .project-title {
   text-align: center;
   margin-bottom: 2rem;
   color: var(--primary-color);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
-/* Layout toggle buttons */
+
+
+.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 2.5rem 2.5rem 2.5rem 2rem; /* More padding */
+  margin-bottom: 2.5rem;
+  background: var(--block-background);
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+  max-width: 1100px; /* Wider cards */
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.project-img {
+  width: 100%;
+  max-width: 380px;
+  height: 240px;
+  object-fit: cover;
+  background: #f0f0f0 url('https://via.placeholder.com/320x180?text=No+Image') center center no-repeat;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.project-info {
+  padding: 24px 0 24px 24px;
+    text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 260px;
+}
+
+.project-info h3 {
+  margin: 0 0 14px 0;
+  color: var(--highlight-color);
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+}
+
+.project-info p {
+  color: var(--paragraph-color);
+  margin-bottom: 20px;
+  font-size: 1.15rem;
+}
+
+.project-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  background: var(--highlight-color);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  align-self: center;
+  margin-top: auto;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-width: 150px;
+  width: fit-content;
+  max-width: 100%;
+  max-height: 50px;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.project-link:hover {
+  background: var(--hover-highlight);
+  color: var(--text-color);
+  transform: scale(1.06);
+}
+
 .layout-toggle {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
   justify-content: flex-end;
 }
+
 .layout-toggle button {
   background: none;
-  border: 1px solid var(--paragraph-color, #ccc);
-  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.8rem;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
-  color: var(--paragraph-color, #666);
-  transition: background 0.2s, color 0.2s;
-}
-.layout-toggle button.active,
-.layout-toggle button:hover {
-  background: var(--block-background, #eee);
-  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: background 0.2s;
 }
 
-/* Project list base (vertical) */
+.layout-toggle button.active,
+.layout-toggle button:hover {
+  background: #eee;
+}
+
 .project-list {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  text-align: left;
+   font-size: 1rem;
   margin-bottom: 0.8rem;
+  text-align: left;
 }
 
-/* Grid mode */
 .project-list.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 2rem;
 }
 
-/* Project card */
-.project {
-  background: var(--block-background);
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-}
-.project:hover {
-  box-shadow: var(--box-shadow-hover, 0 6px 24px rgba(0, 0, 0, 0.15));
-  transform: translateY(-4px) scale(1.02);
-}
-
-/* Responsive side-by-side on larger screens */
-@media (min-width: 900px) {
-  .project {
-    flex-direction: row;
-  }
-  .project-img {
-    flex: 0 0 380px;
-    height: 240px;
-  }
-  .project-info {
-    padding: 24px;
-    flex: 1;
-  }
-}
-
-/* Image styling */
-.project-img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  background: #f0f0f0 url('https://via.placeholder.com/380x240?text=No+Image') center center no-repeat;
-  display: block;
-}
-
-/* Info area */
-.project-info {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.project-info h3 {
-  margin: 0 0 12px 0;
-  color: var(--highlight-color);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-}
-.project-info p {
-  color: var(--paragraph-color);
-  margin-bottom: 16px;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  line-height: 1.5;
-}
-.project-link {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: bold;
-  background: var(--highlight-color);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  align-self: flex-start;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-.project-link:hover {
-  background: var(--hover-highlight);
-  color: var(--text-color);
-  transform: scale(1.05);
-}
-
-/* Ensure project cards fill grid cells */
 .project-list.grid .project {
-  width: 100%;
+  /* Optional: adjust for grid look */
+  height: 100%;
+}
+.project-list.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-/* Mobile adjustments */
-@media (max-width: 700px) {
-  .project {
-    flex-direction: column;
-  }
-  .layout-toggle {
-    justify-content: center;
-  }
+/* Adjust the .project layout inside grid */
+.project-list.grid .project {
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 100%;
+  height: 100%;
+}
+
+/* Image styling for grid layout */
+.project-list.grid .project-img {
+  max-width: 100%;
+  height: 200px;
+
+  margin-bottom: 1rem;
+}
+
+/* Info block should align center and have smaller padding */
+.project-list.grid .project-info {
+  padding: 0;
+  align-items: center;
+  text-align: center;
+  min-height: auto;
+}
+
+/* Title size reduced slightly */
+.project-list.grid .project-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraph styling inside grid view */
+.project-list.grid .project-info p {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+/* Button centered and slightly smaller */
+.project-list.grid .project-link {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 0;
 }
 
 /* === CONTACT US PAGE STYLES === */
 
 /* Main Contact Section */
 .portfolio-contact-section {
-  padding: 16px 0; /* reduced from 20px */
-  background-color: var(--background-color);
+  padding: 20px 0;
+  background-color: var(--background-color); /* Slightly lighter dark background */
 }
 
 .contact-wrapper {
-  max-width: 440px; /* reduced from 480px */
+  max-width: 660px; /* Focused content width */
   margin: 0 auto;
-  padding: 16px; /* reduced from 20px */
-  background-color: var(--block-background);
+  padding: 20px;
+  background-color: var(--block-background); /* Darker gray for blocks */
   border-radius: 12px;
-  box-shadow: var(--box-shadow-hover);
-  display: grid;
-  gap: 34px; /* reduced from 40px */
-  align-items: flex-start;
+  box-shadow: var(--box-shadow-hover); /* Subtle shadow */
+  grid-template-columns: 1fr 1fr; /* Two equal columns for info and form */
+  gap: 40px;
+  align-items: flex-start; /* Align content to the top */
 }
+
 
 /* Contact Information Area */
 .contact-info-area {
-  padding-right: 26px; /* reduced from 30px */
-  border-right: 1px solid var(--separator-color);
+  padding-right: 30px;
+  border-right: 1px solid var(--separator-color); /* Subtle separator */
 }
 
+
+
 .contact-info-area h2 {
-  font-size: 2.0rem; /* reduced from 2.4rem */
-  color: var(--text-color);
-  margin-bottom: 21px; /* reduced from 25px */
-  border-bottom: 2px solid var(--icon-color);
-  padding-bottom: 8px; /* reduced from 10px */
+  font-size: 2.4rem;
+  color: var(--text-color); /* White text */
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--icon-color); /* Professional blue accent */
+  padding-bottom: 10px;
 }
 
 .contact-details-portfolio {
-  margin-top: 17px; /* reduced from 20px */
+  margin-top: 20px;
+  
 }
 
 .contact-details-portfolio p {
-  color: var(--subheading-color);
-  margin-bottom: 17px; /* reduced from 20px */
-  font-size: 1.3rem; /* reduced from 1.5rem */
-  line-height: 1.6; /* reduced slightly from 1.8 */
+  color: var(--subheading-color); /* Subtle gray for text */
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 1.8;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-details-portfolio p i {
-  margin-right: 8px; /* reduced from 10px */
-  color: var(--icon-color);
-  font-size: 1.2rem; /* reduced from 1.4rem */
+  margin-right: 10px;
+  color: var(--icon-color); /* Professional blue icon */
+  font-size: 1.4rem;
 }
-
 .contact-details-portfolio p a {
-  margin-right: 8px; /* reduced from 10px */
-  color: var(--icon-color);
-  font-size: 1.2rem; /* reduced from 1.4rem */
+  margin-right: 10px;
+  color: var(--icon-color); /* Professional blue icon */
+  font-size: 1.4rem;
 }
 
-.contact-details-portfolio p:hover i,
-.contact-details-portfolio p a:hover {
-  color: var(--highlight-color);
+.contact-details-portfolio p:hover i,.contact-details-portfolio p a:hover {
+  color: var(--highlight-color); /* Muted green on hover */
   transform: scale(1.1);
   transition: color 0.3s, transform 0.2s;
 }
 
 /* Contact Form Area */
 .contact-form-area {
-  padding-left: 26px; /* reduced from 30px */
+  padding-left: 30px;
 }
+
+
 
 .contact-form-area h2 {
-  font-size: 2.0rem; /* reduced from 2.4rem */
-  color: var(--text-color);
-  margin-bottom: 21px; /* reduced from 25px */
-  text-align: left;
-  border-bottom: 2px solid var(--highlight-color);
-  padding-bottom: 8px; /* reduced from 10px */
+  font-size: 2.4rem;
+  color: var(--text-color); /* White text */
+  margin-bottom: 25px;
+  text-align: left; /* Align form heading to the left */
+  border-bottom: 2px solid var(--highlight-color); /* Muted green accent */
+  padding-bottom: 10px;
 }
-
 /* Contact form container */
 .portfolio-form {
   display: flex;
   flex-direction: column;
-  gap: 17px; /* reduced from 20px */
+  gap: 20px;
 }
 
 /* Group name and subject side by side on desktop */
 .form-row {
   display: flex;
-  gap: 17px; /* reduced from 20px */
+  gap: 20px;
 }
 
 .form-row .form-group-portfolio {
@@ -2058,6 +2160,8 @@ body.light-mode .hamburger {
   flex-direction: column;
   min-width: 0;
 }
+
+
 
 /* Make all inputs and selects full width inside their flex container */
 .portfolio-form input,
@@ -2072,25 +2176,25 @@ body.light-mode .hamburger {
 /* Label styling */
 .form-label-portfolio {
   color: var(--paragraph-color);
-  margin-bottom: 7px; /* reduced from 8px */
-  font-size: 0.9rem; /* reduced from 1rem */
+  margin-bottom: 8px;
+  font-size: 1rem;
   display: block;
 }
 
 .form-label-portfolio i {
-  margin-right: 7px; /* reduced from 8px */
+  margin-right: 8px;
   color: var(--icon-color);
 }
 
 /* Input and select styling */
 .form-input-portfolio,
 .form-textarea-portfolio {
-  padding: 10px 13px; /* reduced from 12px 15px */
+  padding: 12px 15px;
   border: 1px solid #444;
   border-radius: 6px;
   background-color: var(--dark-gray);
   color: var(--text-color);
-  font-size: 0.9rem; /* reduced from 1rem */
+  font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -2109,18 +2213,18 @@ body.light-mode .hamburger {
 /* Textarea specific */
 .form-textarea-portfolio {
   resize: vertical;
-  min-height: 120px; /* reduced from 140px */
+  min-height: 140px;
 }
 
 /* Submit button styling */
 .submit-button-portfolio {
-  padding: 12px 26px; /* reduced from 14px 30px */
+  padding: 14px 30px;
   background-color: var(--highlight-color);
   color: var(--block-background);
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  font-size: 1rem; /* reduced from 1.1rem */
+  font-size: 1.1rem;
   font-weight: bold;
   transition: background-color 0.3s, transform 0.2s, color 0.3s;
   align-self: center;
@@ -2133,29 +2237,26 @@ body.light-mode .hamburger {
   color: var(--text-color);
 }
 
-/* Top-center confirmation popup */
-.form-confirmation-popup {
+
+.form-popup {
   position: fixed;
-  top: 80px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--highlight-color);
-  color: var(--block-background);
+  color: var(--text-color);
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-hover);
   font-weight: bold;
-  padding: 14px 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  font-size: 1rem;
   z-index: 9999;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
-.form-confirmation-popup.show {
+.form-popup.show {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
 }

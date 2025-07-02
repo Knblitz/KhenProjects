@@ -130,7 +130,21 @@
 <script src="PortfolioJava.js"></script>
  <script>
     // Light/Dark mode toggle
-  
+   const toggleBtn = document.getElementById('mode-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleBtn.textContent = '🌙';
+      } else {
+        toggleBtn.textContent = '☀️';
+      }
+    });
+
 
      // Sticky hover for timeline-content
   document.querySelectorAll('.timeline-content').forEach(card => {
