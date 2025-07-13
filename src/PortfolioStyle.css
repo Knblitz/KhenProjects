@@ -1,74 +1,66 @@
 :root {
-  /* === Primary Colors === */
-  --primary-color: #43b581;
-  --secondary-color: #ffb347;
-  --highlight-color: #eb9618;    
-  --hover-color: #ffffff;          /* Strong green for hover backgrounds */
-  --hover-highlight: #ffd600;      /* Deep green for hover highlights */
-  --link-hover-color: #ff9800;     /* Orange for link underline/hover */
+   /* === Primary Colors === */
+            --primary-color: #43b581;
+            --secondary-color: #ffb347;
+            --highlight-color: #eb9618;
+            --hover-color: #ffffff; /* Strong green for hover backgrounds */
+            --hover-highlight: #ffd600; /* Deep green for hover highlights */
+            --link-hover-color: #ff9800; /* Orange for link underline/hover */
 
-  /* === Background Colors === */
-  --background-color: #eeeeee;
-  --headernav: #bdf0ac;
-  --section-background: #f1faee;
-  --block-background: #e9f5db;
-  --dropdown-background: #ffffff;
+            /* === Background Colors === */
+            --background-color: #eeeeee;
+            --headernav: #bdf0ac;
+            --section-background: #f1faee;
+            --block-background: #e9f5db;
+            --dropdown-background: #ffffff;
 
-  /* === Footer & Gradient === */
-  --footer-gradient: linear-gradient(to top, #c7f9cc 0%, #f1faee 100%);
-  --section-gradient: linear-gradient(to bottom, #bdf0ac 10%, #eeeeee 90%);
+            /* === Footer & Gradient === */
+            --footer-gradient: linear-gradient(to top, #c7f9cc 0%, #f1faee 100%);
+            --section-gradient: linear-gradient(to bottom, #bdf0ac 10%, #eeeeee 90%);
 
-  /* === Text Colors === */
-  --text-color: #1a2b1e;
-  --light-gray: #3a4a3c;
-  --dark-gray: #7a8a7c;
-  --subheading-color: #256029;
-  --paragraph-color: #2d3a2e;
-  --link-color: #ff9800;
-  --link-hover-text: #000000;
+            /* === Text Colors === */
+            --text-color: #1a2b1e;
+            --light-gray: #3a4a3c;
+            --dark-gray: #7a8a7c;
+            --subheading-color: #256029;
+            --paragraph-color: #2d3a2e;
+            --link-hover-text: #000000;
 
-  /* === Borders === */
-  --border-color: #43b581;
-  --separator-color: #b7b7a4;
+            /* === Borders === */
+            --border-color: #43b581;
+            --separator-color: #b7b7a4;
 
-  /* === Shadows === */
-  --shadow-color: rgba(67, 181, 129, 0.08);
-  --box-shadow: 0 4px 8px var(--shadow-color);
-  --box-shadow-hover: 0 8px 16px rgba(255, 147, 76, 0.12);
-  --teal-shadow: 0 4px 12px #43b581;
+            /* === Shadows === */
+            --box-shadow: 0 4px 8px rgba(67, 181, 129, 0.08);
+            --box-shadow-hover: 0 8px 16px rgba(255, 147, 76, 0.12);
+            --subtle-bottom-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            --subtle-bottom-shadow-hover: 0 8px 12px -4px rgba(0, 0, 0, 0.15);
 
-  /* === Buttons === */
-  --button-background: #ffb347;
-  --button-hover-background: #ff924c;
-  --cta-button-background: #43b581;
-  --cta-button-hover: #256029;
 
-  /* === Miscellaneous === */
-  --icon-color: #43b581;
-  --hover-icon-color: #ff924c;
+            /* === Buttons === */
+            --button-background: #ffb347;
+            --button-hover-background: #ff924c;
+            --cta-button-background: #43b581;
+            --cta-button-hover: #256029;
 
-/* === Awards & Certificates Grids - NEW SPECIFIC COLORS === */
-  --award-card-new-bg: #e0ffee; /* A very light, clean background for cards */
-  --award-card-new-shadow: rgba(0, 0, 0, 0.05); /* Lighter, subtle shadow */
-  --award-card-new-hover-shadow: rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
-    --award-card-new-hover-bg: #fcc4a2; /* A soft, light green on hover */
+            /* === Miscellaneous === */
+            --icon-color: #43b581;
+            --hover-icon-color: #ff924c;
 
-  --award-card-new-border: #43b581; /* A very light gray border */
-  --award-text-new-color: rgb(0, 0, 0); /* Darker text for readability */
+            /* === Awards & Certificates Grids - NEW SPECIFIC COLORS === */
+            --award-card-new-bg: #e0ffee;
+            --award-card-new-shadow: rgba(0, 0, 0, 0.05);
+            --award-card-new-hover-shadow: rgba(0, 0, 0, 0.15);
+            --award-card-new-hover-bg: #fcc4a2;
+            --award-card-new-border: #43b581;
+            --award-text-new-color: rgb(0, 0, 0);
 
- /*=== About Page Stylers ===*/
+            /*=== About Page Stylers ===*/
             --about-text: #22223b;
             --about-card-bg: #f7fafc;
-            --about-card-shadow: 0 2px 16px rgba(79,140,255,0.07);
+            --about-card-shadow: 0 2px 16px rgba(79, 140, 255, 0.07);
 
-            --content-bg: #0c0c0c;
-            --timeline-line: #4f8cff;
-            --timeline-text: #22223b;
-            --timeline-card-bg: #ffffff;
-            --timeline-hover-bg: #c0efcf;
-            --timeline-hover-shadow: 0 4px 24px rgba(79,140,255,0.15);
-
-            /* --- NEW: About Page Specific Variables --- */
+            /* --- About Page Specific Variables --- */
             --About-section-text-color: var(--about-text);
             --About-container-bg: var(--about-card-bg);
             --About-container-shadow: var(--about-card-shadow);
@@ -79,112 +71,107 @@
             --About-link-highlight-color: var(--highlight-color);
             --About-link-hover-color: #c4d888; /* Specific hover color */
 
-            /* --- NEW: Timeline Specific Variables --- */
-            --Timeline-section-title-color: var(--text-color); /* Assuming timeline title uses main text color */
-            --Timeline-line-color: var(--timeline-line);
-            --Timeline-card-bg: var(--timeline-card-bg);
-            --Timeline-card-shadow: 0 2px 8px rgba(79,140,255,0.06); /* Keeping original shadow value */
-            --Timeline-text-color: var(--timeline-text);
-            --Timeline-title-color: var(--primary-color);
-            --Timeline-year-color: #64748b; /* Keeping original value */
-            --Timeline-hover-bg: var(--timeline-hover-bg);
-            --Timeline-hover-shadow: var(--timeline-hover-shadow);
+  /* --- NEW: Timeline Specific Variables --- */
+  --Timeline-section-title-color: var(--text-color); /* Assuming timeline title uses main text color */
+  --Timeline-line-color: #4f8cff; /* Corrected: Concrete value for light mode */
+  --Timeline-card-bg: #ffffff; /* Corrected: Concrete value for light mode */
+  --Timeline-card-shadow: 0 2px 8px rgba(79, 140, 255, 0.06); /* Keeping original shadow value */
+  --Timeline-text-color: #22223b; /* Corrected: Concrete value for light mode */
+  --Timeline-title-color: var(--primary-color);
+  --Timeline-year-color: #64748b; /* Keeping original value */
+  --Timeline-hover-bg: #c0efcf; /* Corrected: Concrete value for light mode */
+  --Timeline-hover-shadow: 0 4px 24px rgba(79, 140, 255, 0.15); /* Corrected: Concrete value for light mode */
 
-            --Timeline-tag-school-bg: #e0f0ff; --Timeline-tag-school-color: #2563eb;
-            --Timeline-tag-work-bg: #d1fae5; --Timeline-tag-work-color: #15803d;
-            --Timeline-tag-project-bg: #fef3c7; --Timeline-tag-project-color: #b45309;
-            --Timeline-tag-future-bg: #ede9fe; --Timeline-tag-future-color: #7c3aed;
+  --Timeline-tag-school-bg: #e0f0ff;
+  --Timeline-tag-school-color: #2563eb;
+  --Timeline-tag-work-bg: #d1fae5;
+  --Timeline-tag-work-color: #15803d;
+  --Timeline-tag-projects-bg: #fef3c7;
+  --Timeline-tag-projects-color: #b45309;
+  --Timeline-tag-future-bg: #ede9fe;
+  --Timeline-tag-future-color: #7c3aed;
 
-     /* === IndexProject Carousel Colors === */
-            --IndexProject-section-bg: var(--primary-bg);
-            --IndexProject-title-color: var(--text-color);
-            --IndexProject-desc-color: var(--paragraph-color);
-            --IndexProject-card-bg: var(--block-background);
-            --IndexProject-card-text: var(--text-color);
-            --IndexProject-card-border: var(--border-color);
-            --IndexProject-card-shadow: var(--box-shadow);
-            --IndexProject-arrow-bg: var(--button-background);
-            --IndexProject-arrow-hover-bg: var(--button-hover-background);
-            --IndexProject-arrow-color: var(--hover-color); /* White text for arrows */
+  /* === IndexProject Carousel Colors === */
+  --IndexProject-section-bg: var(--primary-bg);
+  --IndexProject-title-color: var(--text-color);
+  --IndexProject-desc-color: var(--paragraph-color);
+  --IndexProject-card-bg: var(--block-background);
+  --IndexProject-card-text: var(--text-color);
+  --IndexProject-card-border: var(--border-color);
+  --IndexProject-card-shadow: var(--box-shadow);
+  --IndexProject-arrow-bg: var(--button-background);
+  --IndexProject-arrow-hover-bg: var(--button-hover-background);
+  --IndexProject-arrow-color: var(--hover-color); /* White text for arrows */
 
-     /* === Index CV  Colors === */
+  /* === Index CV Colors === */
 
-             --cv-button-bg: #ffd05e;
-             --cv-button-hover-bg: #ffb347;
-             --cv-button-text: #1a2b1e; 
-             --cv-button-hover-text: #ffffff;
+  --cv-button-bg: #ffd05e;
+  --cv-button-hover-bg: #ffb347;
+  --cv-button-text: #1a2b1e;
+  --cv-button-hover-text: #ffffff;
 }
 
-
 body.dark-mode {
+            /* === Primary Colors === */
+            --primary-color: #4db6ac;
+            --secondary-color: #8baaff;
+            --highlight-color: #a7c957;
+            --hover-color: #379a92;
+            --hover-highlight: #ffc800;
+            --link-hover-color: #3a9c8a;
 
- /* === Primary Colors === */
-  --primary-color: #4db6ac;
-  --secondary-color: #8baaff;
-  --highlight-color: #a7c957;
-  --hover-color: #379a92;
-  --hover-highlight: #ffc800;
-  --link-hover-color: #3a9c8a;
+            /* === Background Colors === */
+            --background-color: #121212;
+            --headernav: #1e1e1e;
+            --section-background: #1e1e1e;
+            --block-background: #2a2a2a;
+            --dropdown-background: #1e1e1e;
+            /* === Footer & Gradient === */
+            --footer-gradient: linear-gradient(to top, #121212, #1e1e1e);
+            --section-gradient: linear-gradient(to bottom, #1e1e1e 10%, #121212 90%);
 
-  /* === Background Colors === */
-  --background-color: #121212;
-  --headernav: #1e1e1e;
-  --section-background: #1e1e1e;
-  --block-background: #2a2a2a;
-  --dropdown-background: #1e1e1e;
-/* === Footer & Gradient === */
-  --footer-gradient: linear-gradient(to top, #121212, #1e1e1e);
-  --section-gradient: linear-gradient(to bottom, #1e1e1e 10%, #121212 90%);
+            /* === Text Colors === */
+            --text-color: #ffffff;
+            --light-gray: #e0e0e0;
+            --dark-gray: #333333;
+            --subheading-color: #aaa;
+            --paragraph-color: #bbb;
+            --link-hover-text: #ffc800;
 
-  /* === Text Colors === */
-  --text-color: #ffffff;
-  --light-gray: #e0e0e0;
-  --dark-gray: #333333;
-  --subheading-color: #aaa;
-  --paragraph-color: #bbb;
-  --link-color: #4db6ac;
-  --link-hover-text: #ffc800;
+            /* === Borders === */
+            --border-color: #4db6ac;
+            --separator-color: #333;
 
-  /* === Borders === */
-  --border-color: #4db6ac;
-  --separator-color: #333;
+            /* === Shadows === */
+            --box-shadow: 0 4px 8px rgba(77, 182, 172, 0.15);
+            --box-shadow-hover: 0 8px 16px rgba(77, 182, 172, 0.3);
+            --subtle-bottom-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+            --subtle-bottom-shadow-hover: 0 8px 12px -4px rgba(0, 0, 0, 0.4);
 
-  /* === Shadows === */
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --box-shadow: 0 4px 8px var(--shadow-color);
-  --box-shadow-hover: 0 8px 16px rgba(90, 90, 90, 0.4);
-  --teal-shadow: 0 4px 12px #4db6ac;
+            /* === Buttons === */
+            --button-background: #007bff;
+            --button-hover-background: #0056b3;
+            --cta-button-background: #a7c957;
+            --cta-button-hover: #8cba51;
 
-  /* === Buttons === */
-  --button-background: #007bff;
-  --button-hover-background: #0056b3;
-  --cta-button-background: #a7c957;
-  --cta-button-hover: #8cba51;
+            /* === Miscellaneous === */
+            --icon-color: #64b5f6;
+            --hover-icon-color: #a7c957;
 
-  /* === Miscellaneous === */
-  --icon-color: #64b5f6;
-  --hover-icon-color: #a7c957;
-  
-   /* === Awards & Certificates Grids - NEW SPECIFIC COLORS (Dark Mode) === */
-  --award-card-new-bg: #2b2b2b; /* Dark charcoal background for cards */
-  --award-card-new-shadow: rgba(0, 0, 0, 0.4); /* Darker, more noticeable shadow */
-  --award-card-new-hover-shadow: rgba(0, 0, 0, 0.6); /* Even more pronounced shadow on hover */
-  --award-card-new-border: #4a4a4a; /* A darker gray border */
-  --award-text-new-color: #f0f0f0; /* Lighter text for readability */
-  
-   /*=== About Page Stylers ===*/
+            /* === Awards & Certificates Grids - NEW SPECIFIC COLORS (Dark Mode) === */
+            --award-card-new-bg: #2b2b2b;
+            --award-card-new-shadow: rgba(0, 0, 0, 0.4);
+            --award-card-new-hover-shadow: rgba(0, 0, 0, 0.6);
+            --award-card-new-hover-bg: #3a4a3c;
+            --award-card-new-border: #4a4a4a;
+            --award-text-new-color: #f0f0f0;
+
+            /*=== About Page Stylers ===*/
             --about-text: #e0e7ef;
             --about-card-bg: #23272f;
-            --about-card-shadow: 0 2px 16px rgba(79,140,255,0.18);
+            --about-card-shadow: 0 2px 16px rgba(79, 140, 255, 0.18);
 
-            --content-bg: #23272f;
-            --timeline-line: #7dd3fc;
-            --timeline-text: #e0e7ef;
-            --timeline-card-bg: #23272f;
-            --timeline-hover-bg: #22304a;
-            --timeline-hover-shadow: 0 4px 24px rgba(125,211,252,0.18);
-
-            /* --- NEW: About Page Specific Variables (Dark Mode) --- */
+            /* --- About Page Specific Variables (Dark Mode) --- */
             --About-section-text-color: var(--about-text);
             --About-container-bg: var(--about-card-bg);
             --About-container-shadow: var(--about-card-shadow);
@@ -195,28 +182,33 @@ body.dark-mode {
             --About-link-highlight-color: var(--highlight-color);
             --About-link-hover-color: #8cba51; /* Specific hover color for dark mode */
 
-            /* --- NEW: Timeline Specific Variables (Dark Mode) --- */
+            /* --- Timeline Specific Variables (Dark Mode) --- */
             --Timeline-section-title-color: var(--text-color);
-            --Timeline-line-color: var(--timeline-line);
-            --Timeline-card-bg: var(--timeline-card-bg);
-            --Timeline-card-shadow: 0 2px 8px rgba(79,140,255,0.06);
-            --Timeline-text-color: var(--timeline-text);
+            --Timeline-line-color: #7dd3fc;
+            --Timeline-card-bg: #23272f;
+            --Timeline-card-shadow: 0 2px 8px rgba(79, 140, 255, 0.06);
+            --Timeline-text-color: #e0e7ef;
             --Timeline-title-color: var(--primary-color);
-            --Timeline-year-color: #a0a0a0; /* Adjusted for dark mode readability */
-            --Timeline-hover-bg: var(--timeline-hover-bg);
-            --Timeline-hover-shadow: var(--timeline-hover-shadow);
+            --Timeline-year-color: #a0a0a0;
+            --Timeline-hover-bg: #22304a;
+            --Timeline-hover-shadow: 0 4px 24px rgba(125, 211, 252, 0.18);
 
-            --Timeline-tag-school-bg: #2a3d5e; --Timeline-tag-school-color: #7dd3fc; /* Adjusted for dark mode */
-            --Timeline-tag-work-bg: #3c5a3d; --Timeline-tag-work-color: #86efac; /* Adjusted for dark mode */
-            --Timeline-tag-project-bg: #5e4a2a; --Timeline-tag-project-color: #fcd34d; /* Adjusted for dark mode */
-            --Timeline-tag-future-bg: #4a3c5e; --Timeline-tag-future-color: #c4b5fd; /* Adjusted for dark mode */
+            --Timeline-tag-school-bg: #2a3d5e;
+            --Timeline-tag-school-color: #7dd3fc;
+            --Timeline-tag-work-bg: #3c5a3d;
+            --Timeline-tag-work-color: #86efac;
+            --Timeline-tag-projects-bg: #5e4a2a;
+            --Timeline-tag-projects-color: #fcd34d;
+            --Timeline-tag-future-bg: #4a3c5e;
+            --Timeline-tag-future-color: #c4b5fd;
 
-            /* === Index CV  Colors === */
-             --cv-button-bg: #fcbf49;
-             --cv-button-hover-bg: #f77f00;
-             --cv-button-text: #ffffff;
-             --cv-button-hover-text: #000000;
+  /* === Index CV Colors === */
+  --cv-button-bg: #fcbf49;
+  --cv-button-hover-bg: #f77f00;
+  --cv-button-text: #ffffff;
+  --cv-button-hover-text: #000000;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -228,6 +220,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* === STYLES FOR OTHER PAGES (Excluding Contact Us) === */
@@ -387,6 +380,7 @@ section:last-of-type {
 .leadership-carousel-container {
   display: flex; /* Use flexbox for side-by-side layout */
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-direction: row-reverse; /* Content on right, image on left */
   align-items: center; /* Vertically align items in the center */
   gap: 2rem; /* Spacing between the content wrapper and the image display */
   padding: 40px 20px; /* Add padding similar to other sections */
@@ -853,7 +847,7 @@ section:last-of-type {
 /* Hover effect for the entire award-card */
 .award-card:hover {
   transform: translateY(-8px); /* Lifts the entire card */
-  background-color: var(--award-card-new-hover-bg); 
+  background-color: var(--award-card-new-hover-bg);
   border: none;
 }
 
@@ -1271,7 +1265,7 @@ body.light-mode .hamburger {
 }
 
 .resume-block {
-  flex: 1; 
+  flex: 1;
   min-width: 300px;
   padding: 20px;
   border: 1px solid var(--border-color);
@@ -1281,7 +1275,7 @@ body.light-mode .hamburger {
   box-shadow: var(--box-shadow);
   margin-bottom: 30px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .resume-block h3 {
@@ -1600,7 +1594,7 @@ body.light-mode .hamburger {
   gap: 20px;
   justify-content: space-between;
   align-items: stretch; /* ✅ Stretch children to equal height */
-  flex-wrap: nowrap;   
+  flex-wrap: nowrap;
 }
 .SkillPage .resume-block {
   flex: 1; /* Each block takes equal space */
@@ -1635,6 +1629,7 @@ body.light-mode .hamburger {
   font-size: 1rem; /* Slightly smaller font size for the year */
   color: var(--light-gray); /* Light gray for the year */
   margin-top: 5px; /* Add spacing above the year */
+  font-style: italic;
 }
 /*achievement and skills*/
 .SkillPage .achievements-skills-container {
@@ -1719,12 +1714,12 @@ body.light-mode .hamburger {
             align-items: center;
             justify-content: center;
             position: relative;
-            width: 100%;
+            width: 100%; /* Ensure it takes full available width */
             max-width: 700px; /* Increased to show more of preview cards */
             margin: 0 auto;
             height: 380px; /* Increased height */
             padding: 0 80px; /* Added padding to ensure preview cards are not clipped by container edges */
-            box-sizing: border-box;
+            box-sizing: border-box; /* Include padding in the element's total width */
         }
 
         /* Carousel Track */
@@ -1741,7 +1736,8 @@ body.light-mode .hamburger {
         /* Project Card Styling */
         .IndexProject-card {
             position: absolute;
-            width: 320px;
+            width: 320px; /* Keep fixed width for desktop/larger screens */
+            max-width: 100%; /* Allow shrinking on smaller screens */
             height: 340px; /* Increased height */
             border-radius: 18px;
             background: var(--section-background);
@@ -2059,184 +2055,504 @@ body.light-mode .hamburger {
   margin-top: 0;
 }
 
-/* === CONTACT US PAGE STYLES === */
 
-/* Main Contact Section */
-.portfolio-contact-section {
-  padding: 20px 0;
-  background-color: var(--background-color); /* Slightly lighter dark background */
-}
+        /* === CONTACT US PAGE STYLES === */
 
-.contact-wrapper {
-  max-width: 660px; /* Focused content width */
-  margin: 0 auto;
-  padding: 20px;
-  background-color: var(--block-background); /* Darker gray for blocks */
-  border-radius: 12px;
-  box-shadow: var(--box-shadow-hover); /* Subtle shadow */
-  grid-template-columns: 1fr 1fr; /* Two equal columns for info and form */
-  gap: 40px;
-  align-items: flex-start; /* Align content to the top */
-}
+        /* Main Contact Section */
+        .portfolio-contact-section {
+            padding: 20px 0;
+            background-color: var(--background-color); /* Slightly lighter dark background */
+        }
 
+        .contact-wrapper {
+            max-width: 660px; /* Focused content width */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--block-background); /* Darker gray for blocks */
+            border-radius: 12px;
+            box-shadow: var(--box-shadow-hover); /* Subtle shadow */
+            display: grid;
+            grid-template-columns: 1fr; /* Changed to single column */
+            gap: 0; /* No gap needed for single column */
+            align-items: flex-start; /* Align content to the top */
+        }
 
-/* Contact Information Area */
-.contact-info-area {
-  padding-right: 30px;
-  border-right: 1px solid var(--separator-color); /* Subtle separator */
-}
+        /* Removed .contact-info-area specific styles */
 
+        /* Contact Form Area */
+        .contact-form-area {
+            padding-left: 0; /* Removed padding-left */
+        }
 
+        .contact-form-area h2 {
+            font-size: 2.4rem;
+            color: var(--text-color); /* White text */
+            margin-bottom: 25px;
+            text-align: left; /* Align form heading to the left */
+            border-bottom: 2px solid var(--highlight-color); /* Muted green accent */
+            padding-bottom: 10px;
+        }
+        /* Contact form container */
+        .portfolio-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-.contact-info-area h2 {
-  font-size: 2.4rem;
-  color: var(--text-color); /* White text */
-  margin-bottom: 25px;
-  border-bottom: 2px solid var(--icon-color); /* Professional blue accent */
-  padding-bottom: 10px;
-}
+        /* Group name and subject side by side on desktop */
+        .form-row {
+            display: flex;
+            justify-content: space-between; /* Added for spacing */
+            gap: 20px; /* Kept for minimum spacing */
+        }
 
-.contact-details-portfolio {
-  margin-top: 20px;
-  
-}
-
-.contact-details-portfolio p {
-  color: var(--subheading-color); /* Subtle gray for text */
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  line-height: 1.8;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.contact-details-portfolio p i {
-  margin-right: 10px;
-  color: var(--icon-color); /* Professional blue icon */
-  font-size: 1.4rem;
-}
-.contact-details-portfolio p a {
-  margin-right: 10px;
-  color: var(--icon-color); /* Professional blue icon */
-  font-size: 1.4rem;
-}
-
-.contact-details-portfolio p:hover i,.contact-details-portfolio p a:hover {
-  color: var(--highlight-color); /* Muted green on hover */
-  transform: scale(1.1);
-  transition: color 0.3s, transform 0.2s;
-}
-
-/* Contact Form Area */
-.contact-form-area {
-  padding-left: 30px;
-}
+        .form-row .form-group-portfolio {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            flex: 1; /* Re-added flex: 1 to make it flex from each end */
+        }
 
 
+        /* Make all inputs and selects full width inside their flex container */
+        .portfolio-form input,
+        .portfolio-form select,
+        .portfolio-form textarea {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            box-sizing: border-box;
+        }
 
-.contact-form-area h2 {
-  font-size: 2.4rem;
-  color: var(--text-color); /* White text */
-  margin-bottom: 25px;
-  text-align: left; /* Align form heading to the left */
-  border-bottom: 2px solid var(--highlight-color); /* Muted green accent */
-  padding-bottom: 10px;
-}
-/* Contact form container */
-.portfolio-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+        /* Label styling */
+        .form-label-portfolio {
+            color: var(--paragraph-color);
+            margin-bottom: 8px;
+            font-size: 1rem;
+            display: block;
+        }
 
-/* Group name and subject side by side on desktop */
-.form-row {
-  display: flex;
-  gap: 20px;
-}
+        .form-label-portfolio i {
+            margin-right: 8px;
+            color: var(--icon-color);
+        }
 
-.form-row .form-group-portfolio {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
+        /* Input and select styling */
+        .form-input-portfolio,
+        .form-textarea-portfolio {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color); /* Changed border color */
+            border-radius: 6px;
+            background-color: var(--dropdown-background); /* Changed background color */
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input-portfolio::placeholder,
+        .form-textarea-portfolio::placeholder {
+            color: var(--dark-gray); /* Adjusted placeholder color */
+        }
+
+        .form-input-portfolio:focus,
+        .form-textarea-portfolio:focus {
+            outline: none;
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 6px rgba(167, 201, 87, 0.5);
+        }
+
+        /* Textarea specific */
+        .form-textarea-portfolio {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* Submit button styling */
+        .submit-button-portfolio {
+            padding: 14px 30px;
+            background-color: var(--highlight-color);
+            color: var(--block-background);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s, color 0.3s;
+            align-self: center;
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .submit-button-portfolio:hover {
+            background-color: #8cba51;
+            transform: translateY(-1px);
+            color: var(--text-color);
+        }
 
 
+        .form-popup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--highlight-color);
+            color: var(--text-color);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow-hover);
+            font-weight: bold;
+            font-size: 1rem;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
 
-/* Make all inputs and selects full width inside their flex container */
-.portfolio-form input,
-.portfolio-form select,
-.portfolio-form textarea {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  box-sizing: border-box;
-}
+        .form-popup.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-/* Label styling */
-.form-label-portfolio {
-  color: var(--paragraph-color);
-  margin-bottom: 8px;
-  font-size: 1rem;
-  display: block;
-}
+        /* Responsive: stack timeline on small screens */
+        @media (max-width: 800px) {
+            .about-section,
+            .timeline-section {
+                padding: 0 2vw 30px 2vw;
+            }
+            .timeline {
+                padding: 0;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-event {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+            .timeline-event:nth-child(odd),
+            .timeline-event:nth-child(even) {
+                left: 0;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+            .timeline-event:nth-child(odd) .timeline-circle,
+            .timeline-event:nth-child(even) .timeline-circle {
+                left: 20px;
+                right: auto;
+                transform: translateX(-50%);
+            }
+            .timeline-content {
+                text-align: left;
+            }
+            .timeline-content:hover,
+            .timeline-content.active {
+                transform: none;
+            }
 
-.form-label-portfolio i {
-  margin-right: 8px;
-  color: var(--icon-color);
-}
+            /* Contact page responsive */
+            .contact-wrapper {
+                max-width: 100%; /* Ensure it takes full width on smaller screens */
+                grid-template-columns: 1fr; /* Stack columns */
+                gap: 20px;
+                padding: 20px;
+            }
+            /* Removed .contact-info-area responsive styles as the section is removed */
+            .contact-form-area {
+                padding-left: 0;
+            }
+            /* Adjusted for single column, so only contact-form-area h2 needs centering */
+            .contact-form-area h2 {
+                text-align: center; /* Center headings on small screens */
+            }
+            .form-row {
+                flex-direction: column; /* Stack form rows */
+                gap: 15px;
+            }
+            .form-row .form-group-portfolio {
+                width: 100%; /* Make sure it takes full width when stacked */
+                flex: none; /* Override flex: 1 for mobile to prevent height issues and ensure width takes precedence */
+            }
+        }
 
-/* Input and select styling */
-.form-input-portfolio,
-.form-textarea-portfolio {
-  padding: 12px 15px;
-  border: 1px solid #444;
-  border-radius: 6px;
-  background-color: var(--dark-gray);
-  color: var(--text-color);
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
+        /* === Desktop Large (min-width: 1200px) === */
+        @media (min-width: 1200px) {
+            body {
+                font-size: 20px;
+            }
+            .slide-img {
+                height: 530px;
+            }
+            .home-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 40px;
+            }
+            .home-image img {
+                width: 250px;
+                height: 250px;
+            }
+            .home-text {
+                text-align: left;
+                padding: 0 20px;
+            }
+            .resume-flex-container {
+                gap: 40px;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
 
-.form-input-portfolio::placeholder,
-.form-textarea-portfolio::placeholder {
-  color: #777;
-}
+        /* === Laptop (max-width: 1100px) === */
+        @media (max-width: 1100px) {
+            .project-container {
+                max-width: 98vw;
+                padding: 30px 4vw;
+            }
+            .project {
+                max-width: 98vw;
+                padding: 1.5rem;
+            }
+            .project-img {
+                width: 320px;
+                height: 180px;
+            }
+            .project-info h3 {
+                font-size: 1.3rem;
+            }
+            .project-info p {
+                font-size: 0.95rem;
+            }
+            .project-link {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
 
-.form-input-portfolio:focus,
-.form-textarea-portfolio:focus {
-  outline: none;
-  border-color: var(--highlight-color);
-  box-shadow: 0 0 6px rgba(167, 201, 87, 0.5);
-}
+        /* === Tablet (max-width: 768px) === */
+        @media (max-width: 768px) {
+            .navcontainer {
+                width: 95%;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 50%;
+                max-width: 250px;
+                background-color: var(--section-background);
+                padding: 15px 0;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 8px 16px var(--subtle-bottom-shadow);
+                z-index: 1000;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .home-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .home-image img {
+                width: 180px;
+                height: 180px;
+            }
+            .home-text {
+                padding: 0;
+            }
+            .home-text h2 {
+                font-size: 2.2rem;
+            }
+            .home-text p {
+                font-size: 1rem;
+            }
+            .home-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .button-primary,
+            .button-secondary {
+                width: 80%;
+                max-width: 250px;
+            }
+            .about-container {
+                flex-direction: column;
+                padding: 40px 20px;
+                text-align: center;
+                gap: 30px;
+            }
+            .about-image {
+                width: 250px;
+                height: 350px;
+            }
+            .about-text h2 {
+                font-size: 2.2rem;
+            }
+            .about-text p {
+                font-size: 1em;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                padding: 0 20px;
+            }
+            .skill-card {
+                padding: 15px;
+            }
+            .skill-card h3 {
+                font-size: 1.1rem;
+            }
+            .skill-card p {
+                font-size: 0.9rem;
+            }
+            .project-container {
+                padding: 20px;
+            }
+            .project {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .project-info {
+                padding-left: 0;
+            }
+            .project-img {
+                width: 100%;
+                min-height: 200px;
+            }
+            .project-info h3 {
+                text-align: center;
+            }
+            .project-info p {
+                text-align: center;
+            }
+            .project-link {
+                align-self: center;
+            }
+            .IndexProject-section {
+                padding: 0 0 24px 0;
+            }
+            .IndexProject-title {
+                font-size: 1.8rem;
+            }
+            .IndexProject-desc {
+                font-size: 1rem;
+            }
+            .IndexProject-carousel-container {
+                height: 250px;
+                max-width: 500px;
+            }
+            .slide-img {
+                height: 250px;
+            }
+            .carousel-button {
+                font-size: 1.8rem;
+            }
+        }
 
-/* Textarea specific */
-.form-textarea-portfolio {
-  resize: vertical;
-  min-height: 140px;
-}
-
-/* Submit button styling */
-.submit-button-portfolio {
-  padding: 14px 30px;
-  background-color: var(--highlight-color);
-  color: var(--block-background);
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.2s, color 0.3s;
-  align-self: center;
-  box-shadow: var(--box-shadow-hover);
-}
-
-.submit-button-portfolio:hover {
-  background-color: #8cba51;
-  transform: translateY(-1px);
-  color: var(--text-color);
-}
-
+        /* === Mobile (max-width: 480px) === */
+        @media (max-width: 480px) {
+            body {
+                font-size: 16px;
+            }
+            .nav-links {
+                width: 75%;
+            }
+            .logo {
+                font-size: 24px;
+            }
+            .nav-links li a {
+                font-size: 1rem;
+            }
+            .home-text h2 {
+                font-size: 1.8rem;
+            }
+            .home-text p {
+                font-size: 0.9rem;
+            }
+            .button-primary,
+            .button-secondary {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            .about-section {
+                padding: 30px 15px;
+            }
+            .about-container {
+                padding: 30px 15px;
+                gap: 20px;
+            }
+            .about-image {
+                width: 180px;
+                height: 250px;
+            }
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+            .about-text p {
+                font-size: 0.95em;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+            .skill-card {
+                padding: 12px;
+            }
+            .skill-card h3 {
+                font-size: 1rem;
+            }
+            .skill-card p {
+                font-size: 0.85rem;
+            }
+            .project-container {
+                padding: 15px;
+            }
+            .project {
+                padding: 1rem;
+            }
+            .project-img {
+                width: 98vw;
+                min-height: 120px;
+                border-radius: 10px;
+            }
+            .project-info h3 {
+                font-size: 1.2rem;
+            }
+            .project-info p {
+                font-size: 1rem;
+            }
+            .project-link {
+                font-size: 1rem;
+                padding: 10px 18px;
+            }
+            .IndexProject-title {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+            .IndexProject-desc {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+                text-align: center;
+                padding: 0 8px;
+            }
+            .IndexProject-carousel-container {
+                height: 180px;
+                max-width: 400px;
+                padding: 0 10px;
+            }
+            .slide-img {
+                height: 180px;
+            }
+            .carousel-button {
+                font-size: 1.5rem;
+            }
+        }
 
 .form-popup {
   position: fixed;

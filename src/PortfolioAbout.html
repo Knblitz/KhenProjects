@@ -18,8 +18,8 @@
       <h1 class="logo">Khen's Portfolio</h1>
       <nav>
         <ul class="nav-links">
-          <li><a href="PortfolioIndex.html" class="active">Home</a></li>
-          <li><a href="PortfolioAbout.html">About</a></li>
+          <li><a href="PortfolioIndex.html">Home</a></li>
+          <li><a href="PortfolioAbout.html" class="active">About</a></li>
           <li><a href="PortfolioSkill.html">Skill</a></li>
           <li><a href="PortfolioProject.html">Projects</a></li>
           <li><a href="PortfolioContact.html">Contact</a></li>
@@ -52,9 +52,11 @@
   <div class="timeline">
     <!-- 2025 Onward -->
     <div class="timeline-event right">
-      <div class="timeline-dot future"></div>
+      <div class="timeline-circle"></div>
       <div class="timeline-content">
-        <span class="timeline-tag future">Future</span>
+        <div class="timeline-tags">
+            <span class="tag future">Future</span>
+        </div>
         <h3>2025 Onward</h3>
         <span class="timeline-year">2025+</span>
         <p>To be Continued</p>
@@ -62,9 +64,11 @@
     </div>
     <!-- MoodCloud Project -->
     <div class="timeline-event left">
-      <div class="timeline-dot project"></div>
+      <div class="timeline-circle"></div>
       <div class="timeline-content">
-        <span class="timeline-tag project">Project</span>
+        <div class="timeline-tags">
+            <span class="tag projects">Project</span>
+        </div>
         <h3>MoodCloud</h3>
         <span class="timeline-year">2025</span>
         <p>Self-initiated wellness app focused on clean UI/UX and web development best practices.</p>
@@ -72,9 +76,11 @@
     </div>
     <!-- Internship -->
     <div class="timeline-event right">
-      <div class="timeline-dot work"></div>
+      <div class="timeline-circle"></div>
       <div class="timeline-content">
-        <span class="timeline-tag work">Internship</span>
+        <div class="timeline-tags">
+            <span class="tag work">Internship</span>
+        </div>
         <h3>Singapore Land Authority (SLA)</h3>
         <span class="timeline-year">2024 Jul -2025 Jun</span>
         <p>Worked on a web app for tourists. Faced teamwork challenges and grew as a project contributor.</p>
@@ -82,9 +88,11 @@
     </div>
 <!-- Part-Time Work -->   
   <div class="timeline-event left">
-    <div class="timeline-dot work"></div>
+    <div class="timeline-circle"></div>
       <div class="timeline-content">
-        <span class="timeline-tag work">Work</span>
+        <div class="timeline-tags">
+            <span class="tag work">Work</span>
+        </div>
         <h3>Buddy Hoagies Part-Time</h3>
         <span class="timeline-year">2022–Present</span>
         <p>Developed strong communication and teamwork skills through customer-facing roles.</p>
@@ -93,9 +101,11 @@
 
     <!-- ITE College East -->
     <div class="timeline-event right">
-       <div class="timeline-dot school"></div>
+       <div class="timeline-circle"></div>
       <div class="timeline-content">
-        <span class="timeline-tag school">School</span>
+        <div class="timeline-tags">
+            <span class="tag school">School</span>
+        </div>
         <h3>ITE College East</h3>
         <span class="timeline-year">2023–2025</span>
         <ul>
@@ -108,9 +118,11 @@
     </div>
     <!-- BGSS -->
     <div class="timeline-event left">
-      <div class="timeline-dot school"></div>
+      <div class="timeline-circle"></div>
       <div class="timeline-content">
-        <span class="timeline-tag school">School</span>
+        <div class="timeline-tags">
+            <span class="tag school">School</span>
+        </div>
         <h3>BGSS (Secondary School)</h3>
         <span class="timeline-year">2019–2022</span>
         <ul>
@@ -127,39 +139,7 @@
         <p>&copy; 2025 Khen's Portfolio. All rights reserved.</p>
     </div>
 </footer>
-<script src="PortfolioJava.js"></script>
- <script>
-    // Light/Dark mode toggle
-   const toggleBtn = document.getElementById('mode-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-      toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
-    });
-    window.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        toggleBtn.textContent = '🌙';
-      } else {
-        toggleBtn.textContent = '☀️';
-      }
-    });
 
-
-     // Sticky hover for timeline-content
-  document.querySelectorAll('.timeline-content').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      document.querySelectorAll('.timeline-content.active').forEach(active => {
-        active.classList.remove('active');
-      });
-      this.classList.add('active');
-    });
-  });
-  // Optionally, set the first card as active on load
-  document.addEventListener('DOMContentLoaded', function() {
-    const first = document.querySelector('.timeline-content');
-    if (first) first.classList.add('active');
-  });
-  </script>
+ <script src="PortfolioJava.js"></script>
 </body>
 </html>
