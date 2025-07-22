@@ -1,0 +1,148 @@
+<style>
+    /* Custom styles for patch note cards (will be applied when inserted into popup) */
+    :root {
+        /* These variables should ideally come from your main PortfolioStyle.css */
+        /* They are included here as a fallback/reference */
+        --primary-color: #43b581;
+        --secondary-color: #ffb347;
+        --highlight-color: #eb9618;
+        --background-color: #eeeeee; /* This will be overridden by popup background */
+        --text-color: #1a2b1e;
+        --block-background: #e9f5db;
+        --box-shadow: 0 4px 8px rgba(67, 181, 129, 0.08);
+        --border-color: #43b581;
+    }
+
+    /* Dark mode variables - ensure these align with your PortfolioStyle.css dark mode variables */
+    /* These will be active if the main body has the 'dark' class */
+    body.dark {
+        --primary-color: #4db6ac;
+        --secondary-color: #8baaff;
+        --highlight-color: #a7c957;
+        --background-color: #121212; /* This will be overridden by popup background */
+        --text-color: #ffffff;
+        --block-background: #2a2a2a;
+        --box-shadow: 0 4px 8px rgba(77, 182, 172, 0.15);
+        --border-color: #4db6ac;
+    }
+
+    .patch-note-card {
+        background-color: var(--block-background);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--box-shadow);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .patch-note-card h2 {
+        color: var(--primary-color);
+        font-size: 1.75rem; /* Adjusted for better fit in popup */
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .patch-note-card p {
+        font-size: 0.875rem; /* text-sm */
+        color: var(--dark-gray); /* Match existing dark gray variable */
+        margin-bottom: 1rem;
+    }
+
+    .patch-note-card h3 {
+        color: var(--secondary-color);
+        font-size: 1.25rem; /* Adjusted for better fit in popup */
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .patch-note-card ul {
+        list-style-type: disc;
+        margin-left: 1.5rem;
+        margin-top: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .patch-note-card ul li {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+    }
+
+    /* Responsive adjustments for content within the popup */
+    @media (max-width: 768px) {
+        .patch-note-card {
+            padding: 1rem;
+        }
+        .patch-note-card h2 {
+            font-size: 1.3rem;
+        }
+        .patch-note-card h3 {
+            font-size: 1rem;
+        }
+        .patch-note-card ul li {
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<div class="patch-list">
+    <!-- Patch Note Entry 4 -->
+    <div class="patch-note-card">
+        <h2>Version 2.0.0</h2>
+        <p>Released: July 23, 2025</p>
+        <h3>New Features & Enhancements:</h3>
+        <ul>
+            <li>Added "Patch Notes" page for transparent updates.</li>
+            <li>Implemented dark mode toggle for improved accessibility and user preference.</li>
+            <li>Enhanced responsiveness across all sections for seamless mobile viewing.</li>
+            <li>Updated project carousel with smoother transitions and improved navigation.</li>
+        </ul>
+        <h3>Bug Fixes:</h3>
+        <ul>
+            <li>Testing</li>
+        
+        </ul>
+    </div>
+ <!-- Patch Note Entry 3 -->
+    <div class="patch-note-card">
+        <h2>Version 1.1.0</h2>
+        <p>Released: July 22, 2025</p>
+        <h3>New Features & Enhancements:</h3>
+        <ul>
+            <li>Added Basic CV</li>
+            
+        </ul>
+        <h3>Bug Fixes:</h3>
+        <ul>
+            <li>Nil</li>
+        
+        </ul>
+    </div>
+    <!-- Patch Note Entry 2 -->
+    <div class="patch-note-card">
+        <h2>Version 1.1.0</h2>
+        <p>Released: June 15, 2025</p>
+        <h3>bug Fixes</h3>
+        <ul>
+            <li>Introduced a dedicated "Awards & Certificates" section.</li>
+            <li>Refined "About Me" section with more personal insights.</li>
+            <li>Optimized overall site loading speed.</li>
+        </ul>
+        <h3>Bug Fixes:</h3>
+        <ul>
+            <li>Corrected broken links in the footer navigation.</li>
+            <li>Addressed minor layout shifts on certain screen sizes.</li>
+        </ul>
+    </div>
+
+    <!-- Patch Note Entry 1 -->
+    <div class="patch-note-card">
+        <h2>Version 1.0.0</h2>
+        <p>Released: May 1, 2025</p>
+        <h3>Initial Release:</h3>
+        <ul>
+            <li>Launch of the personal portfolio website.</li>
+            <li>Showcasing key projects and skills.</li>
+            <li>Includes Home, About, Projects, and Contact sections.</li>
+        </ul>
+    </div>
+</div>

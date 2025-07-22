@@ -2576,3 +2576,167 @@ body.light-mode .hamburger {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* --- Patch Notes Badge and Popups --- */
+.patchnote-badge {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    background: var(--primary-color);
+    color: var(--hover-color); /* White text for light mode, switches in dark mode */
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Original shadow value */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.patchnote-badge:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.patchnote-popup,
+.patchnote-full-popup {
+    display: none; /* Controlled by JavaScript */
+    position: fixed;
+    right: 24px;
+    z-index: 10000; /* Full popup will have higher z-index */
+    background: var(--dropdown-background); /* White in light mode, dark in dark mode */
+    color: var(--text-color); /* Dark text in light mode, light text in dark mode */
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18); /* Original shadow value */
+    padding: 20px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+.patchnote-popup {
+    bottom: 70px;
+    min-width: 260px;
+    max-height: 320px;
+    z-index: 10000; /* Summary popup */
+}
+
+.patchnote-full-popup {
+    bottom: 100px;
+    min-width: 320px;
+    max-width: 600px;
+    max-height: 70vh;
+    z-index: 10001; /* Full popup on top */
+}
+
+.patchnote-popup-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--primary-color); /* Highlight title with primary color */
+}
+
+.patchnote-popup-list {
+    margin: 0 0 8px 0;
+    padding-left: 18px;
+    list-style-type: disc;
+    color: var(--paragraph-color); /* Use paragraph color for list items */
+}
+
+.patchnote-popup-list li {
+    margin-bottom: 4px;
+}
+
+.patchnote-popup-button {
+    border: none;
+    border-radius: 8px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.patchnote-popup-button-secondary {
+    background: var(--background-color); /* Lighter background for secondary button */
+    color: var(--primary-color); /* Primary color text for secondary button */
+    margin-bottom: 8px;
+}
+
+.patchnote-popup-button-secondary:hover {
+    background-color: var(--highlight-color);
+    color: var(--hover-color);
+    transform: translateY(-1px);
+}
+
+.patchnote-popup-button-primary {
+    background: var(--primary-color); /* Primary color background for primary button */
+    color: var(--hover-color); /* White text for primary button */
+}
+
+.patchnote-popup-button-primary:hover {
+    background-color: var(--highlight-color);
+    color: var(--text-color); /* Darker text on hover for primary button */
+    transform: translateY(-1px);
+}
+
+.patchnote-full-popup-close-btn {
+    float: right;
+    margin-bottom: 10px; /* Space below the button */
+}
+
+/* Responsive adjustments for popups */
+@media (max-width: 768px) {
+    .patchnote-badge {
+        bottom: 16px;
+        right: 16px;
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .patchnote-popup,
+    .patchnote-full-popup {
+        right: 16px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .patchnote-popup {
+        bottom: 60px;
+        min-width: unset;
+        width: calc(100% - 32px); /* Full width minus padding */
+        max-width: 300px; /* Max width for smaller screens */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .patchnote-full-popup {
+        bottom: 80px;
+        min-width: unset;
+        width: calc(100% - 32px); /* Full width minus padding */
+        max-width: 400px; /* Max width for smaller screens */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .patchnote-popup-title {
+        font-size: 1rem;
+    }
+
+    .patchnote-popup-list {
+        font-size: 0.9rem;
+    }
+
+    .patchnote-popup-button {
+        padding: 3px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .patchnote-popup,
+    .patchnote-full-popup {
+        right: 10px;
+        left: 10px;
+        transform: none; /* Remove transform to simplify positioning */
+        width: auto; /* Allow width to adjust based on left/right */
+        max-width: unset;
+    }
+}
