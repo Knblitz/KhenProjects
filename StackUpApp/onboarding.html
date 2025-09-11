@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackUp - Onboarding</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-blue: #5D5FEF;
+            --gold-yellow: #FFD66B;
+            --mint-green: #59C88D;
+            --light-gray: #F9FAFB;
+            --charcoal: #1F2937;
+            --coral-red: #FF7070;
+        }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 380px; /* iPhone width approx */
+            width: 100%;
+            min-height: 100vh; /* Full height on mobile */
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* For animations */
+        }
+
+        .headline {
+            font-family: 'Baloo 2', cursive;
+            color: var(--charcoal);
+        }
+
+        .btn-primary {
+            background-color: var(--mint-green);
+            color: white;
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(89, 200, 141, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #4CAF80;
+            box-shadow: 0 6px 15px rgba(89, 200, 141, 0.4);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+        .btn-secondary:active {
+            transform: scale(0.98);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #D1D5DB;
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background-color: var(--mint-green);
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        .fade-in-slide-up {
+            animation: fadeInSlideUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-out-left {
+            animation: slideOutLeft 0.5s ease-in forwards;
+        }
+
+        @keyframes slideOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center flex flex-col min-h-screen">
+        <div id="onboarding-content" class="flex-grow flex flex-col justify-center items-center py-8">
+            <!-- Content will be dynamically loaded here -->
+        </div>
+
+        <div id="dots-container" class="flex justify-center mb-6">
+            <!-- Dots will be dynamically loaded here -->
+        </div>
+
+        <div class="space-y-4 pb-4">
+            <button id="next-button" class="w-full btn-primary">Next</button>
+            <button id="skip-button" class="w-full btn-secondary">Skip</button>
+        </div>
+    </div>
+
+    <script>
+        const onboardingContent = [
+            {
+                image: 'https://placehold.co/300x200/FFD66B/1F2937?text=Track+Spending',
+                title: 'Track Your Spending',
+                description: 'Easily log every expense and see where your money goes. Gain control and insight.'
+            },
+            {
+                image: 'https://placehold.co/300x200/59C88D/FFFFFF?text=Grow+Your+Pet',
+                title: 'Grow Your Virtual Pet',
+                description: 'Your companion thrives as you save! Watch them evolve and unlock fun upgrades.'
+            },
+            {
+                image: 'https://placehold.co/300x200/5D5FEF/FFFFFF?text=Stay+Motivated',
+                title: 'Stay Motivated',
+                description: 'See friends\' companion progress and get weekly summaries to keep your habits strong!'
+            }
+        ];
+
+        let currentPage = 0;
+        const contentDiv = document.getElementById('onboarding-content');
+        const dotsContainer = document.getElementById('dots-container');
+        const nextButton = document.getElementById('next-button');
+        const skipButton = document.getElementById('skip-button');
+
+        function renderPage() {
+            // Apply slide-out animation before changing content
+            contentDiv.classList.add('slide-out-left');
+
+            setTimeout(() => {
+                contentDiv.innerHTML = `
+                    <img src="${onboardingContent[currentPage].image}" alt="${onboardingContent[currentPage].title}" class="w-full max-w-xs rounded-2xl mb-8 shadow-lg">
+                    <h2 class="text-3xl headline font-bold mb-4">${onboardingContent[currentPage].title}</h2>
+                    <p class="text-lg text-gray-600 px-4">${onboardingContent[currentPage].description}</p>
+                `;
+                // Remove slide-out and add fade-in animation
+                contentDiv.classList.remove('slide-out-left');
+                contentDiv.classList.add('fade-in-slide-up');
+
+                // Update dots
+                dotsContainer.innerHTML = '';
+                onboardingContent.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot', 'mx-1.5');
+                    if (index === currentPage) {
+                        dot.classList.add('active');
+                    }
+                    dotsContainer.appendChild(dot);
+                });
+
+                nextButton.textContent = (currentPage === onboardingContent.length - 1) ? 'Get Started' : 'Next';
+                skipButton.style.display = (currentPage === onboardingContent.length - 1) ? 'none' : 'block';
+            }, 500); // Match slide-out duration
+        }
+
+        nextButton.addEventListener('click', () => {
+            if (currentPage < onboardingContent.length - 1) {
+                currentPage++;
+                renderPage();
+            } else {
+                localStorage.setItem('onboardingCompleted', 'true');
+                window.location.href = 'home.html';
+            }
+        });
+
+        skipButton.addEventListener('click', () => {
+            localStorage.setItem('onboardingCompleted', 'true');
+            window.location.href = 'home.html';
+        });
+
+        // Initial render
+        renderPage();
+    </script>
+</body>
+</html>

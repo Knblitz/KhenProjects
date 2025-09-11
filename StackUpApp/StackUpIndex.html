@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackUp</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-blue: #5D5FEF;
+            --gold-yellow: #FFD66B;
+            --mint-green: #59C88D;
+            --light-gray: #F9FAFB;
+            --charcoal: #1F2937;
+            --coral-red: #FF7070;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--mint-green); /* Background matches primary color for splash */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: var(--mint-green);
+            color: white;
+        }
+
+        .logo-elements {
+            position: relative;
+            display: flex;
+            align-items: flex-end; /* Align coins to form a base */
+            margin-bottom: 2rem;
+            height: 100px; /* Space for coins to drop and bounce */
+            opacity: 0; /* Hidden initially */
+            animation: fadeInLogo 0.5s forwards 1.8s; /* Fade in after coins drop */
+        }
+
+        .coin {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold-yellow);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-200px); /* Start far above */
+            opacity: 0;
+            animation: coinDrop 1.2s ease-out forwards;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .coin-1 {
+            animation-delay: 0.1s;
+            transform: translateX(-30px) translateY(-200px); /* Offset for bar 1 */
+        }
+        .coin-2 {
+            animation-delay: 0.2s;
+            transform: translateX(0px) translateY(-200px); /* Offset for bar 2 */
+        }
+        .coin-3 {
+            animation-delay: 0.3s;
+            transform: translateX(30px) translateY(-200px); /* Offset for bar 3 */
+        }
+
+        @keyframes coinDrop {
+            0% { transform: translateY(-200px) scale(0.5); opacity: 0; }
+            50% { transform: translateY(0px) scale(1); opacity: 1; } /* Drop */
+            65% { transform: translateY(-20px) scale(1.05); } /* Bounce up */
+            80% { transform: translateY(0px) scale(1); } /* Settle down */
+            90% { transform: translateY(-5px); } /* Small bounce */
+            100% { transform: translateY(0px); }
+        }
+
+        .coin-1.final-pos { transform: translateX(-30px) translateY(20px); } /* Final position for bar 1 */
+        .coin-2.final-pos { transform: translateX(0px) translateY(0px); }    /* Final position for bar 2 */
+        .coin-3.final-pos { transform: translateX(30px) translateY(-20px); } /* Final position for bar 3 */
+
+        @keyframes stackAndFormGraph {
+            0% { }
+            100% {
+                transform: translate(var(--dx), var(--dy)) scaleY(var(--scaleY));
+                border-radius: 8px; /* Change to rectangle */
+            }
+        }
+
+        /* Adjustments to make coins look like bars for the graph */
+        .coin-1.graph-form {
+            animation: stackAndFormGraph 0.5s forwards 1.2s;
+            --dx: -30px; --dy: 20px; --scaleY: 1; /* Example: adjust translateY to form bar */
+            height: 60px; /* Example height for first bar */
+        }
+        .coin-2.graph-form {
+            animation: stackAndFormGraph 0.5s forwards 1.3s;
+            --dx: 0px; --dy: 0px; --scaleY: 1.5; /* Example height for second bar */
+            height: 80px;
+        }
+        .coin-3.graph-form {
+            animation: stackAndFormGraph 0.5s forwards 1.4s;
+            --dx: 30px; --dy: -20px; --scaleY: 2; /* Example height for third bar */
+            height: 100px;
+        }
+        /* Override border-radius in graph-form */
+        .coin.graph-form {
+             border-radius: 8px !important; /* Make it a bar */
+             width: 40px !important; /* Adjust width for bar */
+             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+             background-color: var(--gold-yellow); /* Keep color consistent */
+        }
+
+
+        .logo-text {
+            font-family: 'Baloo 2', cursive;
+            font-size: 4rem; /* Adjust as needed */
+            font-weight: 700;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textFadeInUp 0.8s forwards 1.8s; /* After coins form graph */
+        }
+
+        .tagline {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textFadeInUp 0.8s forwards 2.0s; /* Slightly delayed from logo text */
+        }
+
+        @keyframes textFadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLogo {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <div class="logo-elements">
+            <!-- Coins as elements that will form the graph -->
+            <div id="coin1" class="coin coin-1"></div>
+            <div id="coin2" class="coin coin-2"></div>
+            <div id="coin3" class="coin coin-3"></div>
+        </div>
+        <div class="logo-text">StackUp</div>
+        <div class="tagline">Your money. Your goals. Stacked.</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const coin1 = document.getElementById('coin1');
+            const coin2 = document.getElementById('coin2');
+            const coin3 = document.getElementById('coin3');
+
+            // After coins drop and settle, make them look like bars
+            setTimeout(() => {
+                coin1.classList.add('graph-form');
+                coin2.classList.add('graph-form');
+                coin3.classList.add('graph-form');
+
+                // Adjust positioning to appear as a graph
+                coin1.style.transform = 'translateX(-30px) translateY(20px)';
+                coin2.style.transform = 'translateX(0px) translateY(0px)';
+                coin3.style.transform = 'translateX(30px) translateY(-20px)';
+
+                // Adjust heights to represent a graph
+                coin1.style.height = '60px';
+                coin2.style.height = '80px';
+                coin3.style.height = '100px';
+
+            }, 1000); // Trigger formation after initial bounce settles
+
+            setTimeout(() => {
+                const onboardingCompleted = localStorage.getItem('onboardingCompleted');
+                if (onboardingCompleted === 'true') {
+                    window.location.href = 'home.html';
+                } else {
+                    window.location.href = 'onboarding.html';
+                }
+            }, 3500); // Total splash duration for coins + text + transition
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackUp - Add Transaction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-blue: #5D5FEF;
+            --gold-yellow: #FFD66B;
+            --mint-green: #59C88D;
+            --light-gray: #F9FAFB;
+            --charcoal: #1F2937;
+            --coral-red: #FF7070;
+        }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 380px; /* iPhone width approx */
+            width: 100%;
+            min-height: 100vh; /* Full height on mobile */
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Enable scrolling for content */
+            padding-bottom: 5rem; /* Space for fixed bottom nav */
+        }
+        .headline {
+            font-family: 'Baloo 2', cursive;
+            color: var(--charcoal);
+        }
+        .form-toggle-btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            border-radius: 1.5rem; /* Rounded corners for the toggle buttons */
+        }
+        .form-toggle-btn.expense-active {
+            background-color: var(--coral-red);
+            color: white;
+        }
+        .form-toggle-btn.income-active {
+            background-color: var(--mint-green);
+            color: white;
+        }
+        .form-toggle-btn:not(.expense-active):not(.income-active) {
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+        }
+        .form-toggle-btn:hover:not(.expense-active):not(.income-active) {
+            background-color: #e0e0e0;
+        }
+        .form-toggle-btn:active {
+            transform: scale(0.98);
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #E2E8F0; /* gray-200 */
+            border-radius: 0.75rem;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+        input[type="text"]:focus, input[type="number"]:focus {
+            border-color: var(--mint-green);
+            box-shadow: 0 0 0 3px rgba(89, 200, 141, 0.3);
+            outline: none;
+        }
+        .btn-primary {
+            background-color: var(--mint-green);
+            color: white;
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(89, 200, 141, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #4CAF80;
+            box-shadow: 0 6px 15px rgba(89, 200, 141, 0.4);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .bottom-nav {
+            background-color: white;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 380px; /* Match container width */
+            z-index: 50;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            transition: all 0.2s ease-in-out;
+            color: #A0AEC0; /* gray-400 */
+        }
+        .nav-item.active {
+            color: var(--mint-green);
+            background-color: var(--light-gray);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .nav-item:hover {
+            background-color: var(--light-gray);
+        }
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl headline font-bold mb-6">Add Transaction</h1>
+
+        <form id="transaction-form">
+            <div class="mb-6 flex rounded-2xl overflow-hidden shadow-md border border-gray-300">
+                <button type="button" id="expense-toggle" class="form-toggle-btn expense-active">
+                    Expense
+                </button>
+                <button type="button" id="income-toggle" class="form-toggle-btn">
+                    Income
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <label for="amount" class="block text-sm font-medium mb-2">Amount</label>
+                <input type="number" id="amount" placeholder="e.g., 25.00" required step="0.01">
+            </div>
+            <div class="mb-4">
+                <label for="category" class="block text-sm font-medium mb-2">Category</label>
+                <input type="text" id="category" placeholder="e.g., Food, Transport" required>
+            </div>
+            <div class="mb-4">
+                <label for="description" class="block text-sm font-medium mb-2">Description (Optional)</label>
+                <input type="text" id="description" placeholder="e.g., Lunch at school">
+            </div>
+
+            <div class="mt-8">
+                <button type="submit" class="w-full btn-primary">Add Transaction</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button onclick="window.location.href='home.html'" class="nav-item">
+            <span class="text-2xl">🏠</span>
+            <span class="text-xs font-medium mt-1">Home</span>
+        </button>
+        <button onclick="window.location.href='add-transaction.html'" class="nav-item active">
+            <span class="text-2xl">➕</span>
+            <span class="text-xs font-medium mt-1">Add</span>
+        </button>
+        <button onclick="window.location.href='goals.html'" class="nav-item">
+            <span class="text-2xl">🏆</span>
+            <span class="text-xs font-medium mt-1">Goals</span>
+        </button>
+        <button onclick="window.location.href='companion.html'" class="nav-item">
+            <span class="text-2xl">🌱</span>
+            <span class="text-xs font-medium mt-1">Companion</span>
+        </button>
+        <button onclick="window.location.href='friends.html'" class="nav-item">
+            <span class="text-2xl">👥</span>
+            <span class="text-xs font-medium mt-1">Friends</span>
+        </button>
+        <button onclick="window.location.href='profile.html'" class="nav-item">
+            <span class="text-2xl">👤</span>
+            <span class="text-xs font-medium mt-1">Profile</span>
+        </button>
+    </nav>
+
+    <script>
+        const expenseToggle = document.getElementById('expense-toggle');
+        const incomeToggle = document.getElementById('income-toggle');
+        const transactionForm = document.getElementById('transaction-form');
+        let transactionType = 'expense'; // Default
+
+        expenseToggle.addEventListener('click', () => {
+            transactionType = 'expense';
+            expenseToggle.classList.add('expense-active');
+            expenseToggle.classList.remove('bg-light-gray');
+            incomeToggle.classList.remove('income-active');
+            incomeToggle.classList.add('bg-light-gray');
+        });
+
+        incomeToggle.addEventListener('click', () => {
+            transactionType = 'income';
+            incomeToggle.classList.add('income-active');
+            incomeToggle.classList.remove('bg-light-gray');
+            expenseToggle.classList.remove('expense-active');
+            expenseToggle.classList.add('bg-light-gray');
+        });
+
+        transactionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const category = document.getElementById('category').value;
+            const description = document.getElementById('description').value;
+
+            if (isNaN(amount) || amount <= 0) {
+                console.log("Please enter a valid amount.");
+                return;
+            }
+
+            console.log(`Transaction Added! Type: ${transactionType}, Amount: $${amount}, Category: ${category}, Description: ${description}`);
+
+            // Simulate updating total balance (for companion growth)
+            let currentBalance = parseFloat(localStorage.getItem('totalBalance')) || 1250.75;
+            if (transactionType === 'income') {
+                currentBalance += amount;
+            } else {
+                currentBalance -= amount;
+            }
+            localStorage.setItem('totalBalance', currentBalance.toFixed(2)); // Save updated balance
+
+            // In a real app, send this data to a backend (e.g., Firestore)
+
+            // Clear form and navigate
+            document.getElementById('amount').value = '';
+            document.getElementById('category').value = '';
+            document.getElementById('description').value = '';
+
+            window.location.href = 'home.html';
+        });
+    </script>
+</body>
+</html>

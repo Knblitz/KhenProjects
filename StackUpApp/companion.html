@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackUp - My Companion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-blue: #5D5FEF;
+            --gold-yellow: #FFD66B;
+            --mint-green: #59C88D;
+            --light-gray: #F9FAFB;
+            --charcoal: #1F2937;
+            --coral-red: #FF7070;
+        }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 380px; /* iPhone width approx */
+            width: 100%;
+            min-height: 100vh; /* Full height on mobile */
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Enable scrolling for content */
+            padding-bottom: 5rem; /* Space for fixed bottom nav */
+            text-align: center;
+            align-items: center;
+        }
+        .headline {
+            font-family: 'Baloo 2', cursive;
+            color: var(--charcoal);
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .btn-primary {
+            background-color: var(--mint-green);
+            color: white;
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(89, 200, 141, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #4CAF80;
+            box-shadow: 0 6px 15px rgba(89, 200, 141, 0.4);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .btn-secondary {
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+        .btn-secondary:active {
+            transform: scale(0.98);
+        }
+        .bottom-nav {
+            background-color: white;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 380px; /* Match container width */
+            z-index: 50;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            transition: all 0.2s ease-in-out;
+            color: #A0AEC0; /* gray-400 */
+        }
+        .nav-item.active {
+            color: var(--mint-green);
+            background-color: var(--light-gray);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .nav-item:hover {
+            background-color: var(--light-gray);
+        }
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+
+        .pet-display {
+            background-color: var(--light-gray);
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.05);
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .pet-emoji {
+            font-size: 8rem; /* Large emoji */
+            margin-bottom: 1rem;
+            transition: transform 0.5s ease-in-out;
+        }
+        .pet-emoji.grow {
+            animation: growBounce 0.6s ease-out;
+        }
+
+        @keyframes growBounce {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl headline font-bold mb-6">My Companion</h1>
+
+        <div class="w-full card mb-8 pet-display">
+            <span id="pet-emoji" class="pet-emoji"></span>
+            <p id="pet-message" class="text-xl font-semibold mb-2"></p>
+            <p class="text-lg text-gray-600">Current Balance: <span id="current-balance" class="font-bold text-mint-green"></span></p>
+        </div>
+
+        <p class="text-md text-gray-500 mb-6">Keep stacking up your cash to see your companion grow even bigger!</p>
+
+        <div class="space-y-4 w-full">
+            <button id="water-button" class="w-full btn-primary">
+                Water Companion (+ $50)
+            </button>
+            <button onclick="window.location.href='goals.html'" class="w-full btn-secondary">
+                View My Goals
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button onclick="window.location.href='home.html'" class="nav-item">
+            <span class="text-2xl">🏠</span>
+            <span class="text-xs font-medium mt-1">Home</span>
+        </button>
+        <button onclick="window.location.href='add-transaction.html'" class="nav-item">
+            <span class="text-2xl">➕</span>
+            <span class="text-xs font-medium mt-1">Add</span>
+        </button>
+        <button onclick="window.location.href='goals.html'" class="nav-item">
+            <span class="text-2xl">🏆</span>
+            <span class="text-xs font-medium mt-1">Goals</span>
+        </button>
+        <button onclick="window.location.href='companion.html'" class="nav-item active">
+            <span class="text-2xl">🌱</span>
+            <span class="text-xs font-medium mt-1">Companion</span>
+        </button>
+        <button onclick="window.location.href='friends.html'" class="nav-item">
+            <span class="text-2xl">👥</span>
+            <span class="text-xs font-medium mt-1">Friends</span>
+        </button>
+        <button onclick="window.location.href='profile.html'" class="nav-item">
+            <span class="text-2xl">👤</span>
+            <span class="text-xs font-medium mt-1">Profile</span>
+        </button>
+    </nav>
+
+    <script>
+        const getCompanionStage = (balance) => {
+            if (balance < 100) return { emoji: '🌱', message: 'Your companion is a tiny seedling, ready to grow!' };
+            if (balance < 500) return { emoji: '🌿', message: 'Your companion is a healthy sprout, keep saving!' };
+            if (balance < 1500) return { emoji: '🌳', message: 'Your companion is a strong tree, reaching for the sky!' };
+            if (balance < 5000) return { emoji: '🌲✨', message: 'Your companion is flourishing, great job!' };
+            return { emoji: '🌳👑', message: 'You\'ve grown a mighty savings forest with your companion!' };
+        };
+
+        function updateCompanionDisplay() {
+            let totalBalance = parseFloat(localStorage.getItem('totalBalance')) || 1250.75;
+            const companionInfo = getCompanionStage(totalBalance);
+
+            document.getElementById('pet-emoji').textContent = companionInfo.emoji;
+            document.getElementById('pet-message').textContent = companionInfo.message;
+            document.getElementById('current-balance').textContent = `$${totalBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        }
+
+        document.getElementById('water-button').addEventListener('click', () => {
+            let totalBalance = parseFloat(localStorage.getItem('totalBalance')) || 1250.75;
+            totalBalance += 50; // Simulate adding 50 for watering
+            localStorage.setItem('totalBalance', totalBalance.toFixed(2));
+
+            // Trigger growth animation
+            const petEmoji = document.getElementById('pet-emoji');
+            petEmoji.classList.remove('grow'); // Reset animation
+            void petEmoji.offsetWidth; // Trigger reflow
+            petEmoji.classList.add('grow');
+
+            updateCompanionDisplay();
+            console.log("You watered your companion! It's growing stronger!");
+            // In a real app, this would save to a backend and potentially trigger a weekly summary
+        });
+
+        // Initial update when page loads
+        document.addEventListener('DOMContentLoaded', updateCompanionDisplay);
+    </script>
+</body>
+</html>

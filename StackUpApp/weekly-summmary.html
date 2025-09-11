@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackUp - Weekly Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-blue: #5D5FEF;
+            --gold-yellow: #FFD66B;
+            --mint-green: #59C88D;
+            --light-gray: #F9FAFB;
+            --charcoal: #1F2937;
+            --coral-red: #FF7070;
+        }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 380px; /* iPhone width approx */
+            width: 100%;
+            min-height: 100vh; /* Full height on mobile */
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Enable scrolling for content */
+            padding-bottom: 5rem; /* Space for fixed bottom nav */
+            text-align: center;
+            align-items: center;
+        }
+        .headline {
+            font-family: 'Baloo 2', cursive;
+            color: var(--charcoal);
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .btn-primary {
+            background-color: var(--mint-green);
+            color: white;
+            border-radius: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(89, 200, 141, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: #4CAF80;
+            box-shadow: 0 6px 15px rgba(89, 200, 141, 0.4);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .bottom-nav {
+            background-color: white;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 380px; /* Match container width */
+            z-index: 50;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            transition: all 0.2s ease-in-out;
+            color: #A0AEC0; /* gray-400 */
+        }
+        .nav-item.active {
+            color: var(--mint-green);
+            background-color: var(--light-gray);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .nav-item:hover {
+            background-color: var(--light-gray);
+        }
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl headline font-bold mb-6">Weekly Summary!</h1>
+
+        <div class="w-full card mb-8 p-8">
+            <p class="text-lg text-gray-600 mb-4">Week of May 27 - June 2</p>
+            <p class="text-2xl font-bold text-mint-green mb-4">You saved <span class="text-5xl font-extrabold">$120</span> this week!</p>
+            <span class="text-6xl mb-4">🎉</span>
+            <p class="text-xl font-semibold mb-4">Your companion learned a new trick!</p>
+            <p class="text-md text-gray-700">"Good job, StackUp master! Your dedication is truly paying off. Keep up the amazing work!"</p>
+        </div>
+
+        <div class="space-y-4 w-full">
+            <button onclick="window.location.href='home.html'" class="w-full btn-primary">
+                Back to Dashboard
+            </button>
+            <button onclick="window.location.href='companion.html'" class="w-full btn-secondary">
+                See My Companion
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button onclick="window.location.href='home.html'" class="nav-item">
+            <span class="text-2xl">🏠</span>
+            <span class="text-xs font-medium mt-1">Home</span>
+        </button>
+        <button onclick="window.location.href='add-transaction.html'" class="nav-item">
+            <span class="text-2xl">➕</span>
+            <span class="text-xs font-medium mt-1">Add</span>
+        </button>
+        <button onclick="window.location.href='goals.html'" class="nav-item">
+            <span class="text-2xl">🏆</span>
+            <span class="text-xs font-medium mt-1">Goals</span>
+        </button>
+        <button onclick="window.location.href='companion.html'" class="nav-item">
+            <span class="text-2xl">🌱</span>
+            <span class="text-xs font-medium mt-1">Companion</span>
+        </button>
+        <button onclick="window.location.href='friends.html'" class="nav-item">
+            <span class="text-2xl">👥</span>
+            <span class="text-xs font-medium mt-1">Friends</span>
+        </button>
+        <button onclick="window.location.href='profile.html'" class="nav-item">
+            <span class="text-2xl">👤</span>
+            <span class="text-xs font-medium mt-1">Profile</span>
+        </button>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackUp - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --indigo-blue: #5D5FEF;
+            --gold-yellow: #FFD66B;
+            --mint-green: #59C88D;
+            --light-gray: #F9FAFB;
+            --charcoal: #1F2937;
+            --coral-red: #FF7070;
+        }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 380px; /* iPhone width approx */
+            width: 100%;
+            min-height: 100vh; /* Full height on mobile */
+            background-color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Enable scrolling for content */
+            padding-bottom: 5rem; /* Space for fixed bottom nav */
+        }
+        .headline {
+            font-family: 'Baloo 2', cursive;
+            color: var(--charcoal);
+        }
+        .btn-icon {
+            background-color: var(--light-gray);
+            color: var(--charcoal);
+            border-radius: 9999px; /* full rounded */
+            padding: 0.75rem;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .btn-icon:hover {
+            background-color: #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .btn-icon:active {
+            transform: scale(0.95);
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .balance-card {
+            background: linear-gradient(to bottom right, var(--mint-green), #4CAF80);
+            color: white;
+            box-shadow: 0 12px 30px rgba(89, 200, 141, 0.4);
+        }
+        .add-button {
+            background-color: var(--gold-yellow);
+            color: var(--charcoal);
+            border-radius: 9999px;
+            padding: 1rem;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 20px rgba(255, 214, 107, 0.5);
+            transition: all 0.2s ease-in-out;
+            position: fixed;
+            bottom: 6rem; /* Above bottom nav */
+            right: 1.5rem;
+            z-index: 40;
+        }
+        .add-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 214, 107, 0.6);
+        }
+        .add-button:active {
+            transform: scale(0.95);
+        }
+
+        .bottom-nav {
+            background-color: white;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 380px; /* Match container width */
+            z-index: 50;
+            padding: 0.75rem 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            transition: all 0.2s ease-in-out;
+            color: #A0AEC0; /* gray-400 */
+        }
+        .nav-item.active {
+            color: var(--mint-green);
+            background-color: var(--light-gray);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .nav-item:hover {
+            background-color: var(--light-gray);
+        }
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+        .pie-chart-legend span {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem; /* sm text */
+            color: var(--charcoal);
+            margin-right: 0.75rem;
+        }
+        .pie-chart-legend span::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        .legend-expenses::before { background-color: var(--coral-red); }
+        .legend-needs::before { background-color: var(--indigo-blue); }
+        .legend-savings::before { background-color: var(--mint-green); }
+        .legend-left::before { background-color: var(--gold-yellow); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center">
+                <span class="text-4xl mr-2 text-indigo-blue">📊</span>
+                <h1 class="text-4xl headline font-bold">StackUp</h1>
+            </div>
+            <button onclick="window.location.href='profile.html'" class="btn-icon">
+                <span class="text-2xl">👤</span>
+            </button>
+        </div>
+
+        <!-- Balance Summary -->
+        <div class="balance-card p-6 mb-6">
+            <p class="text-lg font-medium opacity-90">Current Balance</p>
+            <h2 class="text-5xl font-bold mb-2">$1,250.75</h2>
+            <p class="text-sm opacity-80">This Month's Spending: <span class="font-semibold">$450.20</span></p>
+        </div>
+
+        <!-- Spending Breakdown (Pie Chart) -->
+        <div class="card mb-6 flex flex-col items-center">
+            <h3 class="text-xl headline font-semibold mb-4">Spending Breakdown</h3>
+            <canvas id="spendingPieChart" width="200" height="200" class="mb-4"></canvas>
+            <div class="flex flex-wrap justify-center pie-chart-legend">
+                <span class="legend-expenses">Expenses (40%)</span>
+                <span class="legend-needs">Needs (30%)</span>
+                <span class="legend-savings">Savings (20%)</span>
+                <span class="legend-left">Left (10%)</span>
+            </div>
+        </div>
+
+        <!-- Goals Section -->
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl headline font-semibold">My Goals</h3>
+                <button onclick="window.location.href='goals.html'" class="text-mint-green font-semibold text-sm hover:underline transform active:scale-95">View All</button>
+            </div>
+            <div class="card p-5 mb-4">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl mr-3">🎮</span>
+                    <h3 class="text-xl font-semibold">New Gaming PC</h3>
+                </div>
+                <div class="text-sm text-gray-600 mb-2">
+                    $300 / $1,500
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-gold-yellow h-2.5 rounded-full" style="width: 20%;"></div>
+                </div>
+                <div class="text-right text-xs text-gray-500 mt-1">20%</div>
+            </div>
+            <div class="card p-5">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl mr-3">📚</span>
+                    <h3 class="text-xl font-semibold">College Fund</h3>
+                </div>
+                <div class="text-sm text-gray-600 mb-2">
+                    $500 / $5,000
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-gold-yellow h-2.5 rounded-full" style="width: 10%;"></div>
+                </div>
+                <div class="text-right text-xs text-gray-500 mt-1">10%</div>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="mb-6">
+            <h3 class="text-xl headline font-semibold mb-4">Recent Transactions</h3>
+            <div class="card p-4">
+                <div class="flex justify-between items-center py-3 border-b last:border-b-0 border-gray-100">
+                    <div>
+                        <p class="font-medium">Coffee</p>
+                        <p class="text-sm text-gray-500">May 30</p>
+                    </div>
+                    <p class="font-semibold text-lg text-coral-red">-$4.50</p>
+                </div>
+                <div class="flex justify-between items-center py-3 border-b last:border-b-0 border-gray-100">
+                    <div>
+                        <p class="font-medium">Books</p>
+                        <p class="text-sm text-gray-500">May 29</p>
+                    </div>
+                    <p class="font-semibold text-lg text-coral-red">-$25.00</p>
+                </div>
+                <div class="flex justify-between items-center py-3">
+                    <div>
+                        <p class="font-medium">Allowance</p>
+                        <p class="text-sm text-gray-500">May 28</p>
+                    </div>
+                    <p class="font-semibold text-lg text-mint-green">+$50.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Add Button -->
+        <button onclick="window.location.href='add-transaction.html'" class="add-button">
+            ➕
+        </button>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button onclick="window.location.href='home.html'" class="nav-item active">
+            <span class="text-2xl">🏠</span>
+            <span class="text-xs font-medium mt-1">Home</span>
+        </button>
+        <button onclick="window.location.href='add-transaction.html'" class="nav-item">
+            <span class="text-2xl">➕</span>
+            <span class="text-xs font-medium mt-1">Add</span>
+        </button>
+        <button onclick="window.location.href='goals.html'" class="nav-item">
+            <span class="text-2xl">🏆</span>
+            <span class="text-xs font-medium mt-1">Goals</span>
+        </button>
+        <button onclick="window.location.href='companion.html'" class="nav-item">
+            <span class="text-2xl">🌱</span>
+            <span class="text-xs font-medium mt-1">Companion</span>
+        </button>
+        <button onclick="window.location.href='friends.html'" class="nav-item">
+            <span class="text-2xl">👥</span>
+            <span class="text-xs font-medium mt-1">Friends</span>
+        </button>
+        <button onclick="window.location.href='profile.html'" class="nav-item">
+            <span class="text-2xl">👤</span>
+            <span class="text-xs font-medium mt-1">Profile</span>
+        </button>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('spendingPieChart');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = Math.min(centerX, centerY) * 0.7; // Adjust radius
+
+            // Data for the pie chart: values and colors
+            const data = [
+                { label: 'Expenses', value: 40, color: '#FF7070' }, // Coral Red
+                { label: 'Needs', value: 30, color: '#5D5FEF' },    // Indigo Blue
+                { label: 'Savings', value: 20, color: '#59C88D' },  // Mint Green
+                { label: 'Left', value: 10, color: '#FFD66B' }      // Gold Yellow
+            ];
+
+            let total = data.reduce((sum, item) => sum + item.value, 0);
+            let currentAngle = 0;
+
+            data.forEach(function(item) {
+                const sliceAngle = (item.value / total) * 2 * Math.PI;
+
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                ctx.closePath();
+
+                ctx.fillStyle = item.color;
+                ctx.fill();
+
+                // Draw outline for separation
+                ctx.strokeStyle = 'white'; // White outline
+                ctx.lineWidth = 2; // Thickness of the outline
+                ctx.stroke();
+
+                currentAngle += sliceAngle;
+            });
+        });
+    </script>
+</body>
+</html>
