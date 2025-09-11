@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home  - Khen's Portfolio</title>
+  <link rel="stylesheet" href="PortfolioStyle.css" />
+  <link rel="stylesheet" href="PortfolioRespondStyle.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="Index">
+  <header>
+    <div class="navcontainer">
+      <h1 class="logo">Khen's Portfolio</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="PortfolioIndex.html" class="active">Home</a></li>
+          <li><a href="PortfolioAbout.html">About</a></li>
+          <li><a href="PortfolioSkill.html">Skills</a></li>
+          <li><a href="PortfolioProject.html">Projects</a></li>
+          <li><a href="PortfolioContact.html">Contact</a></li>
+          <li><button id="mode-toggle" aria-label="Toggle light/dark mode">🌙/☀️</button></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+  <!-- Gradient from nav to home/intro section -->
+  <section class="section-gradient"></section>
+
+<!-- Home / Intro Section -->
+<section id="home" class="section-borderless">
+  <div class="container home-container">
+    <div class="home-image">
+      <img src="../images/ProfilePic1.jpg" alt="Profile Image" />
+    </div>
+    <div class="home-text">
+      <h2>Welcome to My Portfolio</h2>
+      <p>
+        Hi, I’m <strong>Khen</strong>, a hands-on learner with a passion for <strong>IT Application Development</strong>, especially <strong>web design</strong>, <strong>problem-solving</strong>, and exploring how things work. I enjoy building creative and useful projects, often with help from <strong>AI tools</strong> like ChatGPT and Gemini to generate ideas, fix code, and speed up my workflow.
+      </p>
+      <p>
+        Outside of tech, I enjoy <strong>cycling</strong>, <strong>badminton</strong>, and playing games for fun. In group projects, I usually take the lead or help guide the team so we stay on track. I take pride in seeing ideas come to life — like this portfolio.
+      </p>
+      <p>
+        I’m excited to keep learning, improve my skills, and explore more about <strong>AI</strong>, <strong>automation</strong>, and possibly <strong>game development</strong> in the future.
+      </p>
+      <div class="social-media-box">
+        <a href="https://www.linkedin.com/in/khen-thong-a1b853282/" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:khenthongwk@gmail.com" target="_blank" aria-label="Email">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+      <button class="more-about-btn" onclick="location.href='PortfolioAbout.html'">More About Me</button>
+
+<a href="../assets/Khen_CV.pdf" download class="download-cv-btn" aria-label="Download my CV">
+  <i class="fas fa-download"></i>
+  <span>Download CV</span>
+</a>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Education Section -->
+  <section id="education" class="homesection-borderless">
+    <div class="home-flex-container">
+      <div class="home-block education">
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <ul class="home-list">
+          <li><strong>ITE East</strong> — Higher Nitec in IT Application Development</li>
+          <em>2023-2025</em>
+          <li>- Entrepreneur Club's Exco member (2024-2025)</li>
+          <li>- Student Mentor (2024)</li>
+          <li><strong>Bedok Green Secondary School</strong> — GCE O-Level & N-Level</li>
+          <em>2019-2022</em>
+          <li>- NCC Staff Sergeant (2022) & Precision Drill Squad (PDS)</li>
+          <li>- Class Vice Chairperson (2022)</li>
+          <li>- Peer Support Leader (2019)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="IndexProject-section">
+    <h2 class="IndexProject-title">Projects</h2>
+    <p class="IndexProject-desc">
+      Here are some snippets of projects that I have done in school or during my internship:
+    </p>
+    <div class="IndexProject-carousel-container">
+      <button class="IndexProject-carousel-arrow prev" aria-label="Previous Project">&#10094;</button>
+      <div class="IndexProject-carousel-track"></div>
+      <button class="IndexProject-carousel-arrow next" aria-label="Next Project">&#10095;</button>
+    </div>
+  </section>
+
+<!-- Leadership Section -->
+<section id="leadership" class="section-borderless">
+  <div class="container leadership-carousel-container">
+    <div class="leadership-content-wrapper">
+      <button class="leadership-arrow prev" aria-label="Previous Leadership Info">&#10094;</button>
+      <div class="leadership-card-track">
+        </div>
+      <button class="leadership-arrow next" aria-label="Next Leadership Info">&#10095;</button>
+    </div>
+    <div class="leadership-image-display">
+      <img id="currentLeadershipImage" src="../images/leadership-placeholder.jpg" alt="Leadership Experience" />
+    </div>
+  </div>
+</section>
+
+<!-- Volunteering Experience Section -->
+<section id="volunteering" class="section-borderless">
+  <div class="container volunteering-carousel-container">
+    <div class="volunteering-image-display">
+      <!-- Volunteering image will be dynamically inserted here by JavaScript -->
+      <img id="currentVolunteeringImage" src="../images/volunteering-placeholder.jpg" alt="Volunteering Experience" />
+    </div>
+    <div class="volunteering-content-wrapper">
+      <button class="volunteering-arrow prev" aria-label="Previous Volunteering Info">&#10094;</button>
+      <div class="volunteering-card-track">
+        <!-- Volunteering cards will be dynamically inserted here by JavaScript -->
+      </div>
+      <button class="volunteering-arrow next" aria-label="Next Volunteering Info">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Academic Awards Section -->
+<section id="academic-awards" class="section-borderless">
+  <div class="container">
+    <h3><i class="fas fa-award"></i> Academic Awards</h3>
+    <h4 class="award-category"></h4>
+    <div class="awards-grid">
+      <div class="award-card">
+        <img src="../images/ig" alt="Centennial Fund Award 2025" />
+        <div class="award-desc">Centennial Fund Award (2025)</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/ITE-Director List 2024.jpg" alt="Director's List 2024" />
+        <div class="award-desc">Director's List (2024)</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Edusave EAGLES 2022.jpg" alt="Edusave Award for Achievement, Good Leadership and Service (EAGLES) 2022" />
+        <div class="award-desc">Edusave Award for Achievement, Good Leadership and Service (EAGLES) 2022</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Edusave Certficate of Academic Achievement 2022.jpg" alt="Edusave Certificate of Academic Achievement 2022" />
+        <div class="award-desc">Edusave Certificate of Academic Achievement 2022</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Edusave Scholarship 2021.jpg" alt="Edusave Scholarship 2021" />
+        <div class="award-desc">Edusave Scholarship 2021</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Edusave Scholarship 2020.jpg" alt="Edusave Scholarship 2020" />
+        <div class="award-desc">Edusave Scholarship 2020</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/BGSS-Top in Subject DNT 2020.jpg" alt="Top in Subject: Design & Technology 2020" />
+        <div class="award-desc">Top in Subject: Design & Technology 2020</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Edusave Scholarship 2019.jpg" alt="Edusave Scholarship 2019" />
+        <div class="award-desc">Edusave Scholarship 2019</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Certificates Section -->
+<section id="courses-certificates" class="section-borderless">
+  <div class="container">
+    <h3><i class="fas fa-certificate"></i> Courses Certificates</h3>
+    <h4 class="award-category"></h4>
+    <div class="awards-grid">
+      <div class="award-card">
+        <img src="../images/Coursera Google UX Design Cert.jpg" alt="Google UI/UX Certificate" />
+        <div class="award-desc">Google UI/UX Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Coursera Google IT Support Cert.jpg" alt="Google IT Support Certificate" />
+        <div class="award-desc">Google IT Support Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Coursera Google Cybersecurity Cert.jpg" alt="Google Cybersecurity Certificate" />
+        <div class="award-desc">Google Cybersecurity Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Coursera Google Digital Marketing & E-Commerce Cert.jpg" alt="Google Digital Marketing & E-Commerce Certificate" />
+        <div class="award-desc">Google Digital Marketing & E-Commerce Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/ArcGIS Online Basics Cert.jpg" alt="ArcGIS Online Basics Certificate" />
+        <div class="award-desc">ArcGIS Online Basics Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/ArcGIS Pro Essential Training Cert.jpg" alt="ArcGIS Pro Essential Training Certificate" />
+        <div class="award-desc">ArcGIS Pro Essential Training Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/Creating and Sharing GIS Content Using ArcGIS Online Cert.jpg" alt="Creating and Sharing GIS Content Using ArcGIS Online Certificate" />
+        <div class="award-desc">Creating and Sharing GIS Content Using ArcGIS Online Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/GeoSpace 101 Cert.jpg" alt="GeoSpace 101 Certificate" />
+        <div class="award-desc">GeoSpace 101 Certificate</div>
+      </div>
+      <div class="award-card">
+        <img src="../images/QGIS Primer Cert.jpg" alt="QGIS Primer Certificate" />
+        <div class="award-desc">QGIS Primer Certificate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials-section" class="section-borderless">
+  <div class="container">
+    <h3><i class="fas fa-comment-alt"></i> Testimonials</h3> <!-- Changed icon for testimonials -->
+    <h4 class="award-category"></h4>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <img src="../images/BGSS- Testimonial.jpg" alt="Bedok Green Secondary School Testimonial" />
+        <div class="testimonial-desc">Bedok Green Secondary School Testimonial</div>
+      </div>
+      <div class="testimonial-card">
+        <img src="../images/SLA-Testimonial.jpg" alt="SLA Testimonial" />
+        <div class="testimonial-desc">SLA Testimonial (TBC)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Modal Structure -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg" />
+</div>
+<!-- Patchnote Badge -->
+<div id="patchnote-badge" class="patchnote-badge">
+    v2.0.0
+</div>
+
+<!-- Patchnote Popup (summary) -->
+<div id="patchnote-popup" class="patchnote-popup">
+    <div class="patchnote-popup-title">Patchnotes v2.0.0</div>
+    <ul class="patchnote-popup-list">
+        <li>Added Patchnotes</li>
+        
+        <!-- Add more fixes here -->
+    </ul>
+    <button id="view-full-patchnote" class="patchnote-popup-button patchnote-popup-button-secondary">View full changelog</button>
+    <button id="close-patchnote" class="patchnote-popup-button patchnote-popup-button-primary">Close</button>
+</div>
+
+<!-- Patchnote Full Preview Popup -->
+<div id="patchnote-full-popup" class="patchnote-full-popup">
+    <!-- The close button is inside the full popup now, so it moves with it -->
+    <button id="close-full-patchnote" class="patchnote-popup-button patchnote-popup-button-primary patchnote-full-popup-close-btn">Close</button>
+    <div id="patchnote-full-content"></div>
+</div>
+
+  <!-- Footer Section -->
+  <footer id="footer" class="footer-gradient">
+    <div class="container footer-container">
+      <p>&copy; 2025 Khen's Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+ <script src="PortfolioJava.js"></script>
+
+</body>
+</html>
